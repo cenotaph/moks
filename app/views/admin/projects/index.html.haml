@@ -1,0 +1,16 @@
+%h2 Projects
+%table
+  %thead
+    %th Name
+    %th Project type
+    %th actions
+  - for project in @projects
+    %tr
+      %td= project.name
+      %td= project.projecttype.try(:name)
+      %td
+        = link_to "Show", [:admin, project]
+        = link_to "Edit", edit_admin_project_path(project)
+        = link_to "Destroy", [:admin, project], :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "create new project", new_admin_project_path

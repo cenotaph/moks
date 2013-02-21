@@ -1,0 +1,11 @@
+- title "Admin/Residencytypes"
+%table
+  %tr
+    %th Name
+  - for residencytype in @residencytypes
+    %tr
+      %td= residencytype.name
+      %td= link_to "Show", [:admin, residencytype]
+      %td= link_to "Edit", edit_admin_residencytype_path(residencytype)
+      %td= link_to "Destroy", [:admin, residencytype], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "define new residency type", new_admin_residencytype_path

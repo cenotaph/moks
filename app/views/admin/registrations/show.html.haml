@@ -1,0 +1,33 @@
+- title "Admin/Registration"
+%p
+  %strong Name:
+  = @registration.name
+%p
+  %strong Email:
+  = @registration.email
+%p
+  %strong Phone:
+  = @registration.phone
+%p
+  %strong Amount Paid:
+  = @registration.amount_paid
+%p
+  %strong Comments:
+  = @registration.comments
+%p
+  %strong Optional Answer:
+  = @registration.optional_answer
+%p
+  %strong Event:
+  = @registration.event
+%p
+  %strong Actually Showed Up:
+  = @registration.actually_showed_up
+%p
+  %strong Waiting List:
+  = @registration.waiting_list
+%p
+  = link_to "Edit", edit_admin_registration_path(@registration)
+  |
+  \#{link_to "Destroy", [:admin, @registration], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_registrations_path}

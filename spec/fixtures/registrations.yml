@@ -1,0 +1,21 @@
+one:
+  name: MyString
+  email: MyString
+  phone: MyString
+  amount_paid: 1.5
+  comments: MyText
+  optional_answer: MyString
+  event: 
+  actually_showed_up: false
+  waiting_list: false
+
+two:
+  name: MyString
+  email: MyString
+  phone: MyString
+  amount_paid: 1.5
+  comments: MyText
+  optional_answer: MyString
+  event: 
+  actually_showed_up: false
+  waiting_list: false

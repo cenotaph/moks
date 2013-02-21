@@ -1,0 +1,19 @@
+= form_for [:admin, @sound] do |f|
+  = f.error_messages
+  %p
+    = f.label :soundcloud_id
+    %br/
+    = f.text_field :soundcloud_id
+  %p
+    = f.label :filename
+    %br/
+    = f.text_field :filename
+  %p
+    = f.label :event
+    %br/
+    = f.text_field :event
+  %p
+    = f.label :published
+    %br/
+    = f.check_box :published
+  %p= f.submit

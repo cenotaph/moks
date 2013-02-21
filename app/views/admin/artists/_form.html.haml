@@ -1,0 +1,45 @@
+= semantic_nested_form_for [:admin, @artist], :html => {:multipart => true} do |f|
+  = f.input :name
+  = f.input :email, :label => "Artist email address (will not be seen by public)"
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Biography in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :bio  
+  = f.input :website1
+  = f.input :website2
+  = f.input :website3
+  = f.input :avatar, :label => "Image of artist or their work"
+  - if @artist.new_record?
+    After you create and save the artist, you may edit this entry to define their different stays/visits.
+  - else
+    %strong Visits:
+    = f.fields_for :visits do |ff|
+      .artist_visit_form
+        = ff.input :start_date, :as => :string, :input_html => {:class => 'ui-datepicker'}
+        = ff.input :end_date, :as => :string, :input_html => {:class => 'ui-datepicker'}
+        %div{:id => "language-tabs-" + ff.object.id.to_s}
+          %ul.language-selection
+            - I18n.available_locales.each do |locale|
+              %li{:id => "picksublang-#{locale}-#{ff.object.id}"}= link_to t(:language_name, :locale => locale), "#sublang-#{locale}-#{ff.object.id}"
+          - I18n.available_locales.each do |locale|
+            %div{:id => "sublang-#{locale}-#{ff.object.id}"}
+              = ff.globalize_fields_for locale do |en|
+                %b= "Description of residency/visit in #{t(:language_name, :locale => locale)}"
+                = en.cktext_area :description  
+        = ff.input :is_rental
+        = ff.input :residencytype
+        = ff.input :project, :label => "Was this visit part of a specific project?"
+        = ff.input :funders, :label => "Was this visit funded by anyone?", :as => :check_boxes
+        %p Events included in this visit:
+        = ff.input :events, :as => :check_boxes
+        = ff.input :published, :label => "Make this visit public (uncheck to hide)"
+        :javascript
+          $("#language-tabs-#{ff.object.id.to_s}").tabs();
+          $('input.ui-datepicker').datepicker({ dateFormat: "yy-mm-dd" });
+    .cl= f.link_to_add 'define a visit', :visits
+  %p= f.submit

@@ -1,0 +1,30 @@
+- title "Admin/Invoices"
+
+%table
+  %tr
+    %th Number
+    %th Who
+    %th What
+    %th When
+    %th Due
+    %th Amount?
+    %th Paid?
+    %th actions
+  - for invoice in @invoices
+    %tr
+      %td= invoice.number
+      %td= invoice.contact.name_or_organisation
+      %td= invoice.what_for
+      %td= l invoice.date_issued
+      %td{:class => ( (invoice.percentage_paid.to_i < 100 && invoice.date_due < Time.now.to_date) ? 'overdue' : false )}= l invoice.date_due
+      %td{:class => ( (invoice.percentage_paid.to_i < 100 && invoice.date_due < Time.now.to_date) ? 'overdue' : false )}= number_to_currency invoice.amount
+      %td{:class => ( (invoice.percentage_paid.to_i < 100 && invoice.date_due < Time.now.to_date) ? 'overdue' : false )}= invoice.percentage_paid.to_i.to_s + "%"
+
+      %td
+        = link_to 'export to PDF', admin_invoice_path(invoice, :format => :pdf)
+        = link_to 'Show', [:admin, invoice]
+        = link_to 'add payment', new_admin_invoice_income_path(invoice)
+        = link_to 'Edit details', edit_admin_invoice_path(invoice)
+        = link_to 'Destroy', [:admin, invoice], :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "new invoice", new_admin_invoice_path

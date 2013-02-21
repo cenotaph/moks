@@ -1,0 +1,9 @@
+%h2 Residency type
+%p
+  %strong Name:
+  = @residencytype.name
+%p
+  = link_to "Edit", edit_admin_residencytype_path(@residencytype)
+  |
+  \#{link_to "Destroy", [:admin, @residencytype], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_residencytypes_path}

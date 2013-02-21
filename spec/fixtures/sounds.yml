@@ -1,0 +1,11 @@
+one:
+  soundcloud_id: MyString
+  filename: MyString
+  event: 
+  published: false
+
+two:
+  soundcloud_id: MyString
+  filename: MyString
+  event: 
+  published: false

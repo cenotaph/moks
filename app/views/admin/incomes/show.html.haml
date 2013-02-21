@@ -1,0 +1,39 @@
+- title "Admin/Income"
+%p
+  %strong Date Received:
+  = @income.date_received
+%p
+  %strong Recipient:
+  = @income.recipient
+%p
+  %strong What For:
+  = @income.what_for
+%p
+  %strong Event:
+  = @income.event
+%p
+  %strong Funder:
+  = @income.funder
+%p
+  %strong Project:
+  = @income.project
+%p
+  %strong Amount:
+  = @income.amount
+%p
+  %strong Hidden:
+  = @income.hidden
+%p
+  %strong Source:
+  = @income.source
+%p
+  %strong Budgetarea:
+  = @income.budgetarea
+%p
+  %strong Has Receipt:
+  = @income.has_receipt
+%p
+  = link_to "Edit", edit_admin_income_path(@income)
+  |
+  \#{link_to "Destroy", [:admin, @income], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_incomes_path}

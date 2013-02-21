@@ -1,0 +1,18 @@
+- title "Video"
+%p
+  %strong Videohost:
+  = @video.videohost
+%p
+  %strong Event:
+  = @video.event
+%p
+  %strong Provider Id Code:
+  = @video.provider_id_code
+%p
+  %strong Published:
+  = @video.published
+%p
+  = link_to "Edit", edit_video_path(@video)
+  |
+  \#{link_to "Destroy", @video, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", videos_path}

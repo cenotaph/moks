@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "MoKS admin"
+      %meta{:content => content_for?(:description) ? yield(:description) : "Moks", :name => "description"}
+        = stylesheet_link_tag "application", :media => "all"
+        = stylesheet_link_tag "admin", :media => "all"
+        = javascript_include_tag "application"
+
+        = csrf_meta_tags
+        = yield(:head)
+  %body{:class => "#{controller_name} #{action_name}"}
+    .container
+      %header.navbar.navbar-fixed-top
+        %nav.navbar-inner
+          .container
+            = render 'layouts/navigation'
+      #main{:role => "main"}
+        .four.columns.alpha= render :partial => 'layouts/admin_menu'
+        .twelve.columns.omega
+          .row
+            .eight.columns
+              = render 'layouts/messages'
+          = yield
+          %footer
+    :javascript
+      $(document).ready(function() {
+        $('#language-tabs').tabs();
+        $('input.ui-datepicker').datepicker({ dateFormat: "yy-mm-dd" });
+        $('#menu').collapsible({
+          effect: 'slide',
+          initialCollapse: true 
+        });
+      });

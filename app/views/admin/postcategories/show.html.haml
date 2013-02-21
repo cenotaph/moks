@@ -1,0 +1,9 @@
+- title "Admin/Postcategory"
+%p
+  %strong Name:
+  = @postcategory.name
+%p
+  = link_to "Edit", edit_admin_postcategory_path(@postcategory)
+  |
+  \#{link_to "Destroy", [:admin, @postcategory], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_postcategories_path}

@@ -1,0 +1,15 @@
+- title "Admin/Resources"
+%table
+  %tr
+    %th Event
+    %th Project
+    %th Attachment
+  - for resource in @resources
+    %tr
+      %td= resource.event
+      %td= resource.project
+      %td= resource.attachment
+      %td= link_to "Show", [:admin, resource]
+      %td= link_to "Edit", edit_admin_resource_path(resource)
+      %td= link_to "Destroy", [:admin, resource], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Resource", new_admin_resource_path

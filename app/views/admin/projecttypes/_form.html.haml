@@ -1,0 +1,12 @@
+= semantic_form_for [:admin, @projecttype] do |f|
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Name in #{t(:language_name, :locale => locale)}"
+          = en.text_field :name
+  = f.input :is_major, :label => "Is a major project (AVAMAA, etc.)" 
+  = f.submit

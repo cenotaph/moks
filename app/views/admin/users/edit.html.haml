@@ -1,0 +1,12 @@
+= semantic_form_for [:admin, @user], :html => {:multipart => true} do |f|
+  - unless f.object.authentications.empty?
+    Authenticated through:
+  - f.object.authentications.each do |auth|
+    %p
+      = auth.provider
+      = auth.uid
+  = f.input :email
+  = f.input :username
+  = f.input :roles
+  = f.input :artist, :label => "Is this user also an artist?"
+  = f.submit

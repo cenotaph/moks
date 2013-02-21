@@ -1,0 +1,27 @@
+%h2 new money in
+= semantic_nested_form_for [:admin, @income], :html => {:multipart => true } do |f|
+  - if f.object.invoice_id.blank?
+    = f.input :invoice, :collection => Invoice.unpaid.map{|x| ["#{x.number} [#{x.contact.name_or_organisation}]", x.id]}, :label => 'apply to invoice:'
+  - else 
+    Invoice: # 
+    = f.object.invoice.number
+    = f.object.invoice.contact.name_or_organisation
+    = f.input :invoice_id, :as => :hidden, :value => f.object.invoice_id
+  = f.input :date_received, :as => :string, :input_html => {:class => 'ui-datepicker'}
+
+  = f.input :recipient
+  = f.input :what_for
+  = f.input :event
+  = f.input :funder
+  = f.input :project
+  = f.input :amount
+  = f.input :hidden   
+  = f.input :source, :label => 'source of funds'
+  = f.input :budgetarea
+  = f.input :has_receipt
+  = f.fields_for :documents do |ff|
+    = ff.input :attachment
+    = ff.input :name
+    = ff.input :description
+  = f.link_to_add 'add attachment (invoice, bill or other pdf/document)', :documents
+  = f.submit

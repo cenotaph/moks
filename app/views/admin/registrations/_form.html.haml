@@ -1,0 +1,39 @@
+= form_for [:admin, @registration] do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :email
+    %br/
+    = f.text_field :email
+  %p
+    = f.label :phone
+    %br/
+    = f.text_field :phone
+  %p
+    = f.label :amount_paid
+    %br/
+    = f.text_field :amount_paid
+  %p
+    = f.label :comments
+    %br/
+    = f.text_area :comments
+  %p
+    = f.label :optional_answer
+    %br/
+    = f.text_field :optional_answer
+  %p
+    = f.label :event
+    %br/
+    = f.text_field :event
+  %p
+    = f.label :actually_showed_up
+    %br/
+    = f.check_box :actually_showed_up
+  %p
+    = f.label :waiting_list
+    %br/
+    = f.check_box :waiting_list
+  %p= f.submit

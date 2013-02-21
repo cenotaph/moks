@@ -1,0 +1,6 @@
+- title "Edit Admin/Resource"
+= render 'form'
+%p
+  = link_to "Show", [:admin, @resource]
+  |
+  \#{link_to "View All", admin_resources_path}

@@ -1,0 +1,30 @@
+- title "Admin/Invoice"
+
+%p
+  %strong Contact:
+  = @invoice.contact_id
+%p
+  %strong Date Issued:
+  = @invoice.date_issued
+%p
+  %strong Date Due:
+  = @invoice.date_due
+%p
+  %strong Number:
+  = @invoice.number
+%p
+  %strong Amount:
+  = @invoice.amount
+%p
+  %strong Attachment:
+  = @invoice.attachment
+%p
+  %strong What For:
+  = @invoice.what_for
+
+%p
+  = link_to "Edit", edit_admin_invoice_path(@invoice)
+  |
+  = link_to "Destroy", [:admin, @invoice], :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", admin_invoices_path

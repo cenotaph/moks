@@ -1,0 +1,24 @@
+- title "Admin/Visit"
+%p
+  %strong Start Date:
+  = @visit.start_date
+%p
+  %strong End Date:
+  = @visit.end_date
+%p
+  %strong Is Rental:
+  = @visit.is_rental
+%p
+  %strong Project:
+  = @visit.project
+%p
+  %strong Residencytype:
+  = @visit.residencytype
+%p
+  %strong Published:
+  = @visit.published
+%p
+  = link_to "Edit", edit_admin_visit_path(@visit)
+  |
+  \#{link_to "Destroy", [:admin, @visit], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_visits_path}

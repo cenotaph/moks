@@ -1,0 +1,27 @@
+- title "Admin/Publicities"
+%table
+  %tr
+    %th Name
+    %th Source
+    %th Author
+    %th Attachment
+    %th Url
+    %th Project
+    %th Event
+    %th Visit
+    %th Sortorder
+  - for publicity in @publicities
+    %tr
+      %td= publicity.name
+      %td= publicity.source
+      %td= publicity.author
+      %td= publicity.attachment
+      %td= publicity.url
+      %td= publicity.project
+      %td= publicity.event
+      %td= publicity.visit
+      %td= publicity.sortorder
+      %td= link_to "Show", [:admin, publicity]
+      %td= link_to "Edit", edit_admin_publicity_path(publicity)
+      %td= link_to "Destroy", [:admin, publicity], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Publicity", new_admin_publicity_path

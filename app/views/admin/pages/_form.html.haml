@@ -1,0 +1,15 @@
+= semantic_form_for [:admin, @page], :html => {:multipart => true } do |f|
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Title in #{t(:language_name, :locale => locale)}"
+          = en.text_field :title
+          %b= "body in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :body
+          %b= "abstract, etc in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :abstract
+  = f.submit

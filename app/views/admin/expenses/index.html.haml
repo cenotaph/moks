@@ -1,0 +1,26 @@
+- title "Admin/Expenses"
+%table
+  %tr
+    %th Date Paid
+    %th Recipient
+    %th What For
+    %th Amount
+    %th Budgetarea
+    %th actions
+  - for expense in @expenses
+    %tr
+      %td= l expense.date_paid
+      %td= expense.recipient
+      %td
+        = expense.what_for
+        .other
+          = expense.event.try(:name)
+          = expense.project.try(:name)
+      %td= number_to_currency expense.amount
+      %td= expense.budgetarea.try(:name)
+
+      %td
+        = link_to "Show", [:admin, expense]
+        = link_to "Edit", edit_admin_expense_path(expense)
+        = link_to "Destroy", [:admin, expense], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New expense", new_admin_expense_path

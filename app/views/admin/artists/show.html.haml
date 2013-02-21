@@ -1,0 +1,18 @@
+%h2 artist
+
+%h3= @artist.name
+.artist_bio= raw @artist.bio
+- if @artist.avatar?
+  .artist_image= image_tag @artist.avatar.url(:thumbnail)
+
+- if @artist.visits.empty?
+  %p No visits/residencies defined.
+- else
+  .artist_visits
+    %strong Visits:
+    - @artist.visits.sort_by(&:start_date).each do |visit|
+      .artist_visit
+        = link_to visit.dates, edit_admin_visit_path(visit)
+%p= link_to 'add a visit', new_admin_artist_visit_path(@artist)
+
+%p= link_to 'back to all artists', admin_artists_path

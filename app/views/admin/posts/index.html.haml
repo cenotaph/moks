@@ -1,0 +1,29 @@
+%h2 posts
+= link_to "New Post", new_admin_post_path
+
+= will_filter_tag(@posts)
+
+%table
+  %thead
+    %th Date
+    %th User
+    %th Subject
+    %th Type
+    %th actions
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td= post.created_at.strftime("%b %d %Y")
+        %td= post.old_byline
+        %td
+          = post.title
+          - unless post.images.empty?
+            .image_data
+              %em= pluralize(post.images.size, 'image')
+        %td= post.postcategory.try(:name)
+        %td
+          = link_to "Show", [:admin, post]
+          = link_to "Edit", edit_admin_post_path(post)
+          = link_to "Destroy", [:admin, post], :confirm => 'Are you sure?', :method => :delete
+
+= link_to "New Post", new_admin_post_path

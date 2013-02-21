@@ -1,0 +1,19 @@
+= form_for @video do |f|
+  = f.error_messages
+  %p
+    = f.label :videohost
+    %br/
+    = f.text_field :videohost
+  %p
+    = f.label :event
+    %br/
+    = f.text_field :event
+  %p
+    = f.label :provider_id_code
+    %br/
+    = f.text_field :provider_id_code
+  %p
+    = f.label :published
+    %br/
+    = f.check_box :published
+  %p= f.submit

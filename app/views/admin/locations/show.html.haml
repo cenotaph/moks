@@ -1,0 +1,27 @@
+- title "Admin/Location"
+%p
+  %strong Address1:
+  = @location.address1
+%p
+  %strong Address2:
+  = @location.address2
+%p
+  %strong City:
+  = @location.city
+%p
+  %strong County:
+  = @location.county
+%p
+  %strong Country:
+  = @location.country
+%p
+  %strong Postcode:
+  = @location.postcode
+%p
+  %strong Map Url:
+  = @location.map_url
+%p
+  = link_to "Edit", edit_admin_location_path(@location)
+  |
+  \#{link_to "Destroy", [:admin, @location], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_locations_path}

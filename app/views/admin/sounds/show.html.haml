@@ -1,0 +1,18 @@
+- title "Admin/Sound"
+%p
+  %strong Soundcloud:
+  = @sound.soundcloud_id
+%p
+  %strong Filename:
+  = @sound.filename
+%p
+  %strong Event:
+  = @sound.event
+%p
+  %strong Published:
+  = @sound.published
+%p
+  = link_to "Edit", edit_admin_sound_path(@sound)
+  |
+  \#{link_to "Destroy", [:admin, @sound], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_sounds_path}

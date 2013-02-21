@@ -1,0 +1,26 @@
+= semantic_nested_form_for [:admin, @post], :html => {:multipart => true} do |f|
+  = f.input :user,  :as => :select,      :collection => User.all.map{|x| [x.username, x.id]}
+  = f.input :event, :collection => Event.all
+  = f.input :sticky, :label => "Make sticky"
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Name in #{t(:language_name, :locale => locale)}"
+          = en.text_field :title
+          %b= "Post content in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :body
+  = f.fields_for :images do |ff|
+    .add_image
+      %p Add an image to this post:
+      - unless ff.object.new_record?
+        = image_tag ff.object.filename.url(:thumbnail)
+      = ff.input :filename, :as => :file
+      = ff.input :credit
+      = ff.link_to_remove 'remove this image'
+  .cl= f.link_to_add 'add an image', :images
+  = f.submit
+

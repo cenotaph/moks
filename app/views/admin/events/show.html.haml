@@ -1,0 +1,44 @@
+%h2 event
+%h3= @event.name
+%h4= @event.dates
+- unless @event.projects.empty?
+  %p
+    Part of projects:
+    %ul
+      - @event.projects.each do |p|
+        %li
+          = link_to p.name, [:admin, p]
+          - unless p.projecttype.blank?
+            = "(#{p.projecttype.name})"
+
+.project_description
+  = raw @event.description
+
+- if @event.images.empty?
+  No images
+- else  
+  %p Attached images:
+  - @event.images.each do |image|
+    .image= image_tag image.filename.url(:thumbnail)
+
+- if @event.sounds.empty?
+  No soundfiles uploaded or embedded
+- else
+  %p Sounds:
+  - @event.sounds.each do |sound|
+    .sound
+      = link_to sound.filename.url, sound.filename.url, :class => :sm2_button
+      = sound.name
+      .description= sound.description
+
+- if @event.videos.empty?
+  No videos embedded for this event
+- else
+  %p Videos:
+  - @event.videos.each do |video|
+    .sound
+      = video.name
+      = raw video.embed_code
+      .description= video.description
+%p= link_to 'edit this event', edit_admin_event_path(@event)
+%p= link_to 'back to all events', admin_events_path

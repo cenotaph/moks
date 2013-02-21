@@ -1,0 +1,51 @@
+- title "Projectproposals"
+
+%table
+  %tr
+    %th Name
+    %th Organisation
+    %th Email
+    %th Address
+    %th Country of origin
+    %th Country of residence
+    %th Phone number
+    %th Short description
+    %th Duration
+    %th Long description
+    %th Public engagement
+    %th Materials
+    %th Spatial requirements
+    %th Cost
+    %th Bio
+    %th Urls
+    %th Moks goodfit
+    %th Attachment
+    %th Archived
+    %th Project
+  - for projectproposal in @projectproposals
+    %tr
+      %td= projectproposal.name
+      %td= projectproposal.organisation
+      %td= projectproposal.email
+      %td= projectproposal.address
+      %td= projectproposal.country_of_origin
+      %td= projectproposal.country_of_residence
+      %td= projectproposal.phone_number
+      %td= projectproposal.short_description
+      %td= projectproposal.duration
+      %td= projectproposal.long_description
+      %td= projectproposal.public_engagement
+      %td= projectproposal.materials
+      %td= projectproposal.spatial_requirements
+      %td= projectproposal.cost
+      %td= projectproposal.bio
+      %td= projectproposal.urls
+      %td= projectproposal.moks_goodfit
+      %td= projectproposal.attachment
+      %td= projectproposal.archived
+      %td= projectproposal.project_id
+      %td= link_to 'Show', projectproposal
+      %td= link_to 'Edit', edit_projectproposal_path(projectproposal)
+      %td= link_to 'Destroy', projectproposal, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Projectproposal", new_projectproposal_path

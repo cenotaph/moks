@@ -1,0 +1,21 @@
+one:
+  date_paid: 2012-12-05
+  recipient: MyString
+  what_for: MyString
+  event: 
+  amount: 1.5
+  hidden: false
+  paid_by: MyString
+  budgetarea: 
+  has_receipt: false
+
+two:
+  date_paid: 2012-12-05
+  recipient: MyString
+  what_for: MyString
+  event: 
+  amount: 1.5
+  hidden: false
+  paid_by: MyString
+  budgetarea: 
+  has_receipt: false

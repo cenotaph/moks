@@ -1,0 +1,11 @@
+- title "Admin/Postcategories"
+%table
+  %tr
+    %th Name
+  - for postcategory in @postcategories
+    %tr
+      %td= postcategory.name
+      %td= link_to "Show", [:admin, postcategory]
+      %td= link_to "Edit", edit_admin_postcategory_path(postcategory)
+      %td= link_to "Destroy", [:admin, postcategory], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Postcategory", new_admin_postcategory_path

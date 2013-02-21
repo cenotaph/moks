@@ -1,0 +1,21 @@
+- title "Admin/Visits"
+%table
+  %tr
+    %th Start Date
+    %th End Date
+    %th Is Rental
+    %th Project
+    %th Residencytype
+    %th Published
+  - for visit in @visits
+    %tr
+      %td= visit.start_date
+      %td= visit.end_date
+      %td= visit.is_rental
+      %td= visit.project
+      %td= visit.residencytype
+      %td= visit.published
+      %td= link_to "Show", [:admin, visit]
+      %td= link_to "Edit", edit_admin_visit_path(visit)
+      %td= link_to "Destroy", [:admin, visit], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Visit", new_admin_visit_path

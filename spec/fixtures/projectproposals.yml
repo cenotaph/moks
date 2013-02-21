@@ -1,0 +1,43 @@
+one:
+  name: MyString
+  organisation: MyString
+  email: MyString
+  address: MyString
+  country_of_origin: MyString
+  country_of_residence: MyString
+  phone_number: MyString
+  short_description: MyText
+  duration: MyString
+  long_description: MyText
+  public_engagement: MyText
+  materials: MyText
+  spatial_requirements: MyText
+  cost: MyText
+  bio: MyText
+  urls: MyText
+  moks_goodfit: MyText
+  attachment: MyString
+  archived: false
+  project_id: 1
+
+two:
+  name: MyString
+  organisation: MyString
+  email: MyString
+  address: MyString
+  country_of_origin: MyString
+  country_of_residence: MyString
+  phone_number: MyString
+  short_description: MyText
+  duration: MyString
+  long_description: MyText
+  public_engagement: MyText
+  materials: MyText
+  spatial_requirements: MyText
+  cost: MyText
+  bio: MyText
+  urls: MyText
+  moks_goodfit: MyText
+  attachment: MyString
+  archived: false
+  project_id: 1

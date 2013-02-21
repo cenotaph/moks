@@ -1,0 +1,8 @@
+= semantic_form_for [:admin, @document], :html => {:multipart => true} do |f|
+  = f.input :name
+  = f.input :documenttype
+  = f.input :user_id, :as => :hidden, :value => current_user.id
+  = f.input :description
+  = f.input :attachment
+  = f.input :public, :label => "Access from public site"
+  = f.submit

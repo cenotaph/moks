@@ -1,0 +1,21 @@
+- title "Admin/Image"
+%p
+  %strong Attachable:
+  = @image.attachable_id
+%p
+  %strong Attachable Type:
+  = @image.attachable_type
+%p
+  %strong Filename:
+  = @image.filename
+%p
+  %strong Credit:
+  = @image.credit
+%p
+  %strong Published:
+  = @image.published
+%p
+  = link_to "Edit", edit_admin_image_path(@image)
+  |
+  \#{link_to "Destroy", [:admin, @image], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_images_path}

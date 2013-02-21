@@ -1,0 +1,13 @@
+%h2= @post.title
+%h5= "posted by #{@post.posted_by}"
+%h6= "on #{@post.posted_at.strftime("%b %d %Y")}"
+
+= raw @post.body
+
+- if @post.images 
+  %h4 Attached images:
+  - @post.images.each do |image|
+    .image= image_tag image.filename.url(:standard)
+= link_to "Edit", edit_admin_post_path(@post) 
+= link_to "Destroy", [:admin, @post], :confirm => 'Are you sure?', :method => :delete 
+= link_to "View All", admin_posts_path 

@@ -1,0 +1,19 @@
+%h2 Project
+
+%h3= @project.name
+
+- unless @project.projecttype.nil?
+  = "type #{@project.projecttype.name}"
+
+- if @project.avatar?
+  .project_image= image_tag @project.avatar.url(:thumbnail)
+
+- if @project.events.empty?
+  %p No events belong to this project.
+- else
+  .project_events
+    %strong Events:
+    - @project.events.each do |event|
+      .event
+        = link_to event.name, [:admin, event]
+        .date= event.dates

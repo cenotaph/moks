@@ -1,0 +1,15 @@
+%h2 Funder
+%h3= @funder.name
+.funder_description= raw @funder.description
+
+- if @funder.visits.empty?
+  %p 
+    No visits funded by 
+    = @funder.name
+- else
+  .funder_visits
+    Visits:
+    - @funder.visits.each do |fv|
+      .funder_visit
+        .artist= fv.artist.name
+        = "(#{fv.dates})"

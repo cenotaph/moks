@@ -1,0 +1,11 @@
+one:
+  videohost: 
+  event: 
+  provider_id_code: MyString
+  published: false
+
+two:
+  videohost: 
+  event: 
+  provider_id_code: MyString
+  published: false

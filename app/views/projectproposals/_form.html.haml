@@ -1,0 +1,84 @@
+= form_for @projectproposal do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :organisation
+    %br
+    = f.text_field :organisation
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
+    = f.label :address
+    %br
+    = f.text_field :address
+  %p
+    = f.label :country_of_origin
+    %br
+    = f.text_field :country_of_origin
+  %p
+    = f.label :country_of_residence
+    %br
+    = f.text_field :country_of_residence
+  %p
+    = f.label :phone_number
+    %br
+    = f.text_field :phone_number
+  %p
+    = f.label :short_description
+    %br
+    = f.text_area :short_description
+  %p
+    = f.label :duration
+    %br
+    = f.text_field :duration
+  %p
+    = f.label :long_description
+    %br
+    = f.text_area :long_description
+  %p
+    = f.label :public_engagement
+    %br
+    = f.text_area :public_engagement
+  %p
+    = f.label :materials
+    %br
+    = f.text_area :materials
+  %p
+    = f.label :spatial_requirements
+    %br
+    = f.text_area :spatial_requirements
+  %p
+    = f.label :cost
+    %br
+    = f.text_area :cost
+  %p
+    = f.label :bio
+    %br
+    = f.text_area :bio
+  %p
+    = f.label :urls
+    %br
+    = f.text_area :urls
+  %p
+    = f.label :moks_goodfit
+    %br
+    = f.text_area :moks_goodfit
+  %p
+    = f.label :attachment
+    %br
+    = f.text_field :attachment
+  %p
+    = f.label :archived
+    %br
+    = f.check_box :archived
+  %p
+    = f.label :project_id
+    %br
+    = f.number_field :project_id
+  %p
+    = f.submit

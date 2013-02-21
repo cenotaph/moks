@@ -1,0 +1,13 @@
+= semantic_form_for [:admin, @funder], :html => {:multipart => true } do |f|
+  = f.input :name
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Description in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :description  
+  = f.input :logo
+  = f.submit

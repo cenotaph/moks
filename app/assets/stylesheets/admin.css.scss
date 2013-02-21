@@ -1,0 +1,16 @@
+/**
+ * admin.css
+ *
+ *= require_self
+ *= require_tree ./admin
+ *= require jquery.ui.datepicker
+ *= require jquery.ui.tabs 
+ */
+
+ #main {
+  margin-top: 60px;
+ }
+
+ td.overdue {
+  color: red;
+ }

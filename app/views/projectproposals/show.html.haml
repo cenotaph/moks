@@ -1,0 +1,69 @@
+- title "Projectproposal"
+
+%p
+  %strong Name:
+  = @projectproposal.name
+%p
+  %strong Organisation:
+  = @projectproposal.organisation
+%p
+  %strong Email:
+  = @projectproposal.email
+%p
+  %strong Address:
+  = @projectproposal.address
+%p
+  %strong Country Of Origin:
+  = @projectproposal.country_of_origin
+%p
+  %strong Country Of Residence:
+  = @projectproposal.country_of_residence
+%p
+  %strong Phone Number:
+  = @projectproposal.phone_number
+%p
+  %strong Short Description:
+  = @projectproposal.short_description
+%p
+  %strong Duration:
+  = @projectproposal.duration
+%p
+  %strong Long Description:
+  = @projectproposal.long_description
+%p
+  %strong Public Engagement:
+  = @projectproposal.public_engagement
+%p
+  %strong Materials:
+  = @projectproposal.materials
+%p
+  %strong Spatial Requirements:
+  = @projectproposal.spatial_requirements
+%p
+  %strong Cost:
+  = @projectproposal.cost
+%p
+  %strong Bio:
+  = @projectproposal.bio
+%p
+  %strong Urls:
+  = @projectproposal.urls
+%p
+  %strong Moks Goodfit:
+  = @projectproposal.moks_goodfit
+%p
+  %strong Attachment:
+  = @projectproposal.attachment
+%p
+  %strong Archived:
+  = @projectproposal.archived
+%p
+  %strong Project:
+  = @projectproposal.project_id
+
+%p
+  = link_to "Edit", edit_projectproposal_path(@projectproposal)
+  |
+  = link_to "Destroy", @projectproposal, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", projectproposals_path

@@ -1,0 +1,17 @@
+- title "Admin/Sounds"
+%table
+  %tr
+    %th Soundcloud
+    %th Filename
+    %th Event
+    %th Published
+  - for sound in @sounds
+    %tr
+      %td= sound.soundcloud_id
+      %td= sound.filename
+      %td= sound.event
+      %td= sound.published
+      %td= link_to "Show", [:admin, sound]
+      %td= link_to "Edit", edit_admin_sound_path(sound)
+      %td= link_to "Destroy", [:admin, sound], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Sound", new_admin_sound_path

@@ -1,0 +1,13 @@
+one:
+  attachable_id: 1
+  attachable_type: MyString
+  filename: MyString
+  credit: MyString
+  published: false
+
+two:
+  attachable_id: 1
+  attachable_type: MyString
+  filename: MyString
+  credit: MyString
+  published: false

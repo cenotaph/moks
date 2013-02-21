@@ -1,0 +1,74 @@
+= semantic_nested_form_for [:admin, @event], :html => {:multipart => true} do |f|
+  = f.input :start_at, :as => :string, :input_html => {:class => "ui-datepicker"}
+  = f.input :end_at, :as => :string, :input_html => {:class => "ui-datepicker"}
+  = f.input :projects, :as => :check_boxes
+  = f.input :location, :as => :select, :collection => Location.all.map{|x| [x.name, x.id] }, :include_blank => false
+  = f.input :promoter
+  = f.input :cost
+  = f.input :discounted_cost
+  = f.input :discount_reason
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Name in #{t(:language_name, :locale => locale)}"
+          = en.text_field :name
+          %b= "Post content in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :description
+          %b= "Notes, etc in #{t(:language_name, :locale => locale)}"
+          = en.text_area :notes
+  = f.fields_for :images do |ff|
+    .add_image
+      %p Add an image to this event:
+      - unless ff.object.new_record?
+        = image_tag ff.object.filename.url(:thumbnail)
+      = ff.input :filename, :as => :file
+      = ff.input :credit
+      - I18n.available_locales.each do |locale|
+        %div{:id => "caption-#{ff.object.id.to_s}-lang-#{locale}"}
+        = ff.globalize_fields_for locale do |l|
+          %b= "Caption in #{t(:language_name, :locale => locale)}"
+          = l.text_field :caption
+      = ff.link_to_remove 'remove this image'
+  .cl= f.link_to_add 'add an image', :images
+  = f.fields_for :sounds do |ff|
+    .add_image
+      %p= ff.object.new_record? ? 'Add a' : 'Change the' + " sound file for this event:"
+      - unless ff.object.new_record?
+        - unless ff.object.filename.blank?
+          Current file:
+          = ff.object.filename.url
+      = ff.input :filename, :as => :file
+      = ff.input :soundcloud_id, :label => 'Or soundcloud id# instead of uploading file'
+      - I18n.available_locales.each do |locale|
+        %div{:id => "sound-#{ff.object.id.to_s}-lang-#{locale}"}
+        = ff.globalize_fields_for locale do |l|
+          %b= "Title/name in #{t(:language_name, :locale => locale)}"
+          = l.text_field :name
+          %b= "Description of sound in #{t(:language_name, :locale => locale)}"
+          = l.text_field :description
+      = ff.input :published, :label => 'Published? (untick to hide from public)'
+      = ff.link_to_remove 'remove this sound'
+  .cl= f.link_to_add 'add a sound file', :sounds
+  = f.fields_for :videos do |ff|
+    .add_image
+      %p= (ff.object.new_record? ? 'Embed a' : 'Change the') + " video for this event:"
+      - unless ff.object.new_record?
+        Current file:
+        = ff.object.name
+      = ff.input :videohost, :as => :select, :collection => Videohost.all.map{|x| [x.name, x.id]}
+      = ff.input :provider_id_code, :label => 'ID# of video (found in URL)'
+      - I18n.available_locales.each do |locale|
+        %div{:id => "sound-#{ff.object.id.to_s}-lang-#{locale}"}
+        = ff.globalize_fields_for locale do |l|
+          %b= "Title/name in #{t(:language_name, :locale => locale)}"
+          = l.text_field :name
+          %b= "Description of video in #{t(:language_name, :locale => locale)}"
+          = l.text_field :description
+      = ff.input :published, :label => 'Published? (untick to hide from public)'
+      = ff.link_to_remove 'remove this video'
+  .cl= f.link_to_add 'embed a video from YouTube or Vimeo', :videos
+  = f.submit

@@ -1,0 +1,31 @@
+
+%h2 events
+
+%table
+  %thead
+    %th dates
+    %th name
+    %th cost
+    %th actions
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.start_at.strftime("%b %d %Y")
+        %td
+          = event.name
+          - unless event.images.empty?
+            .image_data
+              %em= pluralize(event.images.size, 'image')    
+          - unless event.videos.empty?
+            .image_data
+              %em= pluralize(event.videos.size, 'video')
+          - unless event.sounds.empty?
+            .image_data
+              %em= pluralize(event.sounds.size, 'sounds')                
+        %td= event.cost
+        %td
+          = link_to 'edit', edit_admin_event_path(event)
+          = link_to 'destroy', [:admin, event], :confirm => "sure?", :method => :delete
+          = link_to 'show', admin_event_path(event)
+
+= link_to "New event", new_admin_event_path

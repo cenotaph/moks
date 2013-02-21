@@ -1,0 +1,25 @@
+one:
+  date_received: 2012-12-05
+  recipient: MyString
+  what_for: MyString
+  event: 
+  funder: 
+  project: 
+  amount: 1.5
+  hidden: false
+  source: MyString
+  budgetarea: 
+  has_receipt: false
+
+two:
+  date_received: 2012-12-05
+  recipient: MyString
+  what_for: MyString
+  event: 
+  funder: 
+  project: 
+  amount: 1.5
+  hidden: false
+  source: MyString
+  budgetarea: 
+  has_receipt: false

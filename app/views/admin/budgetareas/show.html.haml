@@ -1,0 +1,12 @@
+- title "Admin/Budgetarea"
+%p
+  %strong Name:
+  = @budgetarea.name
+%p
+  %strong Active:
+  = @budgetarea.active
+%p
+  = link_to "Edit", edit_admin_budgetarea_path(@budgetarea)
+  |
+  \#{link_to "Destroy", [:admin, @budgetarea], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_budgetareas_path}

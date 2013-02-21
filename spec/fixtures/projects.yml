@@ -1,0 +1,17 @@
+one:
+  website1: MyString
+  website2: MyString
+  projectype: 
+  avatar: MyString
+  proposable: false
+  published: false
+  slug: MyString
+
+two:
+  website1: MyString
+  website2: MyString
+  projectype: 
+  avatar: MyString
+  proposable: false
+  published: false
+  slug: MyString

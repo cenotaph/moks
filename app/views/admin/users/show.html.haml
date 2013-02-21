@@ -1,0 +1,10 @@
+%h3 Profile for user
+%p= "User: #{@user.real_name} [#{@user.username}]"
+%p= "Email: #{@user.email if @user.email}"
+
+- unless @user.authentications.empty?
+  Authenticated through:
+- @user.authentications.each do |auth|
+  %p
+    = auth.provider
+    = auth.uid

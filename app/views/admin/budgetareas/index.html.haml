@@ -1,0 +1,13 @@
+- title "Admin/Budgetareas"
+%table
+  %tr
+    %th Name
+    %th Active
+  - for budgetarea in @budgetareas
+    %tr
+      %td= budgetarea.name
+      %td= budgetarea.active
+      %td= link_to "Show", [:admin, budgetarea]
+      %td= link_to "Edit", edit_admin_budgetarea_path(budgetarea)
+      %td= link_to "Destroy", [:admin, budgetarea], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Budgetarea", new_admin_budgetarea_path

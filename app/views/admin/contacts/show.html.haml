@@ -1,0 +1,42 @@
+- title "Admin/Contact"
+
+%p
+  %strong Contact Person:
+  = @contact.contact_person
+%p
+  %strong Organisation:
+  = @contact.organisation
+%p
+  %strong Address1:
+  = @contact.address1
+%p
+  %strong Address2:
+  = @contact.address2
+%p
+  %strong City:
+  = @contact.city
+%p
+  %strong County:
+  = @contact.county
+%p
+  %strong Postcode:
+  = @contact.postcode
+%p
+  %strong Country:
+  = @contact.country
+%p
+  %strong Phone:
+  = @contact.phone
+%p
+  %strong Website:
+  = @contact.website
+%p
+  %strong Email:
+  = @contact.email
+
+%p
+  = link_to "Edit", edit_admin_contact_path(@contact)
+  |
+  = link_to "Destroy", [:admin, @contact], :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", admin_contacts_path

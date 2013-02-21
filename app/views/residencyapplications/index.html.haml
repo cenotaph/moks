@@ -1,0 +1,57 @@
+- title "Residencyapplications"
+
+%table
+  %tr
+    %th Name
+    %th Organisation
+    %th Email
+    %th Address1
+    %th Address2
+    %th City
+    %th County
+    %th Postcode
+    %th Country of residence
+    %th Country of origin
+    %th Gender
+    %th Contact phone
+    %th Field of interest
+    %th Urls
+    %th Languages spoken
+    %th Cv
+    %th Other attachment
+    %th Preferred dates
+    %th Funny question
+    %th Other questions
+    %th How did hear
+    %th Reason
+    %th Residencytype
+  - for residencyapplication in @residencyapplications
+    %tr
+      %td= residencyapplication.name
+      %td= residencyapplication.organisation
+      %td= residencyapplication.email
+      %td= residencyapplication.address1
+      %td= residencyapplication.address2
+      %td= residencyapplication.city
+      %td= residencyapplication.county
+      %td= residencyapplication.postcode
+      %td= residencyapplication.country_of_residence
+      %td= residencyapplication.country_of_origin
+      %td= residencyapplication.gender
+      %td= residencyapplication.contact_phone
+      %td= residencyapplication.field_of_interest
+      %td= residencyapplication.urls
+      %td= residencyapplication.languages_spoken
+      %td= residencyapplication.cv
+      %td= residencyapplication.other_attachment
+      %td= residencyapplication.preferred_dates
+      %td= residencyapplication.funny_question
+      %td= residencyapplication.other_questions
+      %td= residencyapplication.how_did_hear
+      %td= residencyapplication.reason
+      %td= residencyapplication.residencytype_id
+      %td= link_to 'Show', residencyapplication
+      %td= link_to 'Edit', edit_residencyapplication_path(residencyapplication)
+      %td= link_to 'Destroy', residencyapplication, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Residencyapplication", new_residencyapplication_path

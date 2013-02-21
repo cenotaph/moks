@@ -1,0 +1,9 @@
+= semantic_form_for [:admin, @invoice], :html => {:multipart => true} do |f|
+  = f.input :contact,  :collection => Contact.all.map{|x| [x.name_or_organisation, x.id]}
+  = f.input :date_issued, :as => :string, :input_html => {:class => "ui-datepicker"}
+  = f.input :date_due, :as => :string, :input_html => {:class => "ui-datepicker"}
+  = f.input :number, :label => "invoice #"
+  = f.input :amount
+  = f.input :attachment, :label => "file to attach (invoice as PDF, etc.)"
+  = f.input :what_for
+  = f.submit

@@ -1,0 +1,20 @@
+%style{:type => 'text/css'}
+  * {
+  ="font-size: 10pt;"
+  = "font-family: Helvetica, Verdana, Arial, sans-serif;"
+  }
+
+.pdf_big= @invoice.number
+
+.date_issue= l @invoice.date_issued
+.date_due= "due: " + l(@invoice.date_due)
+%table
+  %thead
+    %th Item
+    %th Amount
+  %tbody
+    %tr
+      %td= @invoice.what_for
+      %td= number_to_currency(@invoice.amount)
+
+

@@ -1,0 +1,6 @@
+- title "Edit Admin/Expense"
+= render 'form'
+%p
+  = link_to "Show", [:admin, @expense]
+  |
+  \#{link_to "View All", admin_expenses_path}

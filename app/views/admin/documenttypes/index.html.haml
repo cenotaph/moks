@@ -1,0 +1,13 @@
+- title "Admin/Documenttypes"
+
+%table
+  %tr
+    %th Name
+  - for documenttype in @documenttypes
+    %tr
+      %td= documenttype.name
+      %td= link_to 'Show', [:admin, documenttype]
+      %td= link_to 'Edit', edit_admin_documenttype_path(documenttype)
+      %td= link_to 'Destroy', [:admin, documenttype], :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "define new Document type", new_admin_documenttype_path

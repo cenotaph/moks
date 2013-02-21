@@ -1,0 +1,6 @@
+- title "Edit Admin/Project"
+= render 'form'
+%p
+  = link_to "Show", [:admin, @project]
+  |
+  \#{link_to "View All", admin_projects_path}

@@ -1,0 +1,33 @@
+- title "Admin/Publicity"
+%p
+  %strong Name:
+  = @publicity.name
+%p
+  %strong Source:
+  = @publicity.source
+%p
+  %strong Author:
+  = @publicity.author
+%p
+  %strong Attachment:
+  = @publicity.attachment
+%p
+  %strong Url:
+  = @publicity.url
+%p
+  %strong Project:
+  = @publicity.project
+%p
+  %strong Event:
+  = @publicity.event
+%p
+  %strong Visit:
+  = @publicity.visit
+%p
+  %strong Sortorder:
+  = @publicity.sortorder
+%p
+  = link_to "Edit", edit_admin_publicity_path(@publicity)
+  |
+  \#{link_to "Destroy", [:admin, @publicity], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_publicities_path}

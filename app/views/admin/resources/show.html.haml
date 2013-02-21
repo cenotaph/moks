@@ -1,0 +1,15 @@
+- title "Admin/Resource"
+%p
+  %strong Event:
+  = @resource.event
+%p
+  %strong Project:
+  = @resource.project
+%p
+  %strong Attachment:
+  = @resource.attachment
+%p
+  = link_to "Edit", edit_admin_resource_path(@resource)
+  |
+  \#{link_to "Destroy", [:admin, @resource], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_resources_path}

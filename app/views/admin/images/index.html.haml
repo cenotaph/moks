@@ -1,0 +1,19 @@
+- title "Admin/Images"
+%table
+  %tr
+    %th Attachable
+    %th Attachable Type
+    %th Filename
+    %th Credit
+    %th Published
+  - for image in @images
+    %tr
+      %td= image.attachable_id
+      %td= image.attachable_type
+      %td= image.filename
+      %td= image.credit
+      %td= image.published
+      %td= link_to "Show", [:admin, image]
+      %td= link_to "Edit", edit_admin_image_path(image)
+      %td= link_to "Destroy", [:admin, image], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Image", new_admin_image_path

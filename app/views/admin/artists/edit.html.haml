@@ -1,0 +1,6 @@
+- title "Edit Admin/Artist"
+= render 'form'
+%p
+  = link_to "Show", [:admin, @artist]
+  |
+  \#{link_to "View All", admin_artists_path}

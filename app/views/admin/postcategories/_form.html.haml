@@ -1,0 +1,18 @@
+=semantic_form_for [:admin, @postcategory] do |f|
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "lang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Name in #{t(:language_name, :locale => locale)}"
+          = en.text_field :name
+
+  = f.submit
+
+:javascript
+  $(document).ready(function() {
+    $('#language-tabs').tabs();
+
+  });  

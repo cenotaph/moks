@@ -1,0 +1,15 @@
+= form_for [:admin, @resource] do |f|
+  = f.error_messages
+  %p
+    = f.label :event
+    %br/
+    = f.text_field :event
+  %p
+    = f.label :project
+    %br/
+    = f.text_field :project
+  %p
+    = f.label :attachment
+    %br/
+    = f.text_field :attachment
+  %p= f.submit

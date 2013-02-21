@@ -1,0 +1,17 @@
+one:
+  address1: MyString
+  address2: MyString
+  city: MyString
+  county: MyString
+  country: MyString
+  postcode: MyString
+  map_url: MyString
+
+two:
+  address1: MyString
+  address2: MyString
+  city: MyString
+  county: MyString
+  country: MyString
+  postcode: MyString
+  map_url: MyString

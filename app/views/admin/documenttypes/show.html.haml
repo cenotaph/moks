@@ -1,0 +1,12 @@
+- title "Admin/Documenttype"
+
+%p
+  %strong Name:
+  = @documenttype.name
+
+%p
+  = link_to "Edit", edit_admin_documenttype_path(@documenttype)
+  |
+  = link_to "Destroy", [:admin, @documenttype], :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", admin_documenttypes_path

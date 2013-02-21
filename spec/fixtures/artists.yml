@@ -1,0 +1,15 @@
+one:
+  name: MyString
+  website1: MyString
+  website2: MyString
+  website3: MyString
+  avatar: MyString
+  slug: MyString
+
+two:
+  name: MyString
+  website1: MyString
+  website2: MyString
+  website3: MyString
+  avatar: MyString
+  slug: MyString

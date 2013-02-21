@@ -1,0 +1,27 @@
+- title "Admin/Registrations"
+%table
+  %tr
+    %th Name
+    %th Email
+    %th Phone
+    %th Amount Paid
+    %th Comments
+    %th Optional Answer
+    %th Event
+    %th Actually Showed Up
+    %th Waiting List
+  - for registration in @registrations
+    %tr
+      %td= registration.name
+      %td= registration.email
+      %td= registration.phone
+      %td= registration.amount_paid
+      %td= registration.comments
+      %td= registration.optional_answer
+      %td= registration.event
+      %td= registration.actually_showed_up
+      %td= registration.waiting_list
+      %td= link_to "Show", [:admin, registration]
+      %td= link_to "Edit", edit_admin_registration_path(registration)
+      %td= link_to "Destroy", [:admin, registration], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Admin/Registration", new_admin_registration_path

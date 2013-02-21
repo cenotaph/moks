@@ -1,0 +1,15 @@
+one:
+  user: 
+  is_personal: false
+  sticky: false
+  event: 
+  published: false
+  slug: MyString
+
+two:
+  user: 
+  is_personal: false
+  sticky: false
+  event: 
+  published: false
+  slug: MyString

@@ -1,0 +1,33 @@
+- title "Admin/Expense"
+%p
+  %strong Date Paid:
+  = @expense.date_paid
+%p
+  %strong Recipient:
+  = @expense.recipient
+%p
+  %strong What For:
+  = @expense.what_for
+%p
+  %strong Event:
+  = @expense.event
+%p
+  %strong Amount:
+  = @expense.amount
+%p
+  %strong Hidden:
+  = @expense.hidden
+%p
+  %strong Paid By:
+  = @expense.paid_by
+%p
+  %strong Budgetarea:
+  = @expense.budgetarea
+%p
+  %strong Has Receipt:
+  = @expense.has_receipt
+%p
+  = link_to "Edit", edit_admin_expense_path(@expense)
+  |
+  \#{link_to "Destroy", [:admin, @expense], :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", admin_expenses_path}

@@ -1,0 +1,31 @@
+%ul#menu
+  %li= link_to t(:users), admin_users_path
+  %li Administration
+  %li
+    %ul
+      %li= link_to t(:documents), admin_documents_path
+      %li= link_to t(:documenttypes), admin_documenttypes_path
+  %li Finances
+  %li
+    %ul
+      %li= link_to t(:contacts), admin_contacts_path
+      %li= link_to t(:budgetareas), admin_budgetareas_path
+      %li= link_to t(:invoices), admin_invoices_path
+      %li= link_to t(:income), admin_incomes_path
+      %li= link_to t(:expenses), admin_expenses_path
+  %li Website setup
+  %li
+    %ul
+      %li= link_to t(:projecttypes), admin_projecttypes_path
+      %li= link_to t(:postcategory), admin_postcategories_path
+      %li= link_to t(:residencytypes), admin_residencytypes_path
+      %li= link_to t(:funders), admin_funders_path
+      %li= link_to t(:locations), admin_locations_path
+  %li= link_to t(:artists), admin_artists_path
+  %li= link_to t(:projects), admin_projects_path
+  %li= link_to t(:events), admin_events_path
+  %li= link_to t(:pages), admin_pages_path
+  %li= link_to t(:posts), admin_posts_path
+  %li= link_to t(:publicities), admin_publicities_path
+  %li= link_to t(:registrations), admin_registrations_path
+  %li= link_to t(:wiki), '/admin/wiki'

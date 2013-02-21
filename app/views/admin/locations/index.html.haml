@@ -1,0 +1,18 @@
+%h2 "Admin/Locations"
+%table
+  %thead
+    %th Name
+    %th Address1
+    %th City
+    %th actions
+  %tbody
+  - for location in @locations
+    %tr
+      %td= location.name
+      %td= location.address1
+      %td= location.city
+      %td
+        = link_to "Show", [:admin, location]
+        = link_to "Edit", edit_admin_location_path(location)
+        = link_to "Destroy", [:admin, location], :confirm => 'Are you sure?', :method => :delete
+%p= link_to "define new location", new_admin_location_path

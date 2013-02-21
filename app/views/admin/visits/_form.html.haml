@@ -1,0 +1,21 @@
+= semantic_nested_form_for [:admin, @visit], :html => {:multipart => true } do |f|
+  = f.input :artist
+  = f.input :start_date, :as => :string, :input_html => {:class => 'ui-datepicker'}
+  = f.input :end_date, :as => :string, :input_html => {:class => 'ui-datepicker'}
+  #language-tabs
+    %ul.language-selection
+      - I18n.available_locales.each do |locale|
+        %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"
+    - I18n.available_locales.each do |locale|
+      %div{:id => "lang-#{locale}"}
+        = f.globalize_fields_for locale do |en|
+          %b= "Description of residency/visit in #{t(:language_name, :locale => locale)}"
+          = en.cktext_area :description  
+  = f.input :is_rental
+  = f.input :residencytype
+  = f.input :funders, :label => "Was this visit funded by anyone?", :as => :check_boxes
+  = f.input :project, :label => "Was this visit part of a specific project?"
+  %p Events included in this visit:
+  = f.input :events, :as => :check_boxes
+  = f.input :published, :label => "Make this visit public (uncheck to hide)"
+  = f.submit

@@ -1,0 +1,25 @@
+one:
+  contact_person: MyString
+  organisation: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  county: MyString
+  postcode: MyString
+  country: MyString
+  phone: MyString
+  website: MyString
+  email: MyString
+
+two:
+  contact_person: MyString
+  organisation: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  county: MyString
+  postcode: MyString
+  country: MyString
+  phone: MyString
+  website: MyString
+  email: MyString

@@ -1,0 +1,95 @@
+$color1: #7E9C76;
+$color2: #927782;
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+
+}
+
+li {
+  list-style-type: none;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: $color1;
+}
+
+ul#menu {
+  cursor: pointer;
+
+  li {
+    color: $color1;
+
+  }
+}
+
+
+table {
+  thead {
+    th {
+      padding: 7px;
+    }
+    border-top: 1px solid $color1;
+    border-bottom: 1px solid $color1;
+  }
+  tr {
+    th {
+      padding: 7px;
+    }
+    td {
+      padding: 7px;
+    }
+  }
+}
+
+table.with_border {
+  td {
+    vertical-align: top;
+  
+  }
+}
+
+input[name="commit"] {
+  clear: left;
+  float: left;
+}
+
+.cl {
+  clear: both;
+  float: left;
+  padding: 20px;
+}
+.add_image {
+  border: 1px dotted $color2;
+  padding: 10px;
+  float: left;
+  width: 300px;
+}
+
+.artist_visit_form {
+  border: 1px dotted $color2;
+  padding: 10px;
+  float: left;
+  width: 320px;
+}
+
+.funder_visits {
+  margin-left: 15px;
+}
+
+.funder_visit {
+  border-top: 1px dotted $color1;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.sound {
+  margin-bottom: 20px;
+
+  .description {
+    margin-left: 15px;
+    font-size: 8pt;
+    font-style: italic;
+  }
+}
