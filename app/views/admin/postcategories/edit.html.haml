@@ -1,6 +1,4 @@
-- title "Edit Admin/Postcategory"
+%h2
+  = t :edit
+  = t :post_category
 = render 'form'
-%p
-  = link_to "Show", [:admin, @postcategory]
-  |
-  \#{link_to "View All", admin_postcategories_path}

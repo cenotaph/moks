@@ -1,33 +1,25 @@
-- title "Admin/Contacts"
+%h2= t :contacts
 
 %table
-  %tr
+  %thead
     %th Contact person
     %th Organisation
-    %th Address1
-    %th Address2
     %th City
-    %th County
-    %th Postcode
     %th Country
-    %th Phone
     %th Website
     %th Email
-  - for contact in @contacts
-    %tr
-      %td= contact.contact_person
-      %td= contact.organisation
-      %td= contact.address1
-      %td= contact.address2
-      %td= contact.city
-      %td= contact.county
-      %td= contact.postcode
-      %td= contact.country
-      %td= contact.phone
-      %td= contact.website
-      %td= contact.email
-      %td= link_to 'Show', [:admin, contact]
-      %td= link_to 'Edit', edit_admin_contact_path(contact)
-      %td= link_to 'Destroy', [:admin, contact], :confirm => 'Are you sure?', :method => :delete
+    %th{:colspan => 3} actions
+  %tbody
+    - for contact in @contacts
+      %tr{:class => cycle('odd', 'even')}
+        %td= contact.contact_person
+        %td= contact.organisation
+        %td= contact.city
+        %td= contact.country
+        %td= contact.website
+        %td= contact.email
+        %td= link_to 'Show', [:admin, contact]
+        %td= link_to 'Edit', edit_admin_contact_path(contact)
+        %td.destroy= link_to 'Destroy', [:admin, contact], :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "new contact", new_admin_contact_path
+= button_to "new contact", new_admin_contact_path, :method => :get

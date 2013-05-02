@@ -1,6 +1,4 @@
-- title "Edit Admin/Location"
+%h2
+  = t :edit
+  = t :location
 = render 'form'
-%p
-  = link_to "Show", [:admin, @location]
-  |
-  \#{link_to "View All", admin_locations_path}

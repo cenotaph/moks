@@ -8,7 +8,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(:user_id => current_user.id)
   end
 
   def create

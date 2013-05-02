@@ -1,19 +1,18 @@
-%h2 funders
+%h2= t :funders
 %table
   %thead
     %th 
     %th Name
-    %th actions
+    %th{:colspan => 3} actions
   %tbody
     - for funder in @funders
-      %tr
+      %tr{:class => cycle('odd', 'even')}
         %td
           - if funder.logo?
             = image_tag funder.logo.url(:thumbnail)
         %td= funder.name
-        %td
-          = link_to "Show", [:admin, funder]
-          = link_to "Edit", edit_admin_funder_path(funder)
-          = link_to "Destroy", [:admin, funder], :confirm => 'Are you sure?', :method => :delete
+        %td= link_to "Show", [:admin, funder]
+        %td= link_to "Edit", edit_admin_funder_path(funder)
+        %td.destroy= link_to "Destroy", [:admin, funder], :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "define new funder", new_admin_funder_path

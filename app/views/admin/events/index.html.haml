@@ -1,15 +1,15 @@
 
-%h2 events
+%h2= t :events
 
 %table
   %thead
     %th dates
     %th name
     %th cost
-    %th actions
+    %th{:colspan => 3} actions
   %tbody
     - @events.each do |event|
-      %tr
+      %tr{:class => cycle('odd', 'even')}
         %td= event.start_at.strftime("%b %d %Y")
         %td
           = event.name
@@ -23,9 +23,9 @@
             .image_data
               %em= pluralize(event.sounds.size, 'sounds')                
         %td= event.cost
-        %td
-          = link_to 'edit', edit_admin_event_path(event)
-          = link_to 'destroy', [:admin, event], :confirm => "sure?", :method => :delete
-          = link_to 'show', admin_event_path(event)
+        %td= link_to 'show', admin_event_path(event)
+        %td= link_to 'edit', edit_admin_event_path(event)
+        %td.destroy= link_to 'destroy', [:admin, event], :confirm => "sure?", :method => :delete
+          
 
 = link_to "New event", new_admin_event_path

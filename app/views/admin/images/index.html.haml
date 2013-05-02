@@ -7,7 +7,7 @@
     %th Credit
     %th Published
   - for image in @images
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= image.attachable_id
       %td= image.attachable_type
       %td= image.filename

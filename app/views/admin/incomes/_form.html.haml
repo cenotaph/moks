@@ -1,4 +1,4 @@
-%h2 new money in
+
 = semantic_nested_form_for [:admin, @income], :html => {:multipart => true } do |f|
   - if f.object.invoice_id.blank?
     = f.input :invoice, :collection => Invoice.unpaid.map{|x| ["#{x.number} [#{x.contact.name_or_organisation}]", x.id]}, :label => 'apply to invoice:'

@@ -6,7 +6,7 @@
     %th Event
     %th Published
   - for sound in @sounds
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= sound.soundcloud_id
       %td= sound.filename
       %td= sound.event

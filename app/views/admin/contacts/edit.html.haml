@@ -1,8 +1,6 @@
-- title "Edit Admin/Contact"
+%h2
+  = t :edit
+  = t :contact
 
 = render 'form'
 
-%p
-  = link_to "Show", [:admin, @contact]
-  |
-  = link_to "View All", admin_contacts_path

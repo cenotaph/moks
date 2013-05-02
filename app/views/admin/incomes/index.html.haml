@@ -1,20 +1,22 @@
-- title "Admin/Incomes"
+%h2
+  = t :incomes
 %table
-  %tr
+  %thead
     %th Date Received
     %th Source
     %th What For
     %th Amount
     %th Budgetarea
-    %th actions
-  - for income in @incomes
-    %tr
-      %td= l income.date_received
-      %td= income.source
-      %td= income.what_for
-      %td= number_to_currency income.amount
-      %td= income.budgetarea.nil? ? "" : income.budgetarea.name
-      %td= link_to "Show", [:admin, income]
-      %td= link_to "Edit", edit_admin_income_path(income)
-      %td= link_to "Destroy", [:admin, income], :confirm => 'Are you sure?', :method => :delete
-%p= link_to "add new payment received", new_admin_income_path
+    %th{:colspan => 3} actions
+  %tbody
+    - for income in @incomes
+      %tr{:class => cycle('odd', 'even')}
+        %td= l income.date_received
+        %td= income.source
+        %td= income.what_for
+        %td= number_to_currency income.amount
+        %td= income.budgetarea.nil? ? "" : income.budgetarea.name
+        %td= link_to "Show", [:admin, income]
+        %td= link_to "Edit", edit_admin_income_path(income)
+        %td.destroy= link_to "Destroy", [:admin, income], :confirm => 'Are you sure?', :method => :delete
+= button_to "add new payment received", new_admin_income_path, :method => :get

@@ -1,6 +1,4 @@
-- title "Edit Admin/Income"
+%h2
+  = t :edit
+  = t :income
 = render 'form'
-%p
-  = link_to "Show", [:admin, @income]
-  |
-  \#{link_to "View All", admin_incomes_path}

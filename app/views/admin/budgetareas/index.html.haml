@@ -1,10 +1,10 @@
-- title "Admin/Budgetareas"
+%h2 Budget areas
 %table
   %tr
     %th Name
     %th Active
   - for budgetarea in @budgetareas
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= budgetarea.name
       %td= budgetarea.active
       %td= link_to "Show", [:admin, budgetarea]

@@ -1,4 +1,4 @@
-%h2 "Admin/Locations"
+%h2= t :locations
 %table
   %thead
     %th Name
@@ -7,7 +7,7 @@
     %th actions
   %tbody
   - for location in @locations
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= location.name
       %td= location.address1
       %td= location.city
@@ -15,4 +15,4 @@
         = link_to "Show", [:admin, location]
         = link_to "Edit", edit_admin_location_path(location)
         = link_to "Destroy", [:admin, location], :confirm => 'Are you sure?', :method => :delete
-%p= link_to "define new location", new_admin_location_path
+= button_to "define new location", new_admin_location_path, :method => :get

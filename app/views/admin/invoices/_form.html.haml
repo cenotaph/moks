@@ -4,6 +4,13 @@
   = f.input :date_due, :as => :string, :input_html => {:class => "ui-datepicker"}
   = f.input :number, :label => "invoice #"
   = f.input :amount
+  - unless f.object.new_record?
+    - if f.object.attachment.size > 0
+      %label
+        %p.inline-hints
+          = t :current_attachment
+          = File.basename(f.object.attachment.path)
+          = "(#{f.object.attachment.size} bytes)"
   = f.input :attachment, :label => "file to attach (invoice as PDF, etc.)"
   = f.input :what_for
   = f.submit

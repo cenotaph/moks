@@ -1,17 +1,18 @@
 - title "Videos"
 %table
-  %tr
+  %thead
     %th Videohost
     %th Event
     %th Provider Id Code
     %th Published
-  - for video in @videos
-    %tr
-      %td= video.videohost
-      %td= video.event
-      %td= video.provider_id_code
-      %td= video.published
-      %td= link_to "Show", video
-      %td= link_to "Edit", edit_video_path(video)
-      %td= link_to "Destroy", video, :confirm => 'Are you sure?', :method => :delete
+  %tbody
+    - for video in @videos
+      %tr{:class => cycle('odd', 'even')}
+        %td= video.videohost
+        %td= video.event
+        %td= video.provider_id_code
+        %td= video.published
+        %td= link_to "Show", video
+        %td= link_to "Edit", edit_video_path(video)
+        %td.destroy= link_to "Destroy", video, :confirm => 'Are you sure?', :method => :delete
 %p= link_to "New Video", new_video_path

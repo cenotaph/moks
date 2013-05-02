@@ -1,13 +1,13 @@
-%h2 artists
+%h2= t :artists
 %table.with_border
   %thead
     %th 
     %th Name
     %th Email
-    %th actions
+    %th{:colspan => 3} actions
   %tbody
     - for artist in @artists
-      %tr
+      %tr{:class => cycle('odd', 'even')}
         %td{:rowspan => 2}
           - if artist.avatar?
             = image_tag artist.avatar.url(:thumbnail)
@@ -16,10 +16,9 @@
           - unless artist.user.blank?
             = raw "[#{link_to(artist.user.username, [:admin, artist.user])}]"
         %td= artist.email
-        %td
-          = link_to "Show", [:admin, artist]
-          = link_to "Edit", edit_admin_artist_path(artist)
-          = link_to "Destroy", [:admin, artist], :confirm => 'Are you sure?', :method => :delete
+        %td= link_to "Show", [:admin, artist]
+        %td= link_to "Edit", edit_admin_artist_path(artist)
+        %td.destroy= link_to "Destroy", [:admin, artist], :confirm => 'Are you sure?', :method => :delete
       %tr
         - if artist.visits.empty?
           %td{:colspan => 3} No visits
@@ -29,14 +28,14 @@
               %thead
                 %th Visits: dates
                 %th Projects/events
-                %th actions
+                %th{:colspan => 2} actions
               %tbody
                 - artist.visits.sort_by(&:start_date).each do |visit|
                   %tr
                     %td= visit.dates
                     %td= visit.activities
-                    %td
-                      = link_to 'edit', edit_admin_visit_path(visit)
-                      = link_to 'destroy', [:admin, visit], :confirm => 'you sure?', :method => :delete
-
-%p= link_to "create new artist", new_admin_artist_path
+                    %td= link_to 'edit', edit_admin_visit_path(visit)
+                    %td.destroy= link_to 'destroy', [:admin, visit], :confirm => 'you sure?', :method => :delete
+      %tr.divider
+        %td{:colspan => 6} &nbsp;
+= button_to "create new artist", new_admin_artist_path, :method => :get

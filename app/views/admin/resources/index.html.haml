@@ -5,7 +5,7 @@
     %th Project
     %th Attachment
   - for resource in @resources
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= resource.event
       %td= resource.project
       %td= resource.attachment

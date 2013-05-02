@@ -8,7 +8,7 @@
     %th Residencytype
     %th Published
   - for visit in @visits
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= visit.start_date
       %td= visit.end_date
       %td= visit.is_rental

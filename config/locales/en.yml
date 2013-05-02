@@ -222,6 +222,7 @@ en:
       truncate: "..."
   language_name: "English"
   user: "Users"
+  new: "New"
   finance: "Finances"
   budget_area: 'Budget areas'
   invoice: 'Invoice'
@@ -233,6 +234,7 @@ en:
   residency_type: 'Residency type'
   residencyapplication: 'Residency application'
   post: 'Post'
+  edit: 'Edit'
   blog: 'Blog'
   artist_experiences: "Artists's experiences"
   contact: 'Contact/client'
@@ -246,12 +248,16 @@ en:
   resource: 'resource'
   registration: 'registration'
   publicity: 'publicity'
+  current_attachment: 'Current attachment: '
   projecttypes: 'Project types'
-  postcategory: 'Post categories'
+  postcategories: 'Post categories'
+  post_category: 'Post category: '
   residencytypes: 'Residency types'
   publicities: 'Press and publicity'
   registrations: 'Event registrations'
   budgetareas: 'Budget Areas'
   location: 'location'
+  new_artist_record: 'After you create and save the artist, you may edit this entry to define their different stays/visits.'
   documenttypes: 'Document Types'
-  
+  event_registration_disclaimer: 'Most people should register themselves, but use this form if you need to sign someone else up for an event.'
+  create_new_post: 'Create new post'

@@ -1,5 +1,10 @@
-$color1: #7E9C76;
-$color2: #927782;
+$moks-light: #F7F5F0;
+$moks-hover: #EAE8E0; 
+$moks-brown: #AF8E36;
+$moks-orange: #ff6666;
+$moks-orange-light: #ff9999;
+$cms-green: #7e9c76;
+$cms-color2: #927782;
 
 body, h1, h2, h3, h4, h5, h6 {
   font-family: Helvetica, Verdana, Arial, sans-serif;
@@ -12,15 +17,26 @@ li {
 
 a, a:visited {
   text-decoration: none;
-  color: $color1;
+  color: $cms-green;
 }
 
-ul#menu {
+
+
+#menu {
   cursor: pointer;
-
   li {
-    color: $color1;
+    color: $cms-green;
 
+    padding: 3px;
+    a {
+      &:hover {
+        color: $moks-orange;
+      }
+    }
+    &:hover {
+      color: $moks-orange;
+      background-color: $moks-light;
+    }
   }
 }
 
@@ -30,8 +46,8 @@ table {
     th {
       padding: 7px;
     }
-    border-top: 1px solid $color1;
-    border-bottom: 1px solid $color1;
+    border-top: 1px solid $cms-green;
+    border-bottom: 1px solid $cms-green;
   }
   tr {
     th {
@@ -61,14 +77,14 @@ input[name="commit"] {
   padding: 20px;
 }
 .add_image {
-  border: 1px dotted $color2;
+  border: 1px dotted $cms-color2;
   padding: 10px;
   float: left;
   width: 300px;
 }
 
 .artist_visit_form {
-  border: 1px dotted $color2;
+  border: 1px dotted $cms-color2;
   padding: 10px;
   float: left;
   width: 320px;
@@ -79,7 +95,7 @@ input[name="commit"] {
 }
 
 .funder_visit {
-  border-top: 1px dotted $color1;
+  border-top: 1px dotted $cms-green;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -91,5 +107,74 @@ input[name="commit"] {
     margin-left: 15px;
     font-size: 8pt;
     font-style: italic;
+  }
+}
+
+
+
+#main {
+margin-top: 60px;
+}
+
+td.overdue {
+color: red;
+}
+
+ td.destroy {
+  a {
+    text-transform: uppercase;
+    color: red;
+    font-size: 9px;
+    font-weight: bold;
+    &:hover {
+      color: white;
+    }
+  }
+ }
+ table {
+  tr.odd {
+    background-color: $moks-light;
+  }
+  tr:hover {
+    background-color: $moks-hover;
+  }
+  tr.divider {
+    background-color: $cms-green;
+    height: 2px;
+    line-height: 0;
+    padding: 0;
+    td {
+      padding: 0;
+    }
+  }
+ }
+
+ .formtastic {
+  li {
+    p.inline-hints {
+      font-size: 10px;
+      line-height: 12px;
+      width: 130px;
+      margin-top: -25px;
+      margin-left: 70px;
+      text-align: right;
+    }
+    label {
+      float: left;
+      text-align: right;
+      width: 200px;
+      margin-right: 15px;
+      line-height: 14px;
+    }
+  }
+  input[name="commit"] {
+    margin-left: 215px;
+  }
+
+}
+
+.wf_container {
+  select {
+    display: inline;
   }
 }

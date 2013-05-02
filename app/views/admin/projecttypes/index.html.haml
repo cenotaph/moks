@@ -3,7 +3,7 @@
   %thead
     %th Name
   - for projecttype in @projecttypes
-    %tr
+    %tr{:class => cycle('odd', 'even')}
       %td= projecttype.name
       %td= link_to "Show", [:admin, projecttype]
       %td= link_to "Edit", edit_admin_projecttype_path(projecttype)

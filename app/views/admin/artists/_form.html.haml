@@ -1,6 +1,6 @@
 = semantic_nested_form_for [:admin, @artist], :html => {:multipart => true} do |f|
   = f.input :name
-  = f.input :email, :label => "Artist email address (will not be seen by public)"
+  = f.input :email, :label => "Artist email address", :hint => 'will not be seen by public'
   #language-tabs
     %ul.language-selection
       - I18n.available_locales.each do |locale|
@@ -15,7 +15,7 @@
   = f.input :website3
   = f.input :avatar, :label => "Image of artist or their work"
   - if @artist.new_record?
-    After you create and save the artist, you may edit this entry to define their different stays/visits.
+    = t :new_artist_record
   - else
     %strong Visits:
     = f.fields_for :visits do |ff|

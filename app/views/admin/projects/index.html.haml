@@ -1,16 +1,16 @@
-%h2 Projects
+%h2= t :projects
 %table
   %thead
     %th Name
     %th Project type
-    %th actions
-  - for project in @projects
-    %tr
-      %td= project.name
-      %td= project.projecttype.try(:name)
-      %td
-        = link_to "Show", [:admin, project]
-        = link_to "Edit", edit_admin_project_path(project)
-        = link_to "Destroy", [:admin, project], :confirm => 'Are you sure?', :method => :delete
+    %th{:colspan => 3} actions
+  %tbody
+    - for project in @projects
+      %tr{:class => cycle('odd', 'even')}
+        %td= project.name
+        %td= project.projecttype.try(:name)
+        %td= link_to "Show", [:admin, project]
+        %td= link_to "Edit", edit_admin_project_path(project)
+        %td.destroy= link_to "Destroy", [:admin, project], :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "create new project", new_admin_project_path
+= button_to "create new project", new_admin_project_path, :method => :get
