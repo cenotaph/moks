@@ -22,6 +22,8 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title_en, :use => :history
 
+  scope :published, where(:published => true)
+  
   def title_en
     self.name(:en)
   end

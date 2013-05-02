@@ -15,6 +15,84 @@
  *= require skeleton1200
 */
 
+@import 'variables';
+
+
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url('helveticaneueltstd-lt-webfont.eot');
+  src: url('helveticaneueltstd-lt-webfont.eot?#iefix') format('embedded-opentype'),
+    url('helveticaneueltstd-lt-webfont.svg#helveticaneueltdstd') format('svg'),
+    url('helveticaneueltstd-lt-webfont.woff') format('woff'),
+    url('helveticaneueltstd-lt-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  background: url(image_path('bg-gradient.png')) repeat-x top !important;
+  padding-top: 50px !important;
+}
+
+header {
+
+  .header_wrapper {
+    border-bottom: 5px solid $site-beige;
+    padding-bottom: 25px;
+    margin-bottom: 25px; 
+  }
+  .title {  
+    margin: 50px 0px 20px 0px;
+    font-family: 'HelveticaNeueLTStd';
+    font-size: 48px;
+    font-style: italic;
+    a {
+      color: $dark;
+      text-decoration: none;
+    }
+  }
+  nav {
+    ul {
+      li {
+        float: left;
+        margin-right: 15px;
+        a, a:visited {
+          font-family: 'HelveticaNeueLTStd';
+          color: $site-olive;
+          font-size: 24px;
+          font-style: italic;
+          text-decoration: none;
+
+          &:hover {
+            color: $site-orange;
+            border-bottom: 1px solid $site-orange;
+            padding-bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.nav {
+  li {
+    a, a:visited {
+      font-family: 'HelveticaNeueLTStd';
+      color: $site-olive;
+      font-size: 14px;
+      font-style: italic;
+      text-decoration: none;
+
+      &:hover {
+        color: $site-orange;
+        border-bottom: 1px solid $site-orange;
+        padding-bottom: 2px;
+      }
+    }
+  }
+}
+
 .content {
   background-color: #eee;
   padding: 20px;

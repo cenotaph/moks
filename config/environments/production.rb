@@ -49,6 +49,10 @@ Moks::Application.configure do
   config.assets.precompile += %w(  jquery.collapsible-menus.min.js)
   config.assets.precompile += Ckeditor.assets
   config.assets.precompile += %w{ admin.css will_filter/filter.css will_filter/filter.js will_filter/actions.css  will_filter/buttons.css  will_filter/exporter.css will_filter/results.css  will_filter/calendar.css   }
+
+
+  # Precompile additional assets
+  config.assets.precompile += %w( .svg .eot .woff .ttf )
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 

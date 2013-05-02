@@ -8,6 +8,10 @@ Moks::Application.routes.draw do
 
   resources :residencyapplications
 
+  resources :pages
+  resources :events
+  resources :projects
+  resources :posts
 
 
   namespace :admin do

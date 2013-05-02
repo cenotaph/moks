@@ -10,6 +10,18 @@ class Post < ActiveRecord::Base
   belongs_to :postcategory
   extend FriendlyId
   friendly_id :title_en, :use => :history
+  before_save :check_for_post_date 
+  validates_presence_of :postcategory_id
+
+  scope :published, where(:published => true)
+  scope :news, where(:postcategory_id => 2).order('posted_at desc')
+  scope :blog, where(:postcategory_id => 1).order('posted_at desc')
+  
+  def check_for_post_date
+    if posted_at.blank? && published == true
+      self.posted_at = Time.now
+    end
+  end
 
   def title_en
     self.title(:en)

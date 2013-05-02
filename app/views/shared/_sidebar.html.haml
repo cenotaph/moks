@@ -1,0 +1,15 @@
+.events
+  .heading= t :events
+  - @sidebar_events.each do |event|
+    .event
+      .date= l event.start_at.to_date, :format => :long
+      .title= link_to event.name, event
+  .archive= link_to t(:archive) + " >", events_path
+
+
+.news
+  .heading= t :latest_post
+  .event
+    .date= l @sidebar_post.posted_at.to_date, :format => :long
+    .title= link_to @sidebar_post.title, @sidebar_post
+  .archive= link_to t(:more) + " >", posts_path

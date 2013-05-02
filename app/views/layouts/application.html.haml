@@ -9,17 +9,30 @@
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
-    #main{:role => "main"}
-      .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-          %footer
+    .container
+      #left.three.columns.alpha
+        .logo
+          = link_to '/' do
+            = image_tag 'logo-moks.png'
+        .sidebar= render :partial => 'shared/sidebar'
+        .system= render 'layouts/navigation'
+      #right.thirteen.columns.omega
+        %header
+          .header_wrapper.thirteen.columns
+            .title= link_to 'MoKS', '/'
+            %nav
+              %ul
+                %li= link_to t(:about), page_path('about')
+                %li= link_to t(:residency), page_path('residency')
+                %li= link_to t(:events), events_path
+                %li= link_to t(:projects), projects_path
+                %li= link_to t(:blog), posts_path
+                %li= link_to t(:supporters), page_path('supporters')
+                %li= link_to t(:contact), page_path('contact')
+
+          = render 'layouts/messages'
+          .thirteen.columns.yield= yield
+
+        %footer
       / ! end of .container
     / ! end of #main
