@@ -261,3 +261,8 @@ en:
   documenttypes: 'Document Types'
   event_registration_disclaimer: 'Most people should register themselves, but use this form if you need to sign someone else up for an event.'
   create_new_post: 'Create new post'
+  page_not_found: 'Page not found'
+  page_not_found_text: 'The page you are looking for does not exist.'
+  create_it: 'create it'
+  perhaps_you_would_like_to: 'Perhaps you would like to'
+  public_site: 'Public site'

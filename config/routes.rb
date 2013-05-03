@@ -40,7 +40,11 @@ Moks::Application.routes.draw do
       resources :incomes
     end
     resources :locations
-    resources :pages
+    resources :pages do
+      collection do
+        get :from_slug
+      end
+    end
     resources :postcategories
     resources :posts
     resources :projects

@@ -1,5 +1,6 @@
 = semantic_form_for [:admin, @page], :html => {:multipart => true } do |f|
   #language-tabs
+    = f.input :slug
     %ul.language-selection
       - I18n.available_locales.each do |locale|
         %li{:id => "picklang-#{locale}"}= link_to t(:language_name, :locale => locale), "#lang-#{locale}"

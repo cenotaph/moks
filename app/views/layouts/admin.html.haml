@@ -15,6 +15,7 @@
       %header.navbar.navbar-fixed-top
         %nav.navbar-inner
           .container
+            %h3= link_to t(:public_site), '/'
             = render 'layouts/navigation'
       #main{:role => "main"}
         .three.columns.alpha= render :partial => 'layouts/admin_menu'

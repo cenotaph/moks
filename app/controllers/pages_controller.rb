@@ -1,10 +1,14 @@
-class PagesController < ApplicationController
+class PagesController < InheritedResources::Base
   def index
     @pages = Page.all
   end
 
   def show
-    @page = Page.find(params[:id])
+    begin
+      @page = Page.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render :template => 'pages/404missing'
+    end
   end
 
   def new
