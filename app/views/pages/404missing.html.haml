@@ -1,0 +1,11 @@
+%h2
+  = t :page_not_found
+
+%p
+  = t :page_not_found_text
+
+- if user_signed_in?
+  %p
+    = t :perhaps_you_would_like_to
+    = link_to t(:create_it), from_slug_admin_pages_path(:slug => params[:id])
+    = "?"
