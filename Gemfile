@@ -70,6 +70,7 @@ gem 'rolify', '>= 3.2.0'
 gem 'rspec-rails', '>= 2.11.4', :group => [:development, :test]
 gem 'skeleton-rails'
 gem 'soundmanager2-rails'
+gem 'superfish-rails'
 gem 'truncate_html'
 gem 'vimeo'
 gem 'wicked_pdf'

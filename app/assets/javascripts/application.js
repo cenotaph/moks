@@ -18,4 +18,6 @@
 //= require jquery.ui.tabs
 //= require ckeditor/init
 //= require soundmanager2
+//= require superfish
+//= require hoverIntent
 //= require_tree .

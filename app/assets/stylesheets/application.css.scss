@@ -13,6 +13,7 @@
  *= require base
  *= require layout
  *= require skeleton1200
+
 */
 
 @import 'variables';
@@ -35,45 +36,7 @@ body {
   padding-top: 50px !important;
 }
 
-header {
 
-  .header_wrapper {
-    border-bottom: 5px solid $site-beige;
-    padding-bottom: 25px;
-    margin-bottom: 25px; 
-  }
-  .title {  
-    margin: 50px 0px 20px 0px;
-    font-family: 'HelveticaNeueLTStd';
-    font-size: 48px;
-    font-style: italic;
-    a {
-      color: $dark;
-      text-decoration: none;
-    }
-  }
-  nav {
-    ul {
-      li {
-        float: left;
-        margin-right: 15px;
-        a, a:visited {
-          font-family: 'HelveticaNeueLTStd';
-          color: $site-olive;
-          font-size: 24px;
-          font-style: italic;
-          text-decoration: none;
-
-          &:hover {
-            color: $site-orange;
-            border-bottom: 1px solid $site-orange;
-            padding-bottom: 2px;
-          }
-        }
-      }
-    }
-  }
-}
 
 ul.nav {
   li {
@@ -103,4 +66,122 @@ ul.nav {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/***** fix superfish *****/
+
+/*** ESSENTIAL STYLES ***/
+
+.sf-menu, .sf-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sf-menu li {
+  margin-right: 25px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.sf-menu ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+}
+.sf-menu > li {
+  float: left;
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+  display: block;
+}
+
+.sf-menu a {
+  display: block;
+  position: relative;
+}
+.sf-menu ul ul {
+  top: 0;
+  left: 100%;
+}
+
+
+.sf-menu {
+  float: left;
+  margin-bottom: 1em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  a {
+    display: block;
+    position: relative;
+  }
+  ul {
+    margin-top: 0px;
+    padding-top: 5px;
+
+    background-color: $site-beige;
+    li {
+      &:hover {
+        padding-top: 0px;
+        padding-bottom: 1px;
+      }
+    }
+  }
+  li {
+    white-space: nowrap;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+    padding-bottom: 2px;
+    &:hover {
+      padding-top: 0px;
+    }
+
+  }
+}
+
+
+header {
+
+  .header_wrapper {
+    border-bottom: 5px solid $site-beige;
+    padding-bottom: 25px;
+    margin-bottom: 25px; 
+  }
+  .title {  
+    margin: 50px 0px 20px 0px;
+    font-family: 'HelveticaNeueLTStd';
+    font-size: 48px;
+    font-style: italic;
+    a {
+      color: $dark;
+      text-decoration: none;
+    }
+  }
+  nav {
+    ul {
+      li {
+
+        margin-right: 15px;
+        a, a:visited {
+          font-family: 'HelveticaNeueLTStd';
+          color: $site-olive;
+          font-size: 24px;
+          font-style: italic;
+          text-decoration: none;
+
+          &:hover {
+            color: $site-orange;
+            border-bottom: 1px solid $site-orange;
+          }
+        }
+        &:hover {
+          padding-bottom: 1px;
+        }
+
+      }
+    }
+  }
 }

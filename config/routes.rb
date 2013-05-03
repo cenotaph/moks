@@ -11,8 +11,17 @@ Moks::Application.routes.draw do
   resources :pages
   resources :events
   resources :projects
-  resources :posts
-
+  resources :posts do
+    collection do
+      get :news
+    end
+  end
+  resources :artists do
+    collection do
+      get :past
+    end
+  end
+  
 
   namespace :admin do
     resources :artists do
