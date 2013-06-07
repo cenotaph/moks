@@ -1,0 +1,7 @@
+.page_heading= t :current_resident_artists
+- if @artists.empty?
+  = t :no_current_artists
+
+- else
+  - @artists.each do |a|
+    = render :partial => 'artist', :locals => {:artist => a}

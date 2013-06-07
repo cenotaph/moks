@@ -26,16 +26,16 @@
                 %li
                   = link_to t(:current), '#'
                   %ul
-                    %li= link_to t(:news), news_posts_path
-                    %li= link_to t(:events), events_path
-                    %li= link_to t(:exhibition), page_path('exhibition')
-                    %li= link_to t(:projects), projects_path
-                    %li= link_to t(:artists), artists_path
+                    %li= nav_link t(:news), news_posts_path
+                    %li= nav_link t(:events), events_path
+                    %li= nav_link t(:exhibition), page_path('exhibition')
+                    %li= nav_link t(:projects), projects_path
+                    %li= nav_link t(:artists), artists_path
                 %li
                   = link_to t(:residency), page_path('residency')
                   %ul
-                    %li= link_to t(:apply), '#'
-                    %li= link_to t(:artists), past_artists_path
+                    %li= nav_link t(:apply), '#'
+                    %li= nav_link t(:artists), past_artists_path
                 %li= link_to t(:gallery), page_path('gallery')
                 %li= link_to t(:archive), '#'
                 -# %li= link_to t(:blog), posts_path
@@ -43,9 +43,9 @@
                 %li= link_to t(:contact), page_path('contact')
 
           = render 'layouts/messages'
-          .thirteen.columns.yield= yield
+        .thirteen.columns.yield= yield
 
-        %footer
+      %footer
     :javascript
       $(document).ready(){
         $('ul.sf-menu').superfish();

@@ -23,8 +23,8 @@
           .row
             .eight.columns
               = render 'layouts/messages'
-          = yield
-          %footer
+          .cms= yield
+      %footer
     :javascript
       $(document).ready(function() {
         $('#language-tabs').tabs();

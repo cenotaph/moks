@@ -1,6 +1,117 @@
+@import 'variables';
+
 ul.nav {
   li {
     float:left;
     padding-right: 10px;
+  }
+}
+
+.page_heading {
+  color: $site-olive2;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  margin: 15px 0px 25px 0px;
+  font-family: 'HelveticaNeueLTStd';
+
+}
+
+.sub_heading {
+  margin: 15px 0px 25px 0px;
+  color: $dark;
+  font: 22px/25px 'HelveticaNeueLTStd';
+}
+
+.application {
+  .application_info {
+    font: 16px/18px 'HelveticaNeueLTStd';
+    color: #000;
+  }
+  li {
+    list-style-type: none;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+  label {
+    font: 18px/20px 'HelveticaNeueLTStd';
+    color: $dark;
+    width: 185px;
+    padding-top: 15px;
+    float: left;
+
+  }
+  li.text {
+    height: auto;
+    label {
+      width: 100%;
+      clear: right;
+      margin-bottom: 20px;
+    }
+  }
+  input {
+    &:focus {
+      outline: none;
+    }
+    font: 18px/20px 'HelveticaNeueLTStd';
+    padding: 15px 10px;
+    color: $dark;
+    background-color: $light-background;
+    border: none;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    &[type=text], &[type=email] {
+      height: 20px;
+      width: 290px;
+    }
+    &[type=file] {
+      height: 30px;
+      padding-top: 10px;
+      width: 290px;
+    }
+  }
+  textarea {
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    font: 18px/20px 'HelveticaNeueLTStd';
+    color: $dark;
+    background-color: $light-background;
+    border: none; 
+    height: 250px;
+    padding: 15px 10px;
+    width: 100%; 
+    &:focus {
+      outline: none;
+    }
+  }
+  fieldset.actions {
+    border: none;
+    margin: 0;
+    padding: 0;
+    ol {
+      padding: 0px;
+    
+      li#residencyapplication_submit_action {
+        border-top: 1px solid $site-beige;
+        padding-top: 18px;
+        button {
+          &[type=submit] {
+            background-color: $moks-orange;
+            height: 40px;
+            width: 180px;
+            color: white;
+            font: 16px/18px 'HelveticaNeueLTStd';
+            font-weight: bold;
+            padding-top: 8px;
+            border-radius:5px;
+            -moz-border-radius:5px;
+            border: none;
+            -webkit-border-radius:5px;      
+          }
+        }
+      }
+    }
   }
 }

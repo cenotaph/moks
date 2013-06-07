@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require_tree ./all
- *= require base
  *= require layout
  *= require skeleton1200
 
@@ -36,7 +35,23 @@ body {
   padding-top: 50px !important;
 }
 
+a {
+    text-decoration: none;
+    position: relative;
+}
+a:after {
+    content: '';
 
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    border-width: 0 0 1px;
+    border-style: solid;
+}
+.logo a:after, header a:after {
+  border: none;
+}
 
 ul.nav {
   li {
@@ -147,11 +162,11 @@ header {
 
   .header_wrapper {
     border-bottom: 5px solid $site-beige;
-    padding-bottom: 25px;
+ 
     margin-bottom: 25px; 
   }
   .title {  
-    margin: 50px 0px 20px 0px;
+    margin: 40px 0px 10px 0px;
     font-family: 'HelveticaNeueLTStd';
     font-size: 48px;
     font-style: italic;
@@ -184,4 +199,7 @@ header {
       }
     }
   }
+}
+.container {
+  border-bottom: 5px solid $site-beige;
 }

@@ -1,5 +1,17 @@
-- title "New Residencyapplication"
+.page_heading= t :apply_for_residency
 
-= render 'form'
+.application
+  .application_info= t :application_blurb
+  .application_image
 
-%p= link_to "Back to List", residencyapplications_path
+  .sub_heading= t :application_form
+  = semantic_form_for @residencyapplication, :html => {:multipart => true} do |f|
+    = f.input :name
+    = f.input :email
+    = f.input :urls, :as => :string, :label => t(:portfolio)  
+    = f.input :residencytype, :label => t(:residency_type)
+    = f.input :other_questions, :label => t(:application_brief_description)
+    = f.input :cv
+    = f.input :other_attachment
+    = f.actions do
+      = f.action :submit, :as => :button, :label => t(:submit_application)

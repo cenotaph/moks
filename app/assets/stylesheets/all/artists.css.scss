@@ -1,0 +1,53 @@
+@import 'variables';
+.artist {
+  .artist_name {
+    color: $dark;
+    font-size: 22px;
+    font-family: 'HelveticaNeueLTStd';
+  }
+  .artist_bio {
+    margin-top: 15px;
+    font: 18px/25px 'HelveticaNeueLTStd';
+    color: #000;
+  }
+}
+
+.residency_list {
+  .artists_year {
+    margin-bottom: 40px;
+    .year {
+      font-size: 19px;
+      color: #000;
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-family: 'HelveticaNeueLTStd';
+    }
+
+    .artist_visit {
+
+      color: #000;
+      font-family: 'HelveticaNeueLTStd';
+      font-size: 18px;
+      line-height: 27px;
+
+      a {
+        color: $site-orange;
+        font-size: 18px;
+        line-height: 27px;
+        text-decoration: none;
+      }
+      span.country {
+
+      }
+      span.residency_type {
+
+      }
+      span.residency_dates {
+        color: $site-blue;
+        font-family: 'HelveticaNeueLTStd';
+        font-size: 14px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

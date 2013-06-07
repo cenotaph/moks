@@ -1,0 +1,15 @@
+.application_view
+  .field.twelve.columns
+    %label= t :name
+    .value= @residencyapplication.name
+
+  .field.twelve.columns
+    %label= t :residencytype
+    .value= @residencyapplication.residencytype.try(:name)
+
+  .field.twelve.columns
+    %label= t :cv
+    - if @residencyapplication.cv.blank?
+      .value= t :not_uploaded
+    - else
+      .value= link_to t(:download), @residencyapplication.cv.url

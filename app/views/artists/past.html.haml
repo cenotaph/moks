@@ -1,0 +1,16 @@
+.page_heading= t :residency_artists
+.residency_list
+  - @visits.group_by{|x| x.start_date.strftime('%Y')}.each do |year|
+    .artists_year
+      .year= year.first
+      - year.last.sort{|x, y| y.start_date <=> x.start_date}.each do |visit|
+        .artist_visit
+          = link_to visit.artist.name, visit.artist
+          %span.country= visit.artist.country
+          = ' / '
+          - unless visit.residencytype.nil?
+            %span.residency_type= visit.residencytype.name
+          %span.residency_dates
+            = t("date.month_names")[visit.start_date.month]
+            - if visit.start_date.month != visit.end_date.month
+              = " - " + t("date.month_names")[visit.end_date.month]

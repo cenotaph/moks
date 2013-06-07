@@ -174,3 +174,14 @@ td.overdue {
     display: inline;
   }
 }
+
+.application_view {
+  .field { margin-bottom: 15px; clear: left; }
+  label {
+    width: 150px;
+    float: left;
+  }
+  .value {
+    float: left;
+  }
+}

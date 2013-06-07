@@ -6,7 +6,7 @@ Moks::Application.routes.draw do
 
   resources :projectproposals
 
-  resources :residencyapplications
+  resources :residencyapplications, :path => :applications
 
   resources :pages
   resources :events
@@ -51,6 +51,7 @@ Moks::Application.routes.draw do
     resources :projecttypes
     resources :publicities
     resources :registrations
+    resources :residencyapplications
     resources :residencytypes
     resources :sounds
     resources :users
