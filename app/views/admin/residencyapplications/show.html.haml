@@ -13,3 +13,33 @@
       .value= t :not_uploaded
     - else
       .value= link_to t(:download), @residencyapplication.cv.url
+
+  .comments
+    %h3= t :comments
+    - if @residencyapplication.staffcomments.empty?
+      = t :no_comments_yet
+    - else
+      - @residencyapplication.staffcomments.sort_by{|x| x.created_at}.each do |sc|
+        .comment.eleven.columns
+          .two.columns.alpha
+            = image_tag sc.user.icon(:box)
+            .name= sc.user.real_name
+            .timestamps
+              .timestamp= l sc.created_at, :format => :short
+              .ago= time_ago_in_words(sc.created_at) + t(:ago)
+
+          .nine.columns.omega.staff.comment_body
+            = simple_format(raw sc.comment)
+    .new_comment.eleven.columns
+      %h4= t :leave_a_comment
+      .two.columns.alpha
+        = image_tag current_user.icon(:box)
+        .name= current_user.real_name
+      .nine.columns.omega.staff_comment
+        = semantic_form_for([:admin, Staffcomment.new]) do |f|
+          = f.input :comment, :label => false
+          = f.input :commentable_type, :as => :hidden, :input_html => {:value => 'Residencyapplication'}
+          = f.input :commentable_id, :as => :hidden,:input_html => {:value => @residencyapplication.id}
+          = f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id}
+          = f.actions do
+            = f.action :submit, :as => :button, :label => t(:add_comment)

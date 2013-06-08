@@ -6,7 +6,11 @@
       = auth.provider
       = auth.uid
   = f.input :email
+  = f.input :real_name
   = f.input :username
   = f.input :roles
-  = f.input :artist, :label => "Is this user also an artist?"
+  - if @user.avatar?
+    = image_tag @user.avatar.url(:thumbnail)
+  = f.input :avatar, :label => t(:profile_photo)
+  = f.input :artist, :label => t(:is_also_artist)
   = f.submit

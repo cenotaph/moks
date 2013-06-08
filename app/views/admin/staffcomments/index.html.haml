@@ -1,0 +1,17 @@
+%h1 Listing admin_staffcomments
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @admin_staffcomments.each do |admin_staffcomment|
+    %tr
+      %td= link_to 'Show', admin_staffcomment
+      %td= link_to 'Edit', edit_admin_staffcomment_path(admin_staffcomment)
+      %td= link_to 'Destroy', admin_staffcomment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Staffcomment', new_admin_staffcomment_path

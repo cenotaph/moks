@@ -1,4 +1,6 @@
 %h3 Profile for user
+- if @user.avatar?
+  = image_tag @user.avatar.url(:standard)
 %p= "User: #{@user.real_name} [#{@user.username}]"
 %p= "Email: #{@user.email if @user.email}"
 
@@ -7,4 +9,4 @@
 - @user.authentications.each do |auth|
   %p
     = auth.provider
-    = auth.uid
+    = "(" + auth.uid + ")"

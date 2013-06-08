@@ -1,0 +1,80 @@
+// Place all the styles related to the Admin::Staffcomments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+.comments {
+  .comment {
+    border-bottom: 1px dotted $site-olive;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    .timestamps {
+      color: #666;
+      .timestamp {
+        font-size: 12px;
+      }
+      .ago {
+        font-size: 10px;
+        font-weight: italic;
+      }
+    }
+    .comment_body {
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      font: 15px/18px 'HelveticaNeueLTStd';
+      color: $dark;
+      p {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+.staff_comment {
+
+  textarea {
+    border: none;
+    &:focus {
+      outline: none;
+    }
+    background-color: $site-beige;
+    width: 400px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    font: 18px/20px 'HelveticaNeueLTStd';
+    color: $dark;
+    background-color: $light-background;
+    height: 250px;
+    padding: 15px 10px;
+  
+  }
+
+fieldset.actions {
+    border: none;
+    margin: 0;
+    padding: 0;
+    ol {
+      padding: 0px;
+    
+      li {
+        border-top: 1px solid $site-beige;
+        padding-top: 18px;
+        button {
+          &[type=submit] {
+            background-color: $moks-orange;
+            height: 40px;
+            width: 180px;
+            color: white;
+            font: 16px/18px 'HelveticaNeueLTStd';
+            font-weight: bold;
+            padding-top: 8px;
+            border-radius:5px;
+            -moz-border-radius:5px;
+            border: none;
+            -webkit-border-radius:5px;      
+          }
+        }
+      }
+    }
+  }
+}

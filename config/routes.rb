@@ -1,5 +1,10 @@
 Moks::Application.routes.draw do
 
+  namespace :admin do
+    resources :staffcomments
+  end
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
@@ -51,10 +56,16 @@ Moks::Application.routes.draw do
     resources :projecttypes
     resources :publicities
     resources :registrations
-    resources :residencyapplications
+    resources :residencyapplications do
+      resources :staffcomments
+    end
     resources :residencytypes
     resources :sounds
-    resources :users
+    resources :users do
+      member do 
+        get :edit_profile
+      end
+    end
     resources :visits
   end
 

@@ -1,7 +1,8 @@
 
 %ul.nav
   - if user_signed_in?
-    %li= "Signed in as #{current_user.real_name} [#{current_user.username}]"
+    %li= "Signed in as #{current_user.real_name}"
+    %li= link_to "[edit profile]", edit_profile_admin_user_path(current_user)
     - if current_user.has_role? :visitor
       %li= link_to 'Admin', '/admin'
     %li

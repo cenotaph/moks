@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   belongs_to :artist
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :artist_id, :role_ids, :real_name, :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :artist_id, :role_ids, :real_name, :avatar, :username, :email, :password, :password_confirmation, :remember_me
+  mount_uploader :avatar, ImageUploader
+  
+
   
   def apply_omniauth(omniauth)
     if omniauth['provider'] == 'twitter'
@@ -30,6 +33,13 @@ class User < ActiveRecord::Base
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
 
+  def icon(size = :standard)
+    if avatar?
+      avatar.url(size)
+    else
+      'missing_person.png'
+    end
+  end
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end

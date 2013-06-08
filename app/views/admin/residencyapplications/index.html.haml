@@ -4,12 +4,14 @@
   %thead
     %th= t :name
     %th= t :residency_type
+    %th= t :number_of_comments
     %th{:colspan => 3}
   %tbody
     - @residencyapplications.sort_by{|x| x.created_at }.reverse.each do |app|
       %tr{:class => cycle('odd','even')}
         %td= app.name
         %td= app.residencytype.try(:name)
+        %td= app.staffcomments.size
         %td= link_to "Show", [:admin, app]
         %td= link_to "Edit", edit_admin_residencyapplication_path(app)
         %td.destroy= link_to "Destroy", [:admin,  app], :confirm => 'Are you sure?', :method => :delete        
