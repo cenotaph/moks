@@ -1,14 +1,15 @@
-#images
+%div{:id => "images_" + image_array.first.id.to_s}
   = image_tag image_array.first.filename.url(:large)
    
-- image_array.each do |image|
-  = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), '#', :rel => image.image.url(:large), :class => "slide_image")
+%div{:id => "slides_" + image_array.first.id.to_s}
+  - image_array.each do |image|
+    = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), '#', :rel => image.filename.url(:large), :class => "slide_image")
 
 :javascript
-  $(".slide_image").click(function() {
+  $("#slides_#{image_array.first.id.to_s} .slide_image").click(function() {
     var image = $(this).attr("rel");
-    $('#images').hide();
-    $('#images').fadeIn('slow');
-    $('#images').html('<img src="' + image + '"/>');
+    $('#images_#{image_array.first.id.to_s}').hide();
+    $('#images_#{image_array.first.id.to_s}').fadeIn('slow');
+    $('#images_#{image_array.first.id.to_s}').html('<img src="' + image + '"/>');
     return false;
   });

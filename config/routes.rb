@@ -19,6 +19,7 @@ Moks::Application.routes.draw do
   resources :posts do
     collection do
       get :news
+      get :blog
     end
   end
   resources :artists do

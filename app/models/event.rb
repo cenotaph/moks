@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  paginates_per 6
   attr_accessible :start_at, :end_at, :images_attributes, :sounds_attributes, :videos_attributes, :promoter, :cost, :translations_attributes, :discounted_cost, :discount_reason, :register_through_project, :registration_required, :registration_limit, :registration_recipient, :registration_optional_q, :hide_registrants, :avatar, :location_id, :donations_requested, :published, :slug, :project_ids
   translates :name, :description, :notes, :fallbacks_for_empty_translations => true
   belongs_to :location

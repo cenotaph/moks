@@ -27,7 +27,7 @@ class Admin::PostsController < Admin::BaseController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
-      redirect_to [:admin, @post], :notice  => "Successfully updated post."
+      redirect_to @post, :notice  => "Successfully updated post."
     else
       render :action => 'edit'
     end

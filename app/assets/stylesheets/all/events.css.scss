@@ -1,0 +1,32 @@
+@import 'variables';
+
+.events {
+  .event {
+    margin-bottom: 40px;
+    font-family: 'HelveticaNeueLTStd';
+    .timestamp {
+      color: $site-blue;
+      font-size: 18px;
+    }
+    .title {
+      color: #000;
+      font-size: 24px;
+      a {
+        color: #000;
+        &:hover {
+          color: $site-orange;
+        }
+      }
+    }
+    .notes {
+      font-size: 15px;
+      line-height: 28px;
+    }
+    .more_link {
+      color: $site-orange;
+      a {
+        color: $site-orange;
+      }
+    }
+  }
+}

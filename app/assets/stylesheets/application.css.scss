@@ -203,3 +203,10 @@ header {
 .container {
   border-bottom: 5px solid $site-beige;
 }
+
+.inline_gallery {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

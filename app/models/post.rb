@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  paginates_per 6
   attr_accessible :user_id, :is_personal, :sticky, :event_id, :published, :slug, :postcategory_id, :translations_attributes, :images_attributes
   belongs_to :user
   translates :title, :body, :fallbacks_for_empty_translations => true

@@ -1,0 +1,9 @@
+.page_heading= @title
+.posts
+  - @posts.each do |post|
+    .post
+      = render :partial => 'post', locals: {post: post}
+      .more_link
+        = link_to t(:more), post
+        = " > "
+= paginate @posts
