@@ -184,7 +184,6 @@ GEM
     multi_json (1.7.6)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
-    mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.7)
@@ -221,6 +220,7 @@ GEM
     paper_trail (2.7.1)
       activerecord (~> 3.0)
       railties (~> 3.0)
+    pg (0.15.1)
     polyglot (0.3.3)
     public_activity (1.0.3)
       actionpack (~> 3.0)
@@ -366,13 +366,13 @@ DEPENDENCIES
   meta-tags
   mini_magick
   mocha
-  mysql2
   nested_form!
   nifty-generators
   oauth-client
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
+  pg
   public_activity
   quiet_assets
   railroady
