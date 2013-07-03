@@ -1,12 +1,13 @@
 = semantic_nested_form_for [:admin, @event], :html => {:multipart => true} do |f|
-  = f.input :start_at, :as => :string, :input_html => {:class => "ui-datepicker"}
-  = f.input :end_at, :as => :string, :input_html => {:class => "ui-datepicker"}
+  = f.input :start_at, :as => :string, :input_html => {:class => "datepicker"}
+  = f.input :end_at, :as => :string, :input_html => {:class => "datepicker"}
   = f.input :projects, :as => :check_boxes
-  = f.input :location, :as => :select, :collection => Location.all.map{|x| [x.name, x.id] }, :include_blank => false
-  = f.input :promoter
-  = f.input :cost
-  = f.input :discounted_cost
-  = f.input :discount_reason
+  .clearfix
+    = f.input :location, :as => :select, :collection => Location.all.map{|x| [x.name, x.id] }, :include_blank => false
+    = f.input :promoter
+    = f.input :cost
+    = f.input :discounted_cost
+    = f.input :discount_reason
   #language-tabs
     %ul.language-selection
       - I18n.available_locales.each do |locale|
@@ -16,8 +17,9 @@
         = f.globalize_fields_for locale do |en|
           %b= "Name in #{t(:language_name, :locale => locale)}"
           = en.text_field :name
-          %b= "Post content in #{t(:language_name, :locale => locale)}"
-          = en.cktext_area :description
+          .clearfix
+            %b= "Post content in #{t(:language_name, :locale => locale)}"
+            = en.text_area :description, :class => 'ckeditor'
           %b= "Notes, etc in #{t(:language_name, :locale => locale)}"
           = en.text_area :notes
   = f.fields_for :images do |ff|
@@ -71,4 +73,13 @@
       = ff.input :published, :label => 'Published? (untick to hide from public)'
       = ff.link_to_remove 'remove this video'
   .cl= f.link_to_add 'embed a video from YouTube or Vimeo', :videos
+  .after
+    = f.fields_for :carousels do |ff|
+      - if ff.object.carousel_image?
+        = image_tag ff.object.carousel_image.url(:thumb)
+
+      = ff.input :carousel_image
+      = ff.input :active      
+      = ff.link_to_remove t(:remove_this) + " " + t(:carousel_image)
+    = f.link_to_add t(:add) + " " +  t(:frontpage_carousel_image), :carousels  
   = f.submit

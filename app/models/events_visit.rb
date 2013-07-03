@@ -1,5 +1,5 @@
 class EventsVisit < ActiveRecord::Base
-  attr_accessible :event_id, :visit_id, :translations_attributes
+  #attr_accessible :event_id, :visit_id, :translations_attributes
   belongs_to :event
   belongs_to :visit
   translates :description => :text, :fallbacks_for_empty_translations => true

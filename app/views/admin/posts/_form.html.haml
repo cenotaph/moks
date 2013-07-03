@@ -12,16 +12,30 @@
         = f.globalize_fields_for locale do |en|
           %b= "Name in #{t(:language_name, :locale => locale)}"
           = en.text_field :title
-          %b= "Post content in #{t(:language_name, :locale => locale)}"
-          = en.cktext_area :body
+          .clearfix
+            %b= "Post content in #{t(:language_name, :locale => locale)}"
+            = en.text_area :body, :class => "ckeditor" 
   = f.fields_for :images do |ff|
-    .add_image
+    .add_image.clearfix
       %p Add an image to this post:
       - unless ff.object.new_record?
         = image_tag ff.object.filename.url(:thumbnail)
       = ff.input :filename, :as => :file
       = ff.input :credit
       = ff.link_to_remove 'remove this image'
-  .cl= f.link_to_add 'add an image', :images
+  .nested_fields= f.link_to_add 'add an image', :images
+  .after
+    = f.fields_for :carousels do |ff|
+      - if ff.object.carousel_image?
+        = image_tag ff.object.carousel_image.url(:thumb)
+        = ff.input :active
+      = ff.input :carousel_image
+      = ff.link_to_remove t(:remove_this) + " " + t(:carousel_image)
+    = f.link_to_add t(:add) + " " +  t(:frontpage_carousel_image), :carousels
+    -# - else
+    -#   .three.columns= t :existing_carousel_image
+    -#   .two.columns= image_tag f.object.carousel.carousel_image.url(:thumb)
+    -#   = f.input :remove_carousel, :as => :boolean
+
   = f.submit
 

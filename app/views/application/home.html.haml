@@ -1,1 +1,21 @@
-Future site of MoKS. Go away.
+.front
+  .carousel
+    %ul.slides
+      - @carousels.each do |c|
+        .slide
+          .across_top
+            .date
+              = c.item.display_dates.map{|x| x.strftime('%B %Y')}.uniq.join(" - ")
+            .name
+              = link_to c.item.title, c.item
+          .carousel_image= link_to image_tag(c.carousel_image.url(:full)), c.item
+
+= content_for :jquery do
+  :plain
+    $('.carousel').flexslider({
+        animation: "slide",
+        namespace: "topslider",
+        controlNav: false,
+        directionNav: false,
+        selector: ".slides > .slide"
+    }); 

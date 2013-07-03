@@ -1,10 +1,8 @@
 class Admin::PagesController < Admin::BaseController
-
+  prepend_before_filter :find_page, :only => [:show, :edit, :update, :destroy]
   actions :from_slug, :index, :create, :update, :destroy, :edit
 
-  def index
-    @page = Page.filter(:params => params, :filter => :page_filter)
-  end
+
   
   def create
     create! { admin_pages_path }
@@ -21,5 +19,19 @@ class Admin::PagesController < Admin::BaseController
 
   def destroy
     destroy! { admin_pages_path }
+  end
+
+  private
+
+  def find_page
+    @page = Page.friendly.find(params[:id])
+  end
+
+  protected
+    
+  def permitted_params
+    params.permit(:page => [ :slug, 
+      translations_attributes: [:id, :locale, :title, :body, :abstract]
+      ])
   end
 end

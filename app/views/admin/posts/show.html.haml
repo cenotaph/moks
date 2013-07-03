@@ -1,6 +1,15 @@
 %h2= @post.title
-%h5= "posted by #{@post.posted_by}"
-%h6= "on #{@post.posted_at.strftime("%b %d %Y")}"
+%h5= "#{t :posted_by} #{@post.posted_by}"
+%h6= "#{@post.posted_at.strftime("%b %d %Y")}"
+
+- unless @post.carousels.empty?
+  %h5= t :carousel_images
+  - @post.carousels.each do |c|
+    = image_tag c.carousel_image.url(:full)
+    - if c.active == true
+      %b= t :published
+    - else
+      %b= t :unpublished
 
 = raw @post.body
 

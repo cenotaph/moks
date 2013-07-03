@@ -16,6 +16,8 @@
 //= require jquery.ui.core
 //= require jquery.ui.datepicker
 //= require jquery.ui.tabs
+//= require jquery.ui.sortable
+//= require jquery.flexslider-min
 //= require ckeditor/init
 //= require soundmanager2
 //= require superfish

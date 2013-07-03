@@ -1,7 +1,7 @@
 = semantic_nested_form_for [:admin, @visit], :html => {:multipart => true } do |f|
   = f.input :artist
-  = f.input :start_date, :as => :string, :input_html => {:class => 'ui-datepicker'}
-  = f.input :end_date, :as => :string, :input_html => {:class => 'ui-datepicker'}
+  = f.input :start_date, :as => :string, :input_html => {:class => 'datepicker'}
+  = f.input :end_date, :as => :string, :input_html => {:class => 'datepicker'}
   #language-tabs
     %ul.language-selection
       - I18n.available_locales.each do |locale|
@@ -10,12 +10,31 @@
       %div{:id => "lang-#{locale}"}
         = f.globalize_fields_for locale do |en|
           %b= "Description of residency/visit in #{t(:language_name, :locale => locale)}"
-          = en.cktext_area :description  
+          = en.text_area :description, :class => :ckeditor
   = f.input :is_rental
-  = f.input :residencytype
-  = f.input :funders, :label => "Was this visit funded by anyone?", :as => :check_boxes
-  = f.input :project, :label => "Was this visit part of a specific project?"
-  %p Events included in this visit:
-  = f.input :events, :as => :check_boxes
+  = f.input :residencytype, :label => t(:residency_type)
+  = f.input :funders, :label => t(:specific_funders), :as => :check_boxes
+  = f.input :project, :label =>  t(:specific_project)
+  .clearfix
+    
+    = f.input :events, :as => :check_boxes, :label => t(:specific_events)
   = f.input :published, :label => "Make this visit public (uncheck to hide)"
+
+  = f.fields_for :images do |ff|
+    .add_image.clearfix
+      %p Add an image to this post:
+      - unless ff.object.new_record?
+        = image_tag ff.object.filename.url(:thumbnail)
+      = ff.input :filename, :as => :file
+      = ff.input :credit
+      = ff.link_to_remove 'remove this image'
+  .nested_fields= f.link_to_add 'add an image', :images
+    
+  = f.fields_for :carousels do |fff|
+    - if fff.object.carousel_image?
+      = image_tag fff.object.carousel_image.url(:thumb)
+      = fff.input :active
+    = fff.input :carousel_image
+    = fff.link_to_remove t(:remove_this) + " " + t(:carousel_image)
+  = f.link_to_add t(:add) + " " +  t(:frontpage_carousel_image), :carousels  
   = f.submit

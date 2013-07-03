@@ -13,6 +13,10 @@ class PostsController < InheritedResources::Base
     render template: 'posts/index'
   end
 
+  def show
+    @post = Post.friendly.find(params[:id])
+  end
+
   protected
 
   def collection

@@ -1,2 +1,7 @@
 .page_heading= t :residency_artists
 = render :partial => 'artist', :locals => {:artist => @artist}
+
+.visits
+  .heading= t :visits
+  - @artist.visits.each do |visit|
+    = render :partial => 'visit', :locals => {:visit => visit}

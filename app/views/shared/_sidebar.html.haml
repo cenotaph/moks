@@ -12,4 +12,4 @@
   .event
     .date= l @sidebar_post.posted_at.to_date, :format => :long
     .title= link_to @sidebar_post.title, @sidebar_post
-  .archive= link_to t(:more) + " >", posts_path
+  .archive= link_to t(:more) + " >", news_posts_path

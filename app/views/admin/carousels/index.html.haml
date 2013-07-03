@@ -1,0 +1,48 @@
+%h2= t :frontpage_carousel_setup
+
+%p= t :sort_instructions
+%h4= t :published
+.carousel_setup#sortable.thirteen.columns
+  - @published.sort_by{|x| x.sort_order }.each do |c|
+    .carousel_entry.ten.columns{:id => 'carousel_' + c.id.to_s}
+      .two.columns.alpha= image_tag c.carousel_image.url(:thumb)
+      .five.columns.alpha
+        .title
+          %b= link_to c.item.title, c.item
+        %i= c.item.class
+        .status
+          = c.active == true ? t(:published) : t(:unpublished)
+          = link_to t(:change), toggle_published_admin_carousel_path(c)
+
+%h4= t :unpublished
+.carousels
+  - @unpublished.sort_by{|x| x.sort_order }.each do |c|
+    .carousel_entry.ten.columns{:id => 'carousel_' + c.id.to_s}
+      .two.columns.alpha= image_tag c.carousel_image.url(:thumb)
+      .five.columns.alpha
+        .title
+          %b= link_to c.item.title, c.item
+        %i= c.item.class
+        .status
+          = c.active == true ? t(:published) : t(:unpublished)
+          = link_to t(:change), toggle_published_admin_carousel_path(c)
+
+= content_for :jquery do
+  :plain
+    $( "#sortable" ).sortable({
+                      axis: 'y',
+                      dropOnEmpty: false,
+                      cursor: 'move',
+                      items: 'div.carousel_entry',
+                      update: function() {
+                        $.ajax({
+                          url: '/admin/carousels/sort',
+                          type: 'post',
+                          data: $('#sortable').sortable('serialize'),
+                          dataType: 'script',
+                          complete: function(request){
+                            $('#sortable').effect('highlight');
+                          }
+                        });
+                      }
+                      });

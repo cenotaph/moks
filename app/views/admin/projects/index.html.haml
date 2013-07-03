@@ -11,6 +11,6 @@
         %td= project.projecttype.try(:name)
         %td= link_to "Show", [:admin, project]
         %td= link_to "Edit", edit_admin_project_path(project)
-        %td.destroy= link_to "Destroy", [:admin, project], :confirm => 'Are you sure?', :method => :delete
+        %td.destroy= link_to "Destroy", [:admin, project], :data => { :confirm => 'Are you sure?' }, :method => :delete
 
 = button_to "create new project", new_admin_project_path, :method => :get

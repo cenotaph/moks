@@ -1,10 +1,13 @@
 class Video < ActiveRecord::Base
-  attr_accessible :videohost_id, :event_id, :provider_id_code, :published, :translations_attributes
+  #attr_accessible :videohost_id, :event_id, :provider_id_code, :published, :translations_attributes
   translates :name, :description, :fallbacks_for_empty_translations => true
   belongs_to :videohost
   belongs_to :event
 
-  accepts_nested_attributes_for :translations, :reject_if => proc {|att| att['name'].blank? && att['description'].blank?}  
+  accepts_nested_attributes_for :translations, 
+      :reject_if =>
+         proc {|att| (att['name'].blank? && att['description'].blank?) || att['video_id'].blank? }  
+
   validates_presence_of :videohost_id
 
   def embed_code

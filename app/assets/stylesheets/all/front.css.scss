@@ -1,0 +1,37 @@
+@import 'variables';
+
+.front {
+
+  .carousel {
+
+    .slide {
+
+      .across_top {
+
+        font-family: 'HelveticaNeueLTStd';
+        .date {
+          float: left;
+          font-style: italic;
+          color: $site-olive2;
+  
+          padding-top: 8px;
+        }
+        .name {
+          float: right;
+          a {
+            font-size: 22px;
+            height: 25px;
+            color: $moks-orange;
+          }
+        }
+      }
+
+      .carousel_image {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

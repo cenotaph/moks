@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
           :database_authenticatable , :registerable, :recoverable
   belongs_to :artist
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :artist_id, :role_ids, :real_name, :avatar, :username, :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :role_ids, :as => :admin
+
   mount_uploader :avatar, ImageUploader
   
 

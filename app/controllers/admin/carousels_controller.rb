@@ -1,9 +1,22 @@
-class Admin::PostsController < Admin::BaseController
-  prepend_before_filter :find_post, :only => [:update, :edit, :destroy, :show]
+class Admin::CarouselsController < Admin::BaseController
+  
+  def index
+    @published = Carousel.published
+    @unpublished = Carousel.unpublished
+  end
 
-  def new
-    @post = Post.new(:user_id => current_user.id)
-    @post.build_carousel
+  def sort
+    @carousels = Carousel.all
+    @carousels.each do |c|
+      c.sort_order = params['carousel'].index(c.id.to_s) + 1
+      c.save
+    end
+  end
+
+  def toggle_published
+    @carousel = Carousel.find(params[:id])
+    @carousel.toggle!(:active)
+    redirect_to admin_carousels_path
   end
 
   protected
@@ -11,7 +24,6 @@ class Admin::PostsController < Admin::BaseController
   def permitted_params
     params.permit(:post => [ :user_id, :is_personal, :sticky, :event_id, :published, :slug, 
       :postcategory_id,  :carousel, :remove_carousel,
-      carousels_attributes: [:carousel_image, :_destroy, :active, :id],
       images_attributes:  [:attachable_id, :_destroy, :id,  :attachable_type, :filename, :credit, :published, 
         translations_attributes: [:id, :locale, :caption]
         ],

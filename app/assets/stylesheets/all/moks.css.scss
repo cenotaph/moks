@@ -1,5 +1,6 @@
 @import 'variables';
 
+
 ul.nav {
   li {
     float:left;
@@ -17,6 +18,10 @@ ul.nav {
 
 }
 
+.gallery_left {
+  float: left;
+  margin-right: 15px;
+}
 .sub_heading {
   margin: 15px 0px 25px 0px;
   color: $dark;

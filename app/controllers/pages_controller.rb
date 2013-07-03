@@ -5,7 +5,7 @@ class PagesController < InheritedResources::Base
 
   def show
     begin
-      @page = Page.find(params[:id])
+      @page = Page.friendly.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       render :template => 'pages/404missing'
     end

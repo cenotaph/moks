@@ -18,7 +18,7 @@
         %td= artist.email
         %td= link_to "Show", [:admin, artist]
         %td= link_to "Edit", edit_admin_artist_path(artist)
-        %td.destroy= link_to "Destroy", [:admin, artist], :confirm => 'Are you sure?', :method => :delete
+        %td.destroy= link_to "Destroy", [:admin, artist], :data => {:confirm => t(:are_you_sure) }, :method => :delete
       %tr
         - if artist.visits.empty?
           %td{:colspan => 3} No visits
@@ -35,7 +35,7 @@
                     %td= visit.dates
                     %td= visit.activities
                     %td= link_to 'edit', edit_admin_visit_path(visit)
-                    %td.destroy= link_to 'destroy', [:admin, visit], :confirm => 'you sure?', :method => :delete
+                    %td.destroy= link_to 'destroy', [:admin, visit], :data => {:confirm => t(:are_you_sure) }, :method => :delete
       %tr.divider
         %td{:colspan => 6} &nbsp;
 = button_to "create new artist", new_admin_artist_path, :method => :get

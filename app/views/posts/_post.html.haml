@@ -3,7 +3,7 @@
   = l post.posted_at, :format => :long
 .title= link_to raw(post.title), post
 - unless post.images.empty?
-  .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => post.images }
+  .inline_gallery.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => post.images }
 .body= raw simple_format(post.body)
 
 - if user_signed_in?

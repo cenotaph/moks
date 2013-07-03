@@ -17,3 +17,6 @@
       .event
         = link_to event.name, [:admin, event]
         .date= event.dates
+
+- if can? :edit, @project
+  = link_to t(:edit_details), edit_admin_project_path(@project)

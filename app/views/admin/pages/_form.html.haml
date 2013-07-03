@@ -7,10 +7,11 @@
     - I18n.available_locales.each do |locale|
       %div{:id => "lang-#{locale}"}
         = f.globalize_fields_for locale do |en|
-          %b= "Title in #{t(:language_name, :locale => locale)}"
+          = "#{t :title} #{t(:language_name, :locale => locale)}"
           = en.text_field :title
-          %b= "body in #{t(:language_name, :locale => locale)}"
-          = en.cktext_area :body
-          %b= "abstract, etc in #{t(:language_name, :locale => locale)}"
-          = en.cktext_area :abstract
+          .clearfix
+            = "#{t :body} #{t(:language_name, :locale => locale)}"
+          = en.text_area :body, :class => :ckeditor
+          = "abstract, etc in #{t(:language_name, :locale => locale)}"
+          = en.text_area :abstract, :class => :ckeditor
   = f.submit

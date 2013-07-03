@@ -1,5 +1,6 @@
 .artist
   .artist_name= artist.name
-  - unless artist.images.empty?
-    = render :partial => 'shared/image_gallery', :locals => {:image_array => artist.images}
+  - if artist.avatar?
+    .artist_image= image_tag artist.avatar.url(:large)
   .artist_bio= raw artist.bio
+

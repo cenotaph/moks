@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   end
 
   def home
-
+    @carousels = Carousel.published.order(:sort_order)
   end
 
   def populate_sidebar
-    @sidebar_events = Event.published.limit(3)
-    @sidebar_post = Post.news.published.limit(1)
+    @sidebar_events = Event.published.order('start_at desc').limit(3)
+    @sidebar_post = Post.news.merge(Post.published).limit(1)
     if @sidebar_post.empty?
-      @sidebar_post = Post.blog.published.limit(1)
+      @sidebar_post = Post.blog.merge(Post.published).limit(1)
     end
     @sidebar_post = @sidebar_post.first
   end

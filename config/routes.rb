@@ -16,6 +16,7 @@ Moks::Application.routes.draw do
   resources :pages
   resources :events
   resources :projects
+  resources :visits
   resources :posts do
     collection do
       get :news
@@ -34,6 +35,15 @@ Moks::Application.routes.draw do
       resources :visits
     end
     resources :budgetareas
+    resources :carousels do
+      collection do
+        post :sort
+      end
+      member do
+        get :toggle_published
+      end
+    end
+
     resources :contacts
     resources :documenttypes
     resources :documents
@@ -72,10 +82,10 @@ Moks::Application.routes.draw do
 
   wiki_root '/admin/wiki'
  
-  match '/admin' => 'admin/home#index'
+  match '/admin' => 'admin/home#index', :via => :get
 
-  match 'auth/:provider/callback' => 'authentications#create'
-  match '/oauth/authenticate' => 'authentications#create'
+  match 'auth/:provider/callback' => 'authentications#create', :via => :get
+  match '/oauth/authenticate' => 'authentications#create', :via => :get
   resources :authentications
   root :to => "application#home"
   

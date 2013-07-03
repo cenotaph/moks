@@ -1,0 +1,24 @@
+@import 'variables';
+
+.page {
+  .heading {
+    color: $dark;
+    font-size: 28px;
+    font-family: 'HelveticaNeueLTStd';
+
+
+  }
+  .body {
+    font-family: 'HelveticaNeueLTStd';
+    font-size: 15px;
+    line-height: 28px;
+
+    p {
+      line-height: 20px;
+    }
+
+    a {
+      color: $site-orange;
+    }
+  }
+}

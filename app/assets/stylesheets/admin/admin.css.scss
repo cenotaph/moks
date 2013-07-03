@@ -88,7 +88,7 @@ input[name="commit"] {
   border: 1px dotted $cms-color2;
   padding: 10px;
   float: left;
-  width: 320px;
+
 }
 
 .funder_visits {
@@ -146,7 +146,12 @@ td.overdue {
  }
 
  .formtastic {
+
   li {
+    &.check_boxes {
+      float: left;
+
+    }
     p.inline-hints {
       font-size: 10px;
       line-height: 12px;
@@ -169,6 +174,19 @@ td.overdue {
 
 }
 
+fieldset.choices {
+
+  padding: 5px;
+  font-size: 12px;
+  ol.choices-group {
+    padding-left: 10px;
+  }
+  label {
+    float: none;
+  }
+}
+ 
+
 .wf_container {
   select {
     display: inline;
@@ -183,5 +201,33 @@ td.overdue {
   }
   .value {
     float: left;
+  }
+}
+
+.nested_fields {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  clear: right;
+  padding: 10px;
+  a {
+
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+
+
+.after {
+  clear: left;
+  margin-top: 25px;
+}
+
+.carousel_setup {
+  margin-bottom: 40px;
+
+  .carousel_entry {
+    padding: 5px;
+    border: 1px solid $moks-orange-light;
+    cursor: move;
   }
 }

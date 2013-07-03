@@ -23,6 +23,5 @@
         %td= post.postcategory.try(:name)
         %td= link_to "Show", [:admin, post]
         %td= link_to "Edit", edit_admin_post_path(post)
-        %td.destroy= link_to "Destroy", [:admin, post], :confirm => 'Are you sure?', :method => :delete
-= will_filter_tag(@posts)
+        %td.destroy= link_to "Destroy", [:admin, post], :data => {:confirm => 'Are you sure?'}, :method => :delete
 = button_to t(:create_new_post), new_admin_post_path, :method => :get

@@ -1,9 +1,10 @@
-%div{:id => "images_" + image_array.first.id.to_s}
-  = image_tag image_array.first.filename.url(:large)
+.clearfix.gallery_left{:id => "images_" + image_array.first.id.to_s}
+  = image_tag image_array.first.filename.url(:standard)
    
-%div{:id => "slides_" + image_array.first.id.to_s}
-  - image_array.each do |image|
-    = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), '#', :rel => image.filename.url(:large), :class => "slide_image")
+- if image_array.size > 1
+  %div{:id => "slides_" + image_array.first.id.to_s}
+    - image_array.each do |image|
+      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :rel => image.filename.url(:standard), :class => "slide_image")
 
 :javascript
   $("#slides_#{image_array.first.id.to_s} .slide_image").click(function() {
