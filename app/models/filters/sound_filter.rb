@@ -1,5 +1,5 @@
-class SoundFilter < WillFilter::Filter
-  def model_class
-    Sound
-  end
-end
+# class SoundFilter < WillFilter::Filter
+#   def model_class
+#     Sound
+#   end
+# end

@@ -1,6 +1,6 @@
-class ContactFilter < WillFilter::Filter
-  def model_class
-    Contact
-  end
+# class ContactFilter < WillFilter::Filter
+#   def model_class
+#     Contact
+#   end
 
-end
+# end

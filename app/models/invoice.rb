@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-  attr_accessible :contact_id, :date_issued, :date_due, :number, :amount, :attachment, :what_for
+  # attr_accessible :contact_id, :date_issued, :date_due, :number, :amount, :attachment, :what_for
   belongs_to :contact
   has_many :incomes
   mount_uploader :attachment, DocumentUploader

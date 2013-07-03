@@ -1,5 +1,5 @@
 class Income < ActiveRecord::Base
-  attr_accessible :attachable_type, :attachable_id,  :date_received, :documents_attributes, :invoice_id, :recipient, :what_for, :event_id, :funder_id, :project_id, :amount, :hidden, :source, :budgetarea_id, :has_receipt
+  # attr_accessible :attachable_type, :attachable_id,  :date_received, :documents_attributes, :invoice_id, :recipient, :what_for, :event_id, :funder_id, :project_id, :amount, :hidden, :source, :budgetarea_id, :has_receipt
   belongs_to :budgetarea 
   belongs_to :funder
   belongs_to :project

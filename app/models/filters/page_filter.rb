@@ -1,5 +1,5 @@
-class PageFilter < WillFilter::Filter
-  def model_class
-    Page
-  end
-end
+# class PageFilter < WillFilter::Filter
+#   def model_class
+#     Page
+#   end
+# end

@@ -1,5 +1,5 @@
 class Expense < ActiveRecord::Base
-  attr_accessible :date_paid, :recipient, :what_for, :event_id, :project_id, :documents_attributes, :amount, :hidden, :paid_by, :budgetarea_id, :has_receipt
+  # attr_accessible :date_paid, :recipient, :what_for, :event_id, :project_id, :documents_attributes, :amount, :hidden, :paid_by, :budgetarea_id, :has_receipt
   belongs_to :budgetarea
   belongs_to :event
   belongs_to :project

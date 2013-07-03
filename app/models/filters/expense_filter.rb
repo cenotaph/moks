@@ -1,5 +1,5 @@
-class ExpenseFilter < WillFilter::Filter
-  def model_class
-    Expense
-  end
-end
+# class ExpenseFilter < WillFilter::Filter
+#   def model_class
+#     Expense
+#   end
+# end
