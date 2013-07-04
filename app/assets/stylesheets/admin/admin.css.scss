@@ -116,14 +116,14 @@ td.overdue {
   color: red;
 }
 
- td.destroy {
+ td.destroy, span.destroy {
   a {
     text-transform: uppercase;
     color: red;
     font-size: 9px;
     font-weight: bold;
     &:hover {
-      color: white;
+      color: #bdb;
     }
   }
  }
@@ -148,6 +148,7 @@ td.overdue {
  .formtastic {
 
   li {
+    padding: 7px 0px 7px 0px;
     &.check_boxes {
       float: left;
 

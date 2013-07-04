@@ -1,42 +1,32 @@
-- title "Admin/Contact"
+%h2= t :contact
 
 %p
-  %strong Contact Person:
+  %strong= t :contact_person
   = @contact.contact_person
 %p
-  %strong Organisation:
+  %strong= t :organisation
   = @contact.organisation
 %p
-  %strong Address1:
+  %strong= t :address
   = @contact.address1
-%p
-  %strong Address2:
-  = @contact.address2
-%p
-  %strong City:
+  = @contact.try(:address2)
   = @contact.city
-%p
-  %strong County:
   = @contact.county
-%p
-  %strong Postcode:
   = @contact.postcode
-%p
-  %strong Country:
   = @contact.country
 %p
-  %strong Phone:
+  %strong= t :phone
   = @contact.phone
 %p
-  %strong Website:
-  = @contact.website
+  %strong= t :website
+  = link_to @contact.website, @contact.website
 %p
-  %strong Email:
+  %strong= t :email
   = @contact.email
 
 %p
-  = link_to "Edit", edit_admin_contact_path(@contact)
+  = link_to t(:edit), edit_admin_contact_path(@contact)
   |
-  = link_to "Destroy", [:admin, @contact], :confirm => 'Are you sure?', :method => :delete
+  %span.destroy= link_to t(:destroy), [:admin, @contact], :data => {:confirm => t(:are_you_sure)}, :method => :delete
   |
-  = link_to "View All", admin_contacts_path
+  = link_to "#{t :view_all} #{t :contacts}", admin_contacts_path

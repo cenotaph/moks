@@ -1,4 +1,4 @@
-%h2 Budget areas
+%h2= t :budget_areas
 %table
   %tr
     %th Name
@@ -7,7 +7,7 @@
     %tr{:class => cycle('odd', 'even')}
       %td= budgetarea.name
       %td= budgetarea.active
-      %td= link_to "Show", [:admin, budgetarea]
-      %td= link_to "Edit", edit_admin_budgetarea_path(budgetarea)
-      %td= link_to "Destroy", [:admin, budgetarea], :confirm => 'Are you sure?', :method => :delete
-%p= link_to "New Admin/Budgetarea", new_admin_budgetarea_path
+      %td= link_to t(:details), [:admin, budgetarea]
+      %td= link_to t(:edit), edit_admin_budgetarea_path(budgetarea)
+      %td.destroy= link_to t(:destroy), [:admin, budgetarea], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+= button_to "#{t :define_new} #{t :budget_area}", new_admin_budgetarea_path, :method => :get

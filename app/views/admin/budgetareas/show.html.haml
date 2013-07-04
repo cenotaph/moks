@@ -1,12 +1,13 @@
-- title "Admin/Budgetarea"
+%h2= t :budget_area
 %p
-  %strong Name:
+  %strong= t :name
   = @budgetarea.name
 %p
-  %strong Active:
+  %strong= t :active
   = @budgetarea.active
 %p
-  = link_to "Edit", edit_admin_budgetarea_path(@budgetarea)
+  = link_to t(:edit), edit_admin_budgetarea_path(@budgetarea)
   |
-  \#{link_to "Destroy", [:admin, @budgetarea], :confirm => 'Are you sure?', :method => :delete} |
-  \#{link_to "View All", admin_budgetareas_path}
+  %span.destroy=link_to t(:destroy), [:admin, @budgetarea], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+  |
+  = link_to "#{t :view_all} #{t :budget_areas}", admin_budgetareas_path

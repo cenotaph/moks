@@ -1,16 +1,20 @@
 = semantic_form_for [:admin, @invoice], :html => {:multipart => true} do |f|
-  = f.input :contact,  :collection => Contact.all.map{|x| [x.name_or_organisation, x.id]}
-  = f.input :date_issued, :as => :string, :input_html => {:class => "ui-datepicker"}
-  = f.input :date_due, :as => :string, :input_html => {:class => "ui-datepicker"}
-  = f.input :number, :label => "invoice #"
-  = f.input :amount
-  - unless f.object.new_record?
-    - if f.object.attachment.size > 0
-      %label
-        %p.inline-hints
-          = t :current_attachment
-          = File.basename(f.object.attachment.path)
-          = "(#{f.object.attachment.size} bytes)"
-  = f.input :attachment, :label => "file to attach (invoice as PDF, etc.)"
-  = f.input :what_for
-  = f.submit
+  .twelve.columns
+    .six.columns.alpha
+      = f.input :contact,  :collection => Contact.all.map{|x| [x.name_or_organisation, x.id]}
+      = f.input :date_issued, :as => :string, :input_html => {:class => "datepicker"}
+      = f.input :date_due, :as => :string, :input_html => {:class => "datepicker"}
+    .six.columns.omega
+      = f.input :number, :label => "#{t(:invoice)} #"
+      = f.input :amount
+      - unless f.object.new_record?
+        - if f.object.attachment.size > 0
+          %label
+            %p.inline-hints
+              = t :current_attachment
+              = File.basename(f.object.attachment.path)
+              = "(#{f.object.attachment.size} bytes)"
+  .twelve.columns
+    = f.input :attachment, :label => t(:file_to_attach), :hint => t(:invoice_as_pdf)
+    = f.input :what_for
+  .twelve.columns= f.submit

@@ -1,30 +1,33 @@
-- title "Admin/Invoice"
+%h2
+  = t :invoice
+  = t :details
 
 %p
-  %strong Contact:
+  %strong= t :contact
   = @invoice.contact_id
 %p
-  %strong Date Issued:
+  %strong= t :when
   = @invoice.date_issued
 %p
-  %strong Date Due:
+  %strong= t :due
   = @invoice.date_due
 %p
-  %strong Number:
+  %strong #
   = @invoice.number
 %p
-  %strong Amount:
+  %strong= t :amount
   = @invoice.amount
 %p
-  %strong Attachment:
-  = @invoice.attachment
+  %strong= t :attachment
+  - if @invoice.attachment?
+    = link_to t(:download_box), @invoice.attachment
 %p
-  %strong What For:
+  %strong= t :what
   = @invoice.what_for
 
 %p
-  = link_to "Edit", edit_admin_invoice_path(@invoice)
+  = link_to t(:edit), edit_admin_invoice_path(@invoice)
   |
-  = link_to "Destroy", [:admin, @invoice], :confirm => 'Are you sure?', :method => :delete
+  %span.destroy= link_to t(:destroy), [:admin, @invoice], :data => {:confirm => t(:are_you_sure) }, :method => :delete
   |
-  = link_to "View All", admin_invoices_path
+  = link_to "#{t :view_all} #{t :invoices}", admin_invoices_path

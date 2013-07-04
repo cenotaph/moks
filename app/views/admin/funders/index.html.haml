@@ -1,4 +1,4 @@
-%h2= t :funders
+%h3= t :funders
 %table
   %thead
     %th 
@@ -13,6 +13,6 @@
         %td= funder.name
         %td= link_to "Show", [:admin, funder]
         %td= link_to "Edit", edit_admin_funder_path(funder)
-        %td.destroy= link_to "Destroy", [:admin, funder], :confirm => 'Are you sure?', :method => :delete
+        %td.destroy= link_to "Destroy", [:admin, funder], :data => {:confirm => t(:are_you_sure) }, :method => :delete
 
-%p= link_to "define new funder", new_admin_funder_path
+%p= button_to "#{t :create_new} #{t :funder}", new_admin_funder_path, :method => :get

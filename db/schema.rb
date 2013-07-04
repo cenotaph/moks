@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130703100512) do
+ActiveRecord::Schema.define(version: 20130704092314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,11 +71,11 @@ ActiveRecord::Schema.define(version: 20130703100512) do
   end
 
   create_table "carousels", force: true do |t|
-    t.boolean  "active"
+    t.boolean  "active",         default: false, null: false
     t.string   "alternate_url"
     t.string   "item_type"
     t.integer  "item_id"
-    t.decimal  "sort_order",     default: 0.0, null: false
+    t.decimal  "sort_order",     default: 0.0,   null: false
     t.string   "carousel_image"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -270,9 +270,9 @@ ActiveRecord::Schema.define(version: 20130703100512) do
     t.float    "amount"
     t.string   "attachment",  limit: 510
     t.string   "what_for",    limit: 510
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.boolean  "paid",                    null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.boolean  "paid",                    default: false, null: false
   end
 
   create_table "location_translations", force: true do |t|

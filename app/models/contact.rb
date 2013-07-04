@@ -6,4 +6,6 @@ class Contact < ActiveRecord::Base
   def name_or_organisation
     organisation.blank? ? contact_person : "#{organisation} [#{contact_person}]"
   end
+
+
 end

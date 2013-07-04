@@ -49,7 +49,7 @@ Moks::Application.configure do
   config.assets.precompile += %w(  jquery.collapsible-menus.min.js)
   config.assets.precompile += Ckeditor.assets
   config.assets.precompile += %w{ admin.css will_filter/filter.css will_filter/filter.js will_filter/actions.css  will_filter/buttons.css  will_filter/exporter.css will_filter/results.css  will_filter/calendar.css   }
-
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
   # Precompile additional assets
   config.assets.precompile += %w( .svg .eot .woff .ttf )

@@ -7,7 +7,7 @@
     = f.object.invoice.number
     = f.object.invoice.contact.name_or_organisation
     = f.input :invoice_id, :as => :hidden, :value => f.object.invoice_id
-  = f.input :date_received, :as => :string, :input_html => {:class => 'ui-datepicker'}
+  = f.input :date_received, :as => :string, :input_html => {:class => 'datepicker'}
 
   = f.input :recipient
   = f.input :what_for
@@ -16,12 +16,12 @@
   = f.input :project
   = f.input :amount
   = f.input :hidden   
-  = f.input :source, :label => 'source of funds'
+  = f.input :source, :label => t(:source_of_funds)
   = f.input :budgetarea
   = f.input :has_receipt
   = f.fields_for :documents do |ff|
     = ff.input :attachment
     = ff.input :name
     = ff.input :description
-  = f.link_to_add 'add attachment (invoice, bill or other pdf/document)', :documents
+  = f.link_to_add "#{t :add} #{t :attachment} (#{t :invoice}, #{t :other_attachment_types}", :documents
   = f.submit

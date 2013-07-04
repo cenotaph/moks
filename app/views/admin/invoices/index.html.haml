@@ -2,18 +2,18 @@
 
 %table
   %thead
-    %th Number
-    %th Who
-    %th What
-    %th When
-    %th Due
-    %th Amount?
-    %th Paid?
+    %th #
+    %th= t :who
+    %th= t :what
+    %th= t :when
+    %th= t :due
+    %th= t :amount
+    %th= t :paid
     %th{:colspan => 5} actions
   - for invoice in @invoices
     %tr{:class => cycle('odd', 'even')}
       %td= invoice.number
-      %td= invoice.contact.name_or_organisation
+      %td= link_to invoice.contact.name_or_organisation, [:admin, invoice.contact]
       %td= invoice.what_for
       %td= l invoice.date_issued
       %td{:class => ( (invoice.percentage_paid.to_i < 100 && invoice.date_due < Time.now.to_date) ? 'overdue' : false )}= l invoice.date_due
@@ -21,9 +21,9 @@
       %td{:class => ( (invoice.percentage_paid.to_i < 100 && invoice.date_due < Time.now.to_date) ? 'overdue' : false )}= invoice.percentage_paid.to_i.to_s + "%"
 
       %td= link_to 'export to PDF', admin_invoice_path(invoice, :format => :pdf)
-      %td= link_to 'Show', [:admin, invoice]
-      %td= link_to 'add payment', new_admin_invoice_income_path(invoice)
-      %td= link_to 'Edit details', edit_admin_invoice_path(invoice)
-      %td.destroy= link_to 'Destroy', [:admin, invoice], :confirm => 'Are you sure?', :method => :delete
+      %td= link_to t(:details), [:admin, invoice]
+      %td= link_to "#{t :add} #{t :payment}", new_admin_invoice_income_path(invoice)
+      %td= link_to t(:edit), edit_admin_invoice_path(invoice)
+      %td.destroy= link_to t(:destroy), [:admin, invoice], :data => {:confirm => t(:are_you_sure)}, :method => :delete
 
-= button_to "new invoice", new_admin_invoice_path, :method => :get
+= button_to "#{t :create_new} #{t :invoice}", new_admin_invoice_path, :method => :get

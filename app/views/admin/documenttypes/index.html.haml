@@ -1,13 +1,14 @@
-- title "Admin/Documenttypes"
+%h2= t :documenttypes
+
 
 %table
   %tr
-    %th Name
+    %th= t :name
   - for documenttype in @documenttypes
     %tr{:class => cycle('odd', 'even')}
       %td= documenttype.name
-      %td= link_to 'Show', [:admin, documenttype]
-      %td= link_to 'Edit', edit_admin_documenttype_path(documenttype)
-      %td= link_to 'Destroy', [:admin, documenttype], :confirm => 'Are you sure?', :method => :delete
+      %td= link_to t(:details), [:admin, documenttype]
+      %td= link_to t(:edit), edit_admin_documenttype_path(documenttype)
+      %td.destroy= link_to t(:destroy), [:admin, documenttype], :data => {:confirm => t(:are_you_sure)}, :method => :delete
 
-%p= link_to "define new Document type", new_admin_documenttype_path
+%p= button_to "#{t :define_new} #{t :documenttype}", new_admin_documenttype_path, :method => :get

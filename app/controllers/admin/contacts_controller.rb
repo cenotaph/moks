@@ -1,9 +1,6 @@
 class Admin::ContactsController < Admin::BaseController
 
-  def index
-    @contact = Contact.filter(:params => params, :filter => :contact_filter)
-  end
-  
+ 
   def create
     create! { admin_contacts_path }
   end
@@ -15,4 +12,12 @@ class Admin::ContactsController < Admin::BaseController
   def destroy
     destroy! { admin_contacts_path }
   end
+
+  protected
+
+  def permitted_params
+    params.permit(:contact => [:contact_person, :organisation, :address1, :address2, :city, :county, 
+                                :postcode, :country, :phone, :website, :email])
+  end
+
 end

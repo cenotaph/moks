@@ -18,8 +18,8 @@
         %td= contact.country
         %td= contact.website
         %td= contact.email
-        %td= link_to 'Show', [:admin, contact]
-        %td= link_to 'Edit', edit_admin_contact_path(contact)
-        %td.destroy= link_to 'Destroy', [:admin, contact], :confirm => 'Are you sure?', :method => :delete
+        %td= link_to t(:details), [:admin, contact]
+        %td= link_to t(:edit), edit_admin_contact_path(contact)
+        %td.destroy= link_to t(:destroy), [:admin, contact], :data => {:confirm => t(:are_you_sure)}, :method => :delete
 
-= button_to "new contact", new_admin_contact_path, :method => :get
+= button_to "#{t :create_new} #{t :contact}", new_admin_contact_path, :method => :get

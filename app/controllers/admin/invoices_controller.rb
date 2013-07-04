@@ -1,8 +1,5 @@
 class Admin::InvoicesController < Admin::BaseController
-   def index
-    @invoice = Invoice.filter(:params => params, :filter => :invoice_filter)
-  end
-  
+
   def create
     create! { admin_invoices_path }
   end
@@ -23,6 +20,13 @@ class Admin::InvoicesController < Admin::BaseController
         render :pdf => "file_name"
       end
     end
+  end
+
+  protected
+
+  def permitted_params
+    params.permit(:invoice => [ :contact_id, :date_issued, :date_due, :number, 
+                                :amount, :attachment, :what_for])
   end
 
 end

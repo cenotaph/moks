@@ -3,5 +3,5 @@ class Document < ActiveRecord::Base
   # attr_accessible :attachable_id, :attachable_type, :name, :user_id, :description, :attachment, :public, :documenttype_id
   mount_uploader :attachment, DocumentUploader
   belongs_to :documenttype
-
+  belongs_to :user
 end

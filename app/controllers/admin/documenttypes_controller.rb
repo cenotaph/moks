@@ -12,4 +12,10 @@ class Admin::DocumenttypesController < Admin::BaseController
     destroy! { admin_documenttypes_path }
   end
 
+  protected
+
+  def permitted_params
+    params.permit(:documenttype => [ :name ])
+  end
+
 end

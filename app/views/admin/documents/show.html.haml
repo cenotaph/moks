@@ -1,24 +1,25 @@
-- title "Admin/Document"
+%h3= t :document
 
 %p
-  %strong Name:
+  %strong= t :name
   = @document.name
 %p
-  %strong User:
-  = @document.user_id
+  %strong= t :uploaded_by
+  = @document.user.username
 %p
-  %strong Description:
+  %strong= t :description
   = @document.description
 %p
-  %strong Attachment:
-  = @document.attachment
+  %strong= t :attachment
+  = link_to t(:download_box), @document.attachment.url
+
 %p
-  %strong Public:
+  %strong= t :allow_public_access
   = @document.public
 
 %p
-  = link_to "Edit", edit_admin_document_path(@document)
+  = link_to t(:edit_box), edit_admin_document_path(@document)
   |
-  = link_to "Destroy", [:admin, @document], :confirm => 'Are you sure?', :method => :delete
+  %span.destroy= link_to t(:destroy), [:admin, @document], :confirm => 'Are you sure?', :method => :delete
   |
-  = link_to "View All", admin_documents_path
+  = link_to "#{t :view_all} #{t :documents}", admin_documents_path

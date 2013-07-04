@@ -10,7 +10,7 @@ module Moks
     config.autoload_paths += %W(#{config.root}/app/modules)
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
-
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       
@@ -44,7 +44,7 @@ module Moks
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')    # Enable escaping HTML in JSON.
+    # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
     # Use SQL instead of Active Record's schema dumper when creating the database.

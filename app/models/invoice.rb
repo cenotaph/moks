@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-  # attr_accessible :contact_id, :date_issued, :date_due, :number, :amount, :attachment, :what_for
+
   belongs_to :contact
   has_many :incomes
   mount_uploader :attachment, DocumentUploader
@@ -7,6 +7,8 @@ class Invoice < ActiveRecord::Base
 
   before_save :check_paid
 
+  scope :unpaid, -> { where(paid: false)} 
+  
   def check_paid
     if !incomes.empty?
       if incomes.map{|x| x.amount}.sum >= amount
@@ -19,6 +21,6 @@ class Invoice < ActiveRecord::Base
     (incomes.map{|x| x.amount}.sum / amount) * 100
   end
   
-  scope :unpaid, where('paid != 1')
+
 
 end
