@@ -8,7 +8,7 @@ class Invoice < ActiveRecord::Base
   before_save :check_paid
 
   scope :unpaid, -> { where(paid: false)} 
-  
+
   def check_paid
     if !incomes.empty?
       if incomes.map{|x| x.amount}.sum >= amount
@@ -21,6 +21,8 @@ class Invoice < ActiveRecord::Base
     (incomes.map{|x| x.amount}.sum / amount) * 100
   end
   
-
+  def name
+    "#{number} (#{contact.name_or_organisation})"
+  end
 
 end

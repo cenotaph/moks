@@ -1,33 +1,29 @@
-- title "Admin/Expense"
+%h2= t :expense
 %p
-  %strong Date Paid:
+  %strong= t :date_paid
   = @expense.date_paid
 %p
-  %strong Recipient:
+  %strong= t :recipient
   = @expense.recipient
 %p
-  %strong What For:
+  %strong= t :what
   = @expense.what_for
 %p
-  %strong Event:
+  %strong= t :event
   = @expense.event
 %p
-  %strong Amount:
+  %strong= t :amount
   = @expense.amount
+
 %p
-  %strong Hidden:
-  = @expense.hidden
-%p
-  %strong Paid By:
-  = @expense.paid_by
-%p
-  %strong Budgetarea:
+  %strong= t :budget_area
   = @expense.budgetarea
 %p
-  %strong Has Receipt:
+  %strong= t :has_receipt
   = @expense.has_receipt
 %p
-  = link_to "Edit", edit_admin_expense_path(@expense)
+  = link_to t(:edit), edit_admin_expense_path(@expense)
   |
-  \#{link_to "Destroy", [:admin, @expense], :confirm => 'Are you sure?', :method => :delete} |
-  \#{link_to "View All", admin_expenses_path}
+  %span.destroy= link_to t(:destroy), [:admin, @expense], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+  |
+  = link_to "#{t :view_all} #{t :expenses}", admin_expenses_path

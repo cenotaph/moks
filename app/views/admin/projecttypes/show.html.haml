@@ -1,18 +1,20 @@
 
 %h2= @projecttype.name
-%strong Is Major: 
+%strong= t :is_major
 = @projecttype.is_major
 
 - if @projecttype.projects.empty?
-  %p No projects yet defined of this type.
+  %p= t :no_projects_type
 - else
   
   .project_list
-    %strong Projects
+    %strong= t :projects
     - @projecttype.projects.each do |p|
       .project= link_to p.name, [:admin, p]
 
 %p
-  = link_to "Edit", edit_admin_projecttype_path(@projecttype)
-  = link_to "Destroy", [:admin, @projecttype], :confirm => 'Are you sure?', :method => :delete
-  = link_to "View All", admin_projecttypes_path
+  = link_to t(:edit), edit_admin_projecttype_path(@projecttype)
+  |
+  %span.destroy= link_to t(:destroy), [:admin, @projecttype], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+  |
+  = link_to "#{t :view_all} #{t :projecttypes}", admin_projecttypes_path

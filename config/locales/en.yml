@@ -264,6 +264,7 @@ en:
   postcategories: 'Post categories'
   post_category: 'Post category: '
   residencytypes: 'Residency types'
+  residency_type: 'Residency type'
   publicities: 'Press and publicity'
   registrations: 'Event registrations'
   budgetareas: 'Budget Areas'
@@ -320,6 +321,7 @@ en:
   body: 'Body'
   create_new: 'Create new'
   define_new: 'Define new'
+  add_new: 'Add new'
   funder: 'funder'
   description: 'Description'
   upload_new: 'Upload new'
@@ -355,3 +357,21 @@ en:
   invoices: 'Invoices'
   other_attachment_types: 'bill or other pdf/document'
   source_of_funds: 'Source of funds'
+  payment_received: 'payment received'
+  date_received: 'date received'
+  actions: 'actions'
+  expense: 'expense'
+  source: 'source'
+  has_receipt: 'Has receipt?'
+  date_paid: 'Date paid'
+  recipient: 'Recipient'
+  event: 'Event'
+  project_type: 'Project type'
+  is_major: 'Is a major project?'
+  no_projects_type: 'No projects yet defined of this type.'
+  number_of_projects: '# of projects'
+  number_of_residencies: '# of residencies'
+
+
+
+

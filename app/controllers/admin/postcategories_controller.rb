@@ -12,4 +12,9 @@ class Admin::PostcategoriesController < Admin::BaseController
     destroy! { admin_postcategories_path }
   end
 
+  protected
+
+  def permitted_params
+    params.permit(:postcategory => [ translations_attributes: [:id, :locale, :name]])
+  end
 end

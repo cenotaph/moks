@@ -1,9 +1,10 @@
-- title "Admin/Postcategory"
+%h2=t :post_category
 %p
-  %strong Name:
+  %strong= t :name
   = @postcategory.name
 %p
-  = link_to "Edit", edit_admin_postcategory_path(@postcategory)
+  = link_to t(:edit), edit_admin_postcategory_path(@postcategory)
   |
-  \#{link_to "Destroy", [:admin, @postcategory], :confirm => 'Are you sure?', :method => :delete} |
-  \#{link_to "View All", admin_postcategories_path}
+  %span.destroy= link_to t(:destroy), [:admin, @postcategory], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+  |
+  = link_to "#{t :view_all} #{t :postcategories}", admin_postcategories_path

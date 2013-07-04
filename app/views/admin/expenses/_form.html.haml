@@ -1,5 +1,5 @@
 = semantic_nested_form_for [:admin, @expense], :html => {:multipart => true} do |f|
-  = f.input :date_paid, :as => :string, :input_html => {:class => 'ui-datepicker'}
+  = f.input :date_paid, :as => :string, :input_html => {:class => 'datepicker'}
   = f.input :recipient
   = f.input :what_for
   = f.input :budgetarea
@@ -11,6 +11,6 @@
     = ff.input :attachment
     = ff.input :name
     = ff.input :description
-  = f.link_to_add 'add attachment (invoice, bill or other pdf/document)', :documents
+  .clearfix= f.link_to_add 'add attachment (invoice, bill or other pdf/document)', :documents
   = f.submit
 

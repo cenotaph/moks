@@ -8,9 +8,7 @@ class Admin::IncomesController < Admin::BaseController
     end
   end
 
-  def index
-    @incomes = Income.filter(:params => params, :filter => :income_filter)
-  end
+
 
   def create
     create! { admin_incomes_path }

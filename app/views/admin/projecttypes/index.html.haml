@@ -1,11 +1,13 @@
-%h2 Project types
+%h2= t :projecttypes
 %table
   %thead
-    %th Name
+    %th= t :name
+    %th= t :number_of_projects
   - for projecttype in @projecttypes
     %tr{:class => cycle('odd', 'even')}
       %td= projecttype.name
-      %td= link_to "Show", [:admin, projecttype]
-      %td= link_to "Edit", edit_admin_projecttype_path(projecttype)
-      %td= link_to "Destroy", [:admin, projecttype], :confirm => 'Are you sure?', :method => :delete
-%p= link_to "Define new project type", new_admin_projecttype_path
+      %td= projecttype.projects.size
+      %td= link_to t(:details), [:admin, projecttype]
+      %td= link_to t(:edit), edit_admin_projecttype_path(projecttype)
+      %td.destroy= link_to t(:destroy), [:admin, projecttype], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+= button_to "#{t :define_new} #{t :project_type}", new_admin_projecttype_path, :method => :get

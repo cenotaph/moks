@@ -1,4 +1,4 @@
-%h2 Funder
+%h2= t :funder
 %h3= @funder.name
 .funder_description= raw @funder.description
 
@@ -8,7 +8,7 @@
     = @funder.name
 - else
   .funder_visits
-    Visits:
+    = t :visits
     - @funder.visits.each do |fv|
       .funder_visit
         .artist= fv.artist.name

@@ -8,9 +8,6 @@ class Admin::ExpensesController < Admin::BaseController
     end
   end
 
-  def index
-    @expenses = Expense.filter(:params => params, :filter => :expense_filter)
-  end
 
   def create
     create! { admin_expenses_path }
@@ -23,4 +20,14 @@ class Admin::ExpensesController < Admin::BaseController
   def destroy
     destroy! { admin_expenses_path }
   end
+
+  protected
+
+  def permitted_params
+    params.permit(:expense => [ :date_paid, :recipient, :what_for, :event_id, :project_id, 
+                                :amount, :hidden, :paid_by, :budgetarea_id, :has_receipt,
+                                documents_attributes: [ :id, :_destroy, :attachment, :name, :description],
+                              ])
+  end
+
 end

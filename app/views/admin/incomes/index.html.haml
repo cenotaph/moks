@@ -2,12 +2,13 @@
   = t :incomes
 %table
   %thead
-    %th Date Received
-    %th Source
-    %th What For
-    %th Amount
-    %th Budgetarea
-    %th{:colspan => 3} actions
+    %th= t :date_received
+    %th= t :source
+    %th= t :what
+    %th= t :amount
+    %th= t :invoice
+    %th= t :budget_area
+    %th{:colspan => 3}= t :actions
   %tbody
     - for income in @incomes
       %tr{:class => cycle('odd', 'even')}
@@ -15,8 +16,11 @@
         %td= income.source
         %td= income.what_for
         %td= number_to_currency income.amount
+        %td
+          - if !income.invoice.blank?
+            = link_to income.invoice.name, [:admin, income.invoice]
         %td= income.budgetarea.nil? ? "" : income.budgetarea.name
-        %td= link_to "Show", [:admin, income]
-        %td= link_to "Edit", edit_admin_income_path(income)
-        %td.destroy= link_to "Destroy", [:admin, income], :confirm => 'Are you sure?', :method => :delete
-= button_to "add new payment received", new_admin_income_path, :method => :get
+        %td= link_to t(:details), [:admin, income]
+        %td= link_to t(:edit), edit_admin_income_path(income)
+        %td.destroy= link_to t(:destroy), [:admin, income], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+= button_to "#{t :add_new} #{t :payment_received}", new_admin_income_path, :method => :get

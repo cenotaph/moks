@@ -1,11 +1,14 @@
-- title "Admin/Residencytypes"
+%h2= t :residencytypes
 %table
   %tr
-    %th Name
+    %th= t :name
+    %th= t :number_of_residencies
+    %th{:colspan => 3}= t :actions
   - for residencytype in @residencytypes
     %tr{:class => cycle('odd', 'even')}
       %td= residencytype.name
-      %td= link_to "Show", [:admin, residencytype]
-      %td= link_to "Edit", edit_admin_residencytype_path(residencytype)
-      %td= link_to "Destroy", [:admin, residencytype], :confirm => 'Are you sure?', :method => :delete
-%p= link_to "define new residency type", new_admin_residencytype_path
+      %td= residencytype.visits.size
+      %td= link_to t(:details), [:admin, residencytype]
+      %td= link_to t(:edit), edit_admin_residencytype_path(residencytype)
+      %td.destroy= link_to t(:destroy), [:admin, residencytype], :data => {:confirm => t(:are_you_sure)}, :method => :delete
+= button_to "#{t :define_new} #{t :residency_type}", new_admin_residencytype_path, :method => :get
