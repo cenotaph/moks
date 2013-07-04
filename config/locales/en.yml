@@ -396,3 +396,18 @@ en:
   add_sound_file: 'add a sound file'
   title_name: 'title/name'
   pages: 'pages'
+  date_posted: 'date posted'
+  subject: 'subject'
+  type: 'type'
+  posts: 'posts'
+  press_publicity_links: 'Press/publicity links'
+  residency: 'Residency'
+  author: 'Author'
+  press_material: "Press material as PDF or other file for download"
+  web_based: 'if web-based'
+  url_to_press: 'URL to article/press'
+  name_of_publication: "Name of publication or where it appeared"
+  sort_order_hint: 'A number to sort this in a list against the others'
+  sort_order: 'Sort order value'
+  optional: 'optional'
+  name_of_article: 'Name of article or press material'

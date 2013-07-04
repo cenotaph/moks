@@ -35,7 +35,9 @@ class Visit < ActiveRecord::Base
     artist.name 
   end
 
-
+  def name
+    artist.name + " (#{display_dates.map{|x| x.strftime("%B %Y")}.uniq.join(' - ')})"
+  end
 
   def activities
     events.map{|x| x.name }.join(', ')

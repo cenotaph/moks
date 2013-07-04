@@ -1,29 +1,28 @@
-%h2 Press/publicity links
+%h2= t :press_publicity_links
+= button_to "#{t :create_new} #{t :press_publicity_links}", new_admin_publicity_path, :method => :get
+
+
 %table
   %thead
-    %th Name
-    %th Source
-    %th Author
-    %th Attachment
-    %th Url
-    %th Project
-    %th Event
-    %th Visit
-    %th Sortorder
+    %th= t :name
+    %th= t :source
+    %th= t :author
+    %th= t :project
+    %th= t :event
+    %th= t :residency
+
   %tbody
     - for publicity in @publicities
       %tr{:class => cycle('odd', 'even')}
         %td= publicity.name
         %td= publicity.source
         %td= publicity.author
-        %td= publicity.attachment
-        %td= publicity.url
-        %td= publicity.project
-        %td= publicity.event
-        %td= publicity.visit
+        %td= publicity.project.try(:name)
+        %td= publicity.event.try(:name)
+        %td= publicity.visit.try(:name)
         %td= publicity.sortorder
-        %td= link_to "Show", [:admin, publicity]
-        %td= link_to "Edit", edit_admin_publicity_path(publicity)
-        %td.destroy= link_to "Destroy", [:admin, publicity], :confirm => 'Are you sure?', :method => :delete
+        %td= link_to t(:details), [:admin, publicity]
+        %td= link_to t(:edit), edit_admin_publicity_path(publicity)
+        %td.destroy= link_to t(:destroy), [:admin, publicity], :data => {:confirm => t(:are_you_sure)}, :method => :delete
 
-= button_to "Create new press/publicity", new_admin_publicity_path, :method => :get
+= button_to "#{t :create_new} #{t :press_publicity_links}", new_admin_publicity_path, :method => :get

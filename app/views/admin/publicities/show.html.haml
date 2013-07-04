@@ -1,27 +1,28 @@
-- title "Admin/Publicity"
+%h2= t :press_publicity_links
 %p
-  %strong Name:
+  %strong= t :name
   = @publicity.name
 %p
-  %strong Source:
+  %strong= t :source
   = @publicity.source
 %p
-  %strong Author:
+  %strong= t :author
   = @publicity.author
-%p
-  %strong Attachment:
-  = @publicity.attachment
+- if @publicity.attachment?  
+  %p
+    %strong= t :attachment
+    = link_to t(:download_box), @publicity.attachment.url
 %p
   %strong Url:
   = @publicity.url
 %p
-  %strong Project:
+  %strong= t :project
   = @publicity.project
 %p
-  %strong Event:
+  %strong= t :event
   = @publicity.event
 %p
-  %strong Visit:
+  %strong= t :artist
   = @publicity.visit
 %p
   %strong Sortorder:

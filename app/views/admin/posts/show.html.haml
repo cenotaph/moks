@@ -17,6 +17,8 @@
   %h4 Attached images:
   - @post.images.each do |image|
     .image= image_tag image.filename.url(:standard)
-= link_to "Edit", edit_admin_post_path(@post) 
-= link_to "Destroy", [:admin, @post], :confirm => 'Are you sure?', :method => :delete 
-= link_to "View All", admin_posts_path 
+= link_to  t(:edit), edit_admin_post_path(@post) 
+|
+%span.destroy= link_to t(:destroy), [:admin, @post], :confirm => 'Are you sure?', :method => :delete 
+|
+= link_to "#{t :view_all} #{t :posts}", admin_posts_path 

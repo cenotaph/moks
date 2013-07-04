@@ -1,11 +1,11 @@
 = semantic_form_for [:admin, @publicity] do |f|
-  = f.input :name, :label => 'Name of article or press material'
-  = f.input :source, :label => "Source", :hint => "Name of publication or where it appeared"
+  = f.input :name, :label => t(:name_of_article)
+  = f.input :source, :label => t(:source), :hint => t(:name_of_publication)
   = f.input :author
-  = f.input :attachment, :label => "Attachment", :hint => "Press material as PDF or other file for download"
-  = f.input :url, :label => "URL to press", :hint => "(if web-based)"
-  = f.input :project, :label => "Project this press is about", :hint => "(optional)"
-  = f.input :event, :label => "Event this press is about", :hint => "(optional)"
-  = f.input :visit, :label => "Artist or residency it relates to", :hint => "( (optional)"
-  = f.input :sortorder, :label => "Sort order", :hint => "A number to sort this press in a list against the others"
+  = f.input :attachment, :label => t(:attachment), :hint => t(:press_material)
+  = f.input :url, :label => t(:url_to_press), :hint => t(:web_based)
+  = f.input :project, :label => t(:project), :hint => t(:optional)
+  = f.input :event, :label => t(:event), :hint => t(:optional)
+  = f.input :visit, :label => t(:artist) + '/' + t(:residency), :hint => t(:optional)
+  = f.input :sortorder, :label => t(:sort_order), :hint => t(:sort_order_hint)
   = f.submit
