@@ -1,9 +1,14 @@
-- title "Page"
+%h2= t :page
+
+%b= @page.title
+
 %p
   %strong Slug:
   = @page.slug
+= raw @page.body
 %p
-  = link_to "Edit", edit_page_path(@page)
+  = link_to t(:edit), edit_page_path(@page)
   |
-  \#{link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete} |
-  \#{link_to "View All", pages_path}
+  %span.destroy= link_to t(:destroy), @page, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "#{t :view_all} #{t :pages}", pages_path

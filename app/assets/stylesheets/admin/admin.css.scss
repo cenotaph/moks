@@ -63,7 +63,10 @@ table {
 table.with_border {
   td {
     vertical-align: top;
-  
+    &.avatar {
+      width: 150px;
+      overflow: hidden;
+    }
   }
 }
 

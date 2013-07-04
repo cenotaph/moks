@@ -1,22 +1,22 @@
-%h2 Project
+%h2= t :project
 
 %h3= @project.name
 
 - unless @project.projecttype.nil?
-  = "type #{@project.projecttype.name}"
+  = "#{t :project_type}: #{@project.projecttype.name}"
 
 - if @project.avatar?
   .project_image= image_tag @project.avatar.url(:thumbnail)
 
 - if @project.events.empty?
-  %p No events belong to this project.
+  %p= t :no_events_projects
 - else
   .project_events
-    %strong Events:
+    %strong= t :events
     - @project.events.each do |event|
       .event
         = link_to event.name, [:admin, event]
         .date= event.dates
 
 - if can? :edit, @project
-  = link_to t(:edit_details), edit_admin_project_path(@project)
+  = link_to t(:edit), edit_admin_project_path(@project)

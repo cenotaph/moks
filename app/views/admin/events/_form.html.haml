@@ -15,16 +15,17 @@
     - I18n.available_locales.each do |locale|
       %div{:id => "lang-#{locale}"}
         = f.globalize_fields_for locale do |en|
-          %b= "Name in #{t(:language_name, :locale => locale)}"
+          = "#{t :name} (#{t(:language_name, :locale => locale)})"
           = en.text_field :name
           .clearfix
-            %b= "Post content in #{t(:language_name, :locale => locale)}"
+            = "#{t :body} (#{t(:language_name, :locale => locale)})"
             = en.text_area :description, :class => 'ckeditor'
-          %b= "Notes, etc in #{t(:language_name, :locale => locale)}"
+          .clearfix
+            = "#{t :notes} (#{t(:language_name, :locale => locale)})"
           = en.text_area :notes
   = f.fields_for :images do |ff|
     .add_image
-      %p Add an image to this event:
+      %p= t :add_image_event
       - unless ff.object.new_record?
         = image_tag ff.object.filename.url(:thumbnail)
       = ff.input :filename, :as => :file
@@ -32,13 +33,13 @@
       - I18n.available_locales.each do |locale|
         %div{:id => "caption-#{ff.object.id.to_s}-lang-#{locale}"}
         = ff.globalize_fields_for locale do |l|
-          %b= "Caption in #{t(:language_name, :locale => locale)}"
+          = "#{t :caption} (#{t(:language_name, :locale => locale)})"
           = l.text_field :caption
-      = ff.link_to_remove 'remove this image'
-  .cl= f.link_to_add 'add an image', :images
+      = ff.link_to_remove t :remove_image
+  .cl= f.link_to_add t(:add_extra_image), :images
   = f.fields_for :sounds do |ff|
     .add_image
-      %p= ff.object.new_record? ? 'Add a' : 'Change the' + " sound file for this event:"
+      %p= (ff.object.new_record? ? t(:add) : t(:change))+ t(:soundfile_for_event)
       - unless ff.object.new_record?
         - unless ff.object.filename.blank?
           Current file:
@@ -48,13 +49,13 @@
       - I18n.available_locales.each do |locale|
         %div{:id => "sound-#{ff.object.id.to_s}-lang-#{locale}"}
         = ff.globalize_fields_for locale do |l|
-          %b= "Title/name in #{t(:language_name, :locale => locale)}"
+          = "#{t :title_name} (#{t(:language_name, :locale => locale)})"
           = l.text_field :name
-          %b= "Description of sound in #{t(:language_name, :locale => locale)}"
+          = "#{t :description} (#{t(:language_name, :locale => locale)})"
           = l.text_field :description
-      = ff.input :published, :label => 'Published? (untick to hide from public)'
-      = ff.link_to_remove 'remove this sound'
-  .cl= f.link_to_add 'add a sound file', :sounds
+      = ff.input :published, :label => t(:published), :hint => t(:uncheck_to_hide)
+      = ff.link_to_remove t(:remove_sound)
+  .cl= f.link_to_add t(:add_sound_file), :sounds
   = f.fields_for :videos do |ff|
     .add_image
       %p= (ff.object.new_record? ? 'Embed a' : 'Change the') + " video for this event:"
@@ -66,12 +67,12 @@
       - I18n.available_locales.each do |locale|
         %div{:id => "sound-#{ff.object.id.to_s}-lang-#{locale}"}
         = ff.globalize_fields_for locale do |l|
-          %b= "Title/name in #{t(:language_name, :locale => locale)}"
+          = "#{t :title_name} (#{t(:language_name, :locale => locale)})"
           = l.text_field :name
-          %b= "Description of video in #{t(:language_name, :locale => locale)}"
+          = "#{t :description} (#{t(:language_name, :locale => locale)})"
           = l.text_field :description
-      = ff.input :published, :label => 'Published? (untick to hide from public)'
-      = ff.link_to_remove 'remove this video'
+      = ff.input :published, :label => t(:published), :hint => t(:uncheck_to_hide)
+      = ff.link_to_remove t :remove_video
   .cl= f.link_to_add 'embed a video from YouTube or Vimeo', :videos
   .after
     = f.fields_for :carousels do |ff|
@@ -80,6 +81,6 @@
 
       = ff.input :carousel_image
       = ff.input :active      
-      = ff.link_to_remove t(:remove_this) + " " + t(:carousel_image)
-    = f.link_to_add t(:add) + " " +  t(:frontpage_carousel_image), :carousels  
+      = ff.link_to_remove t :remove_carousel_image
+    = f.link_to_add t(:frontpage_carousel_image), :carousels  
   = f.submit
