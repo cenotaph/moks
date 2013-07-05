@@ -3,6 +3,10 @@ gem 'rails', '4.0.0'
 ruby '2.0.0'
 gem 'pg'
 
+gem 'sass-rails' #,   '~> 3.2.3'
+gem 'coffee-rails'#, '~> 3.2.1'
+gem 'uglifier', '>= 1.3.0'
+
 
 group :development do
   gem 'better_errors'
@@ -11,6 +15,7 @@ group :development do
   gem 'hpricot', '>= 0.8.6'
   gem 'meta_request'
   gem 'nifty-generators'
+  gem 'rails-footnotes',  '>= 3.7.9'
   gem 'quiet_assets'
   gem 'ruby_parser', '>= 3.0.1'
   gem 'thin'
@@ -20,11 +25,6 @@ end
 group :production do
   gem 'therubyracer'
 end
-
-
-  gem 'sass-rails' #,   '~> 3.2.3'
-  gem 'coffee-rails'#, '~> 3.2.1'
-  gem 'uglifier'#, '>= 1.0.3'
 
 
 group :test do
@@ -80,6 +80,7 @@ gem 'skeleton-rails'
 gem 'soundmanager2-rails'
 gem 'superfish-rails'
 gem 'truncate_html'
+gem 'turbolinks'
 gem 'vimeo'
 gem 'wicked_pdf'
 #gem 'will_filter', '~> 3.1.0' 
