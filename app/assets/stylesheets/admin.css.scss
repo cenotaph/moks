@@ -7,11 +7,13 @@
  *= require jquery.ui.tabs 
  */
 
+body.edit {
 #language-tabs {
   clear: left;
   margin-top: 30px;
 }
 
-.ui-tabs-nav {
+.ui-tabs-nav, .ui-tabs .ui-tabs-panel {
   font-size: 12px;
+  }
 }

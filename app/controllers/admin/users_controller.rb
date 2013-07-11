@@ -11,8 +11,9 @@ class Admin::UsersController < Admin::BaseController
 
   protected
 
-  def resource_params
-    params.require(:users).permit(:name, :artist_id, :role_ids, :real_name, :avatar, :username, :email, :password, :password_confirmation, :remember_me)
+  def permitted_params
+    params.permit(:user => [ :name, :artist_id, :role_ids, :real_name, :avatar, :username, :email, :password, :password_confirmation, :remember_me
+      ])
   end
 
 end
