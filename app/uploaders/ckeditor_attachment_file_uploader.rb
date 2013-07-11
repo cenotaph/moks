@@ -8,7 +8,7 @@ class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::ImageScience
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
+  storage :file
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -33,10 +33,4 @@ class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
   def extension_white_list
     Ckeditor.attachment_file_types
   end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
 end
