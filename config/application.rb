@@ -10,7 +10,7 @@ module Moks
     config.autoload_paths += %W(#{config.root}/app/modules)
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+ 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       
@@ -57,7 +57,7 @@ module Moks
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+
     config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
   end
 end

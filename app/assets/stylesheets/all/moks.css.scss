@@ -14,7 +14,7 @@ ul.nav {
   font-weight: bold;
   font-size: 28px;
   margin: 15px 0px 25px 0px;
-  font-family: 'HelveticaNeueLTStd';
+  font-family: 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
 
 }
 
@@ -25,12 +25,12 @@ ul.nav {
 .sub_heading {
   margin: 15px 0px 25px 0px;
   color: $dark;
-  font: 22px/25px 'HelveticaNeueLTStd';
+  font: 22px/25px 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
 }
 
 .application_form {
   .application_info {
-    font: 16px/18px 'HelveticaNeueLTStd';
+    font: 16px/18px 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
     color: #000;
   }
   li {
@@ -39,7 +39,7 @@ ul.nav {
     margin-bottom: 15px;
   }
   label {
-    font: 18px/20px 'HelveticaNeueLTStd';
+    font: 18px/20px 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
     color: $dark;
     width: 185px;
     padding-top: 15px;
@@ -58,7 +58,7 @@ ul.nav {
     &:focus {
       outline: none;
     }
-    font: 18px/20px 'HelveticaNeueLTStd';
+    font: 18px/20px 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
     padding: 15px 10px;
     color: $dark;
     background-color: $light-background;
@@ -80,7 +80,7 @@ ul.nav {
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    font: 18px/20px 'HelveticaNeueLTStd';
+    font: 18px/20px 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
     color: $dark;
     background-color: $light-background;
     border: none; 
@@ -107,7 +107,7 @@ ul.nav {
             height: 40px;
             width: 180px;
             color: white;
-            font: 16px/18px 'HelveticaNeueLTStd';
+            font: 16px/18px 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
             font-weight: bold;
             padding-top: 8px;
             border-radius:5px;

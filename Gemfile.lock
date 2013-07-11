@@ -25,6 +25,15 @@ GIT
       rails_autolink (>= 1.0)
 
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: a2bd6791cc74dde4e87ea83179afe50b76b458a0
+  branch: master
+  specs:
+    ckeditor (4.0.5)
+      mime-types
+      orm_adapter
+
+GIT
   remote: git://github.com/josevalim/inherited_resources.git
   revision: 2656ca0cea51cc7469be1d30cace24752d5b4e3b
   specs:
@@ -39,15 +48,6 @@ GIT
   specs:
     formtastic (2.2.1)
       actionpack (>= 3.0)
-
-GIT
-  remote: git://github.com/mjhoy/ckeditor.git
-  revision: fca24021e13d355f74c9538f9db27dc58687ce65
-  branch: rails-4-compatibility
-  specs:
-    ckeditor (4.0.4)
-      mime-types
-      orm_adapter
 
 GIT
   remote: git://github.com/svenfuchs/globalize3.git
