@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   has_many :carousels, :as => :item, :dependent => :destroy
   accepts_nested_attributes_for :carousels, :allow_destroy => true, :reject_if => proc {|att| att['carousel_image'].blank? && att['id'].blank? }
 
-  
+
   extend FriendlyId
   friendly_id :title_en, :use => :history
 

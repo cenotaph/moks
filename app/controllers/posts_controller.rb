@@ -7,6 +7,9 @@ class PostsController < InheritedResources::Base
     render template: 'posts/index'
   end
 
+  def index
+    @posts = Post.published.order('posted_at DESC').page(params[:page]).per(10)
+  end
   def news
     @posts = Post.news.published.order('posted_at DESC').page(params[:page])
     @title = t(:news)
@@ -20,7 +23,7 @@ class PostsController < InheritedResources::Base
   protected
 
   def collection
-    @posts ||= end_of_association_chain.paginate(:page => params[:page])
+    @posts ||= end_of_association_chain.page(params[:page]).per(10)
   end
 
 end
