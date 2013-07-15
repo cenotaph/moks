@@ -1,8 +1,10 @@
 @import 'variables';
 
 .events {
+   margin-top: -20px;
   .event {
-    margin-bottom: 40px;
+    clear: left;
+    padding-top: 20px;
     font-family: 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
     .timestamp {
       color: $site-blue;
@@ -22,11 +24,28 @@
       font-size: 15px;
       line-height: 28px;
     }
+    .event_description {
+      p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      color: #666;
+    }
     .more_link {
+      clear: left;
       color: $site-orange;
       a {
         color: $site-orange;
       }
     }
+  }
+}
+
+
+// standalone 
+.event {
+  .event_description {
+    clear: left;  // make text appear under gallery
+    padding-top: 5px;
   }
 }

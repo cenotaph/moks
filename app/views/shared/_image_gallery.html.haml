@@ -1,16 +1,27 @@
 .clearfix.gallery_left{:id => "images_" + image_array.first.id.to_s}
   = image_tag image_array.first.filename.url(:standard)
-   
+%div{:id => "images_" + image_array.first.id.to_s + "_orig", :class => :hidden}
+  = image_tag image_array.first.filename.url
 - if image_array.size > 1
+  
   %div{:id => "slides_" + image_array.first.id.to_s}
     - image_array.each do |image|
-      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :rel => image.filename.url(:standard), :class => "slide_image")
+      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :rel => image.filename.url(:standard), :orig => image.filename.url, :class => "slide_image")
 
 :javascript
+  $('#images_#{image_array.first.id.to_s} img').click(function() {
+    $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
+  });
   $("#slides_#{image_array.first.id.to_s} .slide_image").click(function() {
     var image = $(this).attr("rel");
+    var orig = $(this).attr("orig");
     $('#images_#{image_array.first.id.to_s}').hide();
     $('#images_#{image_array.first.id.to_s}').fadeIn('slow');
     $('#images_#{image_array.first.id.to_s}').html('<img src="' + image + '"/>');
+    $('#images_#{image_array.first.id.to_s}_orig').html('<img src="' + orig + '"/>');
+
+    $('#images_#{image_array.first.id.to_s} img').click(function() {
+      $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
+    });
     return false;
   });

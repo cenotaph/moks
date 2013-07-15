@@ -4,6 +4,9 @@
   - @events.each do |event|
     .event
       = render :partial => 'event', locals: {event: event}
+      .event_description
+        = truncate_html(event.description)
       .more_link
         = link_to t(:more), event
         = " > "
+        
