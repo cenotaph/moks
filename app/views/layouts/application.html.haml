@@ -12,6 +12,13 @@
     .container
       #left.three.columns.alpha
         .logo
+          = link_to_unless(session[:locale] == 'et', 'EST',{:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'et'})
+          |
+          = link_to_unless(session[:locale] == 'en', 'ENG', {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'en'})
+          |
+          = link_to_unless(session[:locale] == 'ru', 'РУС', {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'ru'})
+ 
+          
           = link_to '/' do
             = image_tag 'logo-moks.png'
         .sidebar= render :partial => 'shared/sidebar'

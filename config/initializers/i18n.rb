@@ -3,4 +3,5 @@ I18n.default_locale = :en
 I18n.available_locales = [:en, :et, :ru]
 I18n.fallbacks[:en] = [:en, :et, :ru] 
 I18n.fallbacks[:et] = [:et, :en, :ru]
+I18n.fallbacks[:ru] = [:ru, :en, :et]
 # Globalize.fallbacks = {:en => [:en, :et, :ru], :et => [:et, :en, :ru]}
