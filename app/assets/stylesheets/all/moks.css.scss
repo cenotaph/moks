@@ -20,8 +20,11 @@ ul.nav {
 
 .gallery_left {
   float: left;
+  width: 600px;
   margin-right: 15px;
   img {
+    max-width: 100%;
+    height: auto;
     cursor: pointer;
   }
 }
