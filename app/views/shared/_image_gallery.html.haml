@@ -6,7 +6,7 @@
   
   %div{:id => "slides_" + image_array.first.id.to_s}
     - image_array.each do |image|
-      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :rel => image.filename.url(:standard), :orig => image.filename.url, :class => "slide_image")
+      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :onclick => "return false;", :rel => image.filename.url(:standard), :orig => image.filename.url, :class => "slide_image")
 
 :javascript
   $('#images_#{image_array.first.id.to_s} img').click(function() {

@@ -5,7 +5,5 @@
   - else
     = date_range(event.start_at.to_date, event.end_at.to_date, :format => :long)
 .title= link_to event.name, event
-- unless event.images.empty?
-  .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => event.images }
 - unless event.notes.blank?
   .notes= event.notes

@@ -3,3 +3,5 @@
 .event
   = render partial: 'event', locals: {event: @event}
   .event_description= raw @event.description
+  - unless @event.images.empty?
+    .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => @event.images }
