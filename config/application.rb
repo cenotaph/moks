@@ -10,7 +10,8 @@ module Moks
     config.autoload_paths += %W(#{config.root}/app/modules)
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
- 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       

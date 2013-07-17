@@ -12,7 +12,8 @@
   $('#images_#{image_array.first.id.to_s} img').click(function() {
     $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
   });
-  $("#slides_#{image_array.first.id.to_s} .slide_image").click(function() {
+  $("#slides_#{image_array.first.id.to_s} .slide_image").click(function(e) {
+    e.preventDefault();
     var image = $(this).attr("rel");
     var orig = $(this).attr("orig");
     $('#images_#{image_array.first.id.to_s}').hide();

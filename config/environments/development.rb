@@ -29,8 +29,8 @@ Moks::Application.configure do
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
+  
 
-   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
    config.assets.precompile += %w( .svg .eot .woff .ttf )
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

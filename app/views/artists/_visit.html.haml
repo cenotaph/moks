@@ -1,9 +1,9 @@
 .visit
   .date= visit.display_dates.map{|x| x.strftime("%B %Y")}.uniq.join(" - ")
-  - unless visit.images.empty?
-    .image_array.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => visit.images}
   - unless visit.funders.empty?
     .funder_credit
       = t :supported_by
       = visit.funders.map(&:name).join(' / ')
-    .description= raw visit.description
+  .description= raw visit.description
+  - unless visit.images.empty?
+    .image_array.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => visit.images} 

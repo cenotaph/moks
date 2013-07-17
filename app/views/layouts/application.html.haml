@@ -6,6 +6,8 @@
       %meta{:content => content_for?(:description) ? yield(:description) : "Moks", :name => "description"}
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
+        %link{:href => "http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic&subset=latin,latin-ext", :rel => "stylesheet", :type => "text/css"}/
+
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
