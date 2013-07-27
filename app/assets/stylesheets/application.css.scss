@@ -43,6 +43,11 @@ a {
     position: relative;
 }
 
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
 .logo a:after, header a:after {
   border: none;
 }
