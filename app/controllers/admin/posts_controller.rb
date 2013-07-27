@@ -5,7 +5,12 @@ class Admin::PostsController < Admin::BaseController
     @post = Post.new(:user_id => current_user.id)
     @post.build_carousel
   end
+  
+  def index
+    @posts = Post.includes([:postcategory, :images]).order('posted_at DESC').page(params[:page]).per(25)
 
+  end
+  
   protected
 
   def permitted_params

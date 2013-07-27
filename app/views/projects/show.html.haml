@@ -1,0 +1,17 @@
+.project
+  .page_heading= @project.name
+
+  - if @project.avatar?
+    .project_image= image_tag @project.avatar.url(:large)
+  - elsif !@project.events.empty?
+    - unless @project.events.map(&:images).uniq.empty?
+      .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => @project.events.map(&:images).flatten }
+
+  .project_description= raw @project.description  
+
+
+  - unless @project.events.empty?
+    .project_events
+      .sub_heading= t :events
+      - @project.events.each do |e|
+        .project_event= render :partial => 'project_event' , :locals => {:event => e}  

@@ -1,0 +1,10 @@
+.page_heading= t :projects
+
+.projects
+  - @projects.each do |project|
+    .project
+      = render :partial => 'project', locals: {project: project}
+      .more_link
+        = link_to t(:more), project
+        = " > "
+        

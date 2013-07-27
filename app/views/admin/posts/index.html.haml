@@ -2,7 +2,7 @@
 = button_to t(:create_new_post), new_admin_post_path, :method => :get
 
 
-
+= paginate @posts
 %table
   %thead
     %th= t :date_posted
@@ -13,7 +13,7 @@
   %tbody
     - @posts.each do |post|
       %tr{:class => cycle('odd', 'even')}
-        %td= post.created_at.strftime("%b %d %Y")
+        %td= post.posted_at.strftime("%b %d %Y")
         %td= post.old_byline
         %td
           = post.title
@@ -25,3 +25,4 @@
         %td= link_to t(:edit), edit_admin_post_path(post)
         %td.destroy= link_to t(:destroy), [:admin, post], :data => {:confirm => 'Are you sure?'}, :method => :delete
 = button_to t(:create_new_post), new_admin_post_path, :method => :get
+= paginate @posts

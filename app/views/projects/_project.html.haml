@@ -1,0 +1,9 @@
+
+.title= link_to project.name, project
+- unless project.description.blank?
+  .project_description= raw project.description
+- unless project.events.empty?
+  .project_events
+    .sub_heading= t :events
+    - project.events.each do |e|
+      .project_event= render :partial => 'project_event' , :locals => {:event => e}  

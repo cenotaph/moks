@@ -11,3 +11,4 @@
         %td= link_to t(:edit), edit_admin_page_path(page)
         %td.destroy= link_to t(:destroy), [:admin,  page], :confirm => 'Are you sure?', :method => :delete
 = button_to "#{t :create_new} #{t :page}", new_admin_page_path, :method => :get
+

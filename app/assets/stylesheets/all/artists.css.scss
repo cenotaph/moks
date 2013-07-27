@@ -1,20 +1,64 @@
 @import 'variables';
-.artist {
-  .artist_name {
+.artist, .project {
+  .artist_name, .title {
+    a {
+      color: $site-orange;
+    }
     color: $dark;
     font-size: 22px;
     font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
   }
-  .artist_bio {
+  .project_events {
+    margin-left: 50px;
+    margin-right: 50px;
+    
+    .project_event {
+      float: left;
+      .project_title, .project_title a {
+        font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        color: $site-olive;
+      }
+      .timestamp {
+        font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: $site-blue;
+      }
+    }
+  }
+  .sub_heading {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: $moks-orange-light;
+    font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+  }
+  .artist_bio, .project_description {
+    clear: left;
     margin-top: 15px;
     font: 18px/25px 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
     color: #000;
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
   }
   .artist_image {
     img {
       max-width: 100%;
       height: auto;
     }
+  }
+  .more_link {
+    clear: left;
+    color: $site-orange;
+    a {
+      color: $site-orange;
+    }
+    margin-bottom: 40px;
   }
 }
 
