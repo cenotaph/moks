@@ -1,5 +1,8 @@
 @import 'variables';
 .artist, .project {
+  border-bottom: 1px solid $site-beige;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
   .artist_name, .title {
     a {
       color: $site-orange;
@@ -79,6 +82,9 @@
       margin-bottom: 5px;
       font-size: 16px;
 
+      font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+    }
+    .description {
       font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
     }
     .funder_credit {
