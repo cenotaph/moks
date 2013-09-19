@@ -7,11 +7,18 @@
   .sub_heading= t :application_form
   = semantic_form_for @residencyapplication, :html => {:multipart => true} do |f|
     = f.input :name
+    = f.input :organisation, :label => t(:organisation), :hint => t(:optional)
     = f.input :email
+    = f.input :country_of_residence
+    = f.input :country_of_origin
     = f.input :urls, :as => :string, :label => t(:portfolio)  
     = f.input :residencytype, :label => t(:residency_type)
+    = f.input :field_of_interest
     = f.input :other_questions, :label => t(:application_brief_description)
     = f.input :cv
     = f.input :other_attachment
+    = f.input :languages_spoken
+    = f.input :preferred_dates
+    = f.input :how_did_hear, :label => t(:how_did_hear)
     = f.actions do
       = f.action :submit, :as => :button, :label => t(:submit_application)

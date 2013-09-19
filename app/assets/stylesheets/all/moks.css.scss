@@ -43,6 +43,12 @@ ul.nav {
     list-style-type: none;
     height: 40px;
     margin-bottom: 15px;
+    clear: left;
+    p.inline-hints {
+      font: 14px/16px 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+      font-style: italic;
+      margin-top: -10px;
+    }
   }
   label {
     font: 18px/20px 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
