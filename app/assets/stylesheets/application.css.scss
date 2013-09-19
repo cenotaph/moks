@@ -43,9 +43,37 @@ a {
     position: relative;
 }
 
-.logo img {
-  max-width: 100%;
-  height: auto;
+.logo {
+  
+  .language {
+    float: left;
+    margin-left: 25px;
+    z-index: -3;
+    
+    .est {
+      float: left;
+      margin: 0px 5px 0px 3px;
+    }
+    .eng {
+      float: left;
+      margin-top: -2px;
+    }
+    .rus { 
+      float: left;
+      margin-top: -2px;
+      margin-left: 3px;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .umbrella {
+    margin-top: -32px;
+    float: left;
+  }
 }
 
 .logo a:after, header a:after {

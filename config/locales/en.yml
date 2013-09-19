@@ -396,6 +396,7 @@ en:
   add_sound_file: 'add a sound file'
   title_name: 'title/name'
   pages: 'pages'
+  name: 'Name'
   date_posted: 'date posted'
   subject: 'subject'
   type: 'type'

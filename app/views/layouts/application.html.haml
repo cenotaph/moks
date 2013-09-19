@@ -3,6 +3,8 @@
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : "Moks"
+      %link{ href: '/assets/favicon.ico', rel: 'shortcut icon'}/
+      %link{ href: '/assets/favicon.ico', rel: 'apple-touch-icon', }/
       %meta{:content => content_for?(:description) ? yield(:description) : "Moks", :name => "description"}
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
@@ -14,15 +16,27 @@
     .container
       #left.three.columns.alpha
         .logo
-          = link_to_unless(session[:locale] == 'et', 'EST',{:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'et'})
-          |
-          = link_to_unless(session[:locale] == 'en', 'ENG', {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'en'})
-          |
-          = link_to_unless(session[:locale] == 'ru', 'РУС', {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'ru'})
+          .language
+            .est
+              -if session[:locale] == 'et'
+                = image_tag('lng-est-on.png')
+              - else 
+                = link_to image_tag('lng-est-off.png'), {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'et'}
+            .eng
+              - if session[:locale] == 'en'
+                = image_tag('lng-eng-on.png')
+              - else
+                = link_to image_tag('lng-eng-off.png'), {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'en'}
+            .rus
+              - if session[:locale] == 'ru'
+                = image_tag('lng-rus-on.png')
+              - else
+                = link_to image_tag('lng-rus-off.png'), {:controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'ru'}
  
           
-          = link_to '/' do
-            = image_tag 'logo-moks.png'
+          .umbrella
+            = link_to '/' do
+              = image_tag 'logo-moks.png'
         .sidebar= render :partial => 'shared/sidebar'
         .system= render 'layouts/navigation'
       #right.thirteen.columns.omega

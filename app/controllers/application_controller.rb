@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
   
   def home
-    @carousels = Carousel.published.order(:sort_order)
+    @carousels = Carousel.published.order(:sort_order).shuffle
   end
 
   def populate_sidebar

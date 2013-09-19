@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::BaseController
 
   def new
     @post = Post.new(:user_id => current_user.id)
-    @post.build_carousel
+    # @post.build_carousel
   end
   
   def index
