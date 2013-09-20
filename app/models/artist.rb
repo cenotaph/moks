@@ -13,4 +13,16 @@ class Artist < ActiveRecord::Base
   friendly_id :name, :use => :history
   
   validates_presence_of :name, :email
+  
+  before_save :update_avatar_attributes
+  
+  def update_avatar_attributes
+    if avatar.present?
+      self.avatar_content_type = avatar.file.content_type
+      self.avatar_size = avatar.file.size
+      self.avatar_width, self.avatar_height = `identify -format "%wx%h" #{avatar.file.path}`.split(/x/)
+      # if you also need to store the original filename:
+      # self.original_filename = image.file.filename
+    end
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704092314) do
+ActiveRecord::Schema.define(version: 20130920100831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,16 +43,20 @@ ActiveRecord::Schema.define(version: 20130704092314) do
   end
 
   create_table "artists", force: true do |t|
-    t.string   "name",       limit: 510
-    t.string   "website1",   limit: 510
-    t.string   "website2",   limit: 510
-    t.string   "website3",   limit: 510
-    t.string   "avatar",     limit: 510
-    t.string   "country",    limit: 510
-    t.string   "slug",       limit: 510
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "email",      limit: 510
+    t.string   "name",                limit: 510
+    t.string   "website1",            limit: 510
+    t.string   "website2",            limit: 510
+    t.string   "website3",            limit: 510
+    t.string   "avatar",              limit: 510
+    t.string   "country",             limit: 510
+    t.string   "slug",                limit: 510
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "email",               limit: 510
+    t.string   "avatar_content_type"
+    t.integer  "avatar_size"
+    t.integer  "avatar_height"
+    t.integer  "avatar_width"
   end
 
   create_table "authentications", force: true do |t|
@@ -243,6 +247,10 @@ ActiveRecord::Schema.define(version: 20130704092314) do
     t.boolean  "published"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "content_type"
+    t.integer  "size",            limit: 8
+    t.integer  "height"
+    t.integer  "width"
   end
 
   create_table "incomes", force: true do |t|

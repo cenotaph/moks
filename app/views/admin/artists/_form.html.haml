@@ -13,51 +13,68 @@
   = f.input :website1
   = f.input :website2
   = f.input :website3
+  - if f.object.avatar?
+    = t(:current_image)
+    = image_tag f.object.avatar.url(:thumbnail)
   = f.input :avatar, :label => t(:image_of_artist_or_work)
+
   - if @artist.new_record?
     = t :new_artist_record
   - else
-    %strong Visits:
-    = f.fields_for :visits do |ff|
-      .artist_visit_form
-        = ff.input :start_date, :as => :string, :input_html => {:class => 'datepicker'}
-        = ff.input :end_date, :as => :string, :input_html => {:class => 'datepicker'}
-        %div{:id => "language-tabs-" + ff.object.id.to_s}
-          %ul.language-selection
+    .form_subsection
+      %strong= t(:visit)
+      = f.fields_for :visits do |ff|
+        .artist_visit_form
+          = ff.input :start_date, :as => :string, :input_html => {:class => 'datepicker'}
+          = ff.input :end_date, :as => :string, :input_html => {:class => 'datepicker'}
+          %div{:id => "language-tabs-" + ff.object.id.to_s}
+            %ul.language-selection
+              - I18n.available_locales.each do |locale|
+                %li{:id => "picksublang-#{locale}-#{ff.object.id}"}= link_to t(:language_name, :locale => locale), "#sublang-#{locale}-#{ff.object.id}"
             - I18n.available_locales.each do |locale|
-              %li{:id => "picksublang-#{locale}-#{ff.object.id}"}= link_to t(:language_name, :locale => locale), "#sublang-#{locale}-#{ff.object.id}"
-          - I18n.available_locales.each do |locale|
-            %div{:id => "sublang-#{locale}-#{ff.object.id}"}
-              = ff.globalize_fields_for locale do |en|
-                %b= "#{t :description_of_residency} #{t(:language_name, :locale => locale)}"
-                = en.text_area :description  , :class => :ckeditor
-        = ff.input :is_rental
-        = ff.input :residencytype
-        = ff.input :project, :label => t(:specific_project)
-        = ff.input :funders, :label => t(:specific_funders), :as => :check_boxes
-        %p Events included in this visit:
-        = ff.input :events, :as => :check_boxes
-        = ff.input :published, :label => t(:make_public)
+              %div{:id => "sublang-#{locale}-#{ff.object.id}"}
+                = ff.globalize_fields_for locale do |en|
+                  %b= "#{t :description_of_residency} #{t(:language_name, :locale => locale)}"
+                  = en.text_area :description  , :class => :ckeditor
+          .six.columns.alpha
+            = ff.input :is_rental
+            = ff.input :residencytype, :label => t(:residency_type)
+            = ff.input :project, :label => t(:specific_project)
+            %li
+              %label 
+              = ff.input :events , :label=> t(:events_included_in_this_visit), :hint => t(:multiple_hint)
+          .six.columns.omega
+            = ff.input :funders, :label => t(:specific_funders), :as => :check_boxes
 
-        = ff.fields_for :images do |fff|
-          .add_image.clearfix
-            %p Add an image to this post:
-            - unless fff.object.new_record?
-              = image_tag fff.object.filename.url(:thumbnail)
-            = fff.input :filename, :as => :file
-            = fff.input :credit
-            = fff.link_to_remove 'remove this image'
-        .nested_fields= ff.link_to_add 'add an image', :images
+            = ff.input :published, :label => t(:make_public)
 
-        .after
-          = ff.fields_for :carousels do |fff|
-            - if fff.object.carousel_image?
-              = image_tag fff.object.carousel_image.url(:thumb)
-              = fff.input :active
-            = fff.input :carousel_image
-            = fff.link_to_remove t(:remove_this) + " " + t(:carousel_image)
-          = ff.link_to_add t(:add) + " " +  t(:frontpage_carousel_image), :carousels        
-        = ff.link_to_remove t(:delete_this_visit)
+        .form_media
+          %h5= t(:images_and_media)
+          .fields_container
+            = ff.fields_for :images do |fff|
+              .add_image.clearfix
+                
+                - unless fff.object.new_record?
+                  %p= t(:change_this_image)
+                  = image_tag fff.object.filename.url(:thumbnail)
+                = fff.input :filename, :as => :file
+                = fff.input :credit
+                = fff.link_to_remove t(:remove_this_image)
+            .nested_fields= ff.link_to_add 'add an image', :images
+
+            .after
+              %h6= t(:frontpage_carousel)
+              = ff.fields_for :carousels do |fff|
+                .add_image.clearfix
+                  - if fff.object.carousel_image?
+                    %p= t(:change_this_image)
+                    = image_tag fff.object.carousel_image.url(:thumb)
+                    = fff.input :active
+                  = fff.input :carousel_image, :hint => "955x580 or so"
+                  = fff.link_to_remove t(:remove_this) + " " + t(:carousel_image)
+              .nested_fields= ff.link_to_add t(:add) + " " +  t(:frontpage_carousel_image), :carousels    
+              
+          = ff.link_to_remove t(:delete_this_visit)
         :javascript
           $("#language-tabs-#{ff.object.id.to_s}").tabs();
           $('input.datepicker').datepicker({ dateFormat: "yy-mm-dd" });

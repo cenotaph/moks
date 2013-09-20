@@ -74,6 +74,48 @@ table.with_border {
   }
 }
 
+.form_subsection {
+  clear: both;
+  float: left;
+  margin-top: 35px;
+  border: 2px solid $cms-color2;
+  padding: 15px 5px 10px 5px;
+  li {
+    clear: left;
+    p.inline-hints {
+      margin-left: 0px !important;
+    }
+    label {
+      width: 130px !important;
+    }
+  }
+}
+
+.form_media {
+  clear: both;
+  float: left;
+  margin-top: 35px;
+  border-top: 1px solid $cms-color2;
+  padding-top: 15px;  
+  width: 100%;
+  .fields_container {
+    float: left;
+    clear: left;
+    .fields {
+      float: left;
+    }
+    .after {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px dotted $cms-color2;
+    }
+  }
+}
+
+input[type="text"], input[type="email"] {
+  width: 250px;
+  font-size: 18px;
+}
 input[name="commit"] {
   clear: left;
   float: left;
@@ -82,13 +124,18 @@ input[name="commit"] {
 .cl {
   clear: both;
   float: left;
-  padding: 20px;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 2px solid $cms-color2;
 }
 .add_image {
   border: 1px dotted $cms-color2;
   padding: 10px;
   float: left;
-  width: 300px;
+  width: 280px;
+  p.inline-hints {
+    margin: 0px !important;
+  }
 }
 
 .artist_visit_form {
@@ -215,7 +262,7 @@ fieldset.choices {
 .nested_fields {
   margin-top: 15px;
   margin-bottom: 20px;
-  clear: right;
+  clear: both;
   padding: 10px;
   a {
 

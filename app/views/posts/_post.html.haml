@@ -1,6 +1,7 @@
 
 .timestamp
-  = l post.posted_at, :format => :long
+  - if post.published?
+    = l post.posted_at, :format => :long
 .title= link_to raw(post.title), post
 
 .body= raw simple_format(post.body)

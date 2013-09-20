@@ -1,6 +1,7 @@
+%h1= link_to t(:view_on_public_site), @post
 %h2= @post.title
-%h5= "#{t :posted_by} #{@post.posted_by}"
-%h6= "#{@post.posted_at.strftime("%b %d %Y")}"
+%h5= "#{t :posted_by} #{@post.posted_by}" if @post.published?
+%h6= "#{@post.posted_at.strftime("%b %d %Y")}" if @post.published?
 
 - unless @post.carousels.empty?
   %h5= t :carousel_images

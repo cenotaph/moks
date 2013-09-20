@@ -13,7 +13,7 @@
   %tbody
     - @posts.each do |post|
       %tr{:class => cycle('odd', 'even')}
-        %td= post.posted_at.strftime("%b %d %Y")
+        %td= post.posted_at.strftime("%b %d %Y") if post.published?
         %td= post.old_byline
         %td
           = post.title

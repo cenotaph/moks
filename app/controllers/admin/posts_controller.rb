@@ -11,6 +11,13 @@ class Admin::PostsController < Admin::BaseController
 
   end
   
+  def create
+    create! { @post }
+  end
+  
+  def update
+    update! { @post }
+  end
   protected
 
   def permitted_params
