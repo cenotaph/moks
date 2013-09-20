@@ -1,5 +1,5 @@
-.visit
-  .date= visit.display_dates.map{|x| x.strftime("%B %Y")}.uniq.join(" - ")
+.visit.column
+  .date= date_range(visit.display_dates.first, visit.display_dates.last, :format => :long)
   - unless visit.funders.empty?
     .funder_credit
       = t :supported_by

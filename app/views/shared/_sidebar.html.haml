@@ -2,7 +2,7 @@
   .heading= t :events
   - @sidebar_events.each do |event|
     .event
-      .date= l event.start_at.to_date, :format => :long
+      .date= date_range(event.display_dates.first, event.display_dates.last, :format => :short)
       .title= link_to event.name, event
   .archive= link_to t(:archive) + " >", events_path
 

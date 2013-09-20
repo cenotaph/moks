@@ -7,6 +7,16 @@
     a {
       color: $site-orange;
     }
+    span.small_text {
+      font-size: 12px;
+      a {
+        color: $moks-orange-light;
+        &:hover {
+          font-weight: bold;
+          color: $moks-orange;
+        }
+      }
+    }
     color: $dark;
     font-size: 22px;
     font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
@@ -40,6 +50,7 @@
     font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
   }
   .artist_bio, .project_description {
+
     clear: left;
     margin-top: 15px;
     font: 18px/25px 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;

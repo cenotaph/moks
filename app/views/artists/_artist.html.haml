@@ -1,9 +1,12 @@
-.artist
+.artist.column
   .artist_name
-    = artist.name
+    = link_to artist.name, artist
     - if can? :update, artist
       %span.small_text= link_to t(:edit), edit_admin_artist_path(artist)
   - if artist.avatar?
-    .artist_image= image_tag artist.avatar.url(:large)
-  .artist_bio= raw artist.bio
+    - if artist.avatar_width.to_i > 800
+      .artist_image= image_tag artist.avatar.url(:large)
+    - else
+      .artist_image= image_tag artist.avatar.url
+  .artist_bio{:class => artist.avatar_width.to_i > 800 ? false : "eleven columns"}= raw artist.bio
 
