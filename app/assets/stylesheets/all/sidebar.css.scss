@@ -60,7 +60,7 @@
       margin-bottom: 20px;
     }
     .event {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       .date {
         color: $site-blue;
         font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
@@ -68,11 +68,12 @@
         margin-bottom: 0px;
       }
       .title {
+        line-height: 24px;
         a {
           color: #000;
           font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
           font-size: 18px;
-          line-height: 27px;
+          line-height: 20px;
           text-decoration: none;
         }
       }
