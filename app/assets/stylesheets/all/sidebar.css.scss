@@ -1,4 +1,52 @@
 @import 'variables';
+
+.mobile_sidebar {
+    clear: left;
+    margin-top: 25px;
+    .events, .news {
+      .heading {
+        font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        color: #333;
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .event {
+        margin-bottom: 10px;
+        padding-top: 5px;
+        .date {
+          color: $site-blue;
+          font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+          font-size: 11px;
+          margin-bottom: 0px;
+        }
+        .title {
+          line-height: 16px;
+          a {
+            color: #000;
+            font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 18px;
+            text-decoration: none;
+          }
+        }
+      }
+      .archive {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid $site-beige;
+        a {
+          color: $site-orange;
+          font-size: 14px;
+          line-height: 18px;
+          text-decoration: none;
+        }
+      }
+    }
+  }  
+
+
 .sidebar { 
   clear: left;
   margin-top: 25px;

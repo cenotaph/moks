@@ -43,9 +43,23 @@ a {
     position: relative;
 }
 
+
+.mob {
+  display: none;
+}
+
+.mobile_sidebar {
+  display: none;
+}
 .logo {
-  
+  background: url(image_path("logo-moks.png")) no-repeat 0px 18px;
+  width: 180px;
+  height: 225px;
   .language {
+    span.m {
+      display: none;
+    }
+    
     float: left;
     margin-left: 25px;
     z-index: -3;
@@ -134,6 +148,9 @@ header {
     }
   }
   nav {
+    select {
+      display: none;
+    }
     ul {
       li {
         &.children {
@@ -145,7 +162,7 @@ header {
 //          font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
           font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
           color: $site-olive;
-          font-size: 24px;
+          font-size: 22px;
           line-height: 20px;
           font-style: italic;
           text-decoration: none;
@@ -163,7 +180,94 @@ header {
     }
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .logo {
+    background: url(image_path("logo-moks-medium.png")) no-repeat 0px 18px;
+    width: 160px;
+    height: 200px;
+    .language {
+      margin-left: 4px;
+      select {
+        display: none;
+      }
+    }
+    
+  }
+  
+}
 
+  
+@media only screen and (max-width: 767px) {
+  .mobile_sidebar, .mob {
+    display: block;
+  }
+  .application.home {
+    padding-top: 10px !important;
+  }
+  .mob {
+    float: left;
+    .title {  
+      margin: 40px 0px 10px 0px;
+      font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+      font-size: 48px;
+      font-style: italic;
+      a {
+        color: $dark;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  .system { 
+    display: none;
+  }
+  .logo {
+    float: left;
+    background: url(image_path("logo-moks-small.png")) no-repeat 0px 28px;
+    width: 100px;
+    height: 115px;
+    .language {
+      margin-left: 0px;
+      padding-bottom: 5px;
+      img {
+        display: none;
+      }
+      .est { margin-top: -2px !important; }
+      
+      span.m {
+        display: inline;
+        font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+        a {
+          color: $site-olive;
+          font-size: 13px;
+        }
+        border-right: 1px solid $site-olive2;
+        padding-right: 3px;
+      }
+      .rus span.m {
+        border-right: none; padding-right: 0px;
+      }
+    }
+
+  }
+  .sidebar {
+    display: none;
+  }
+  
+  .header_wrapper {
+    .title {
+      display: none;
+    }
+    nav {
+      select {
+        display: block;
+      }
+      ul {
+        display: none;
+      }
+    }
+  }
+}
 
 /***** fix superfish *****/
 
