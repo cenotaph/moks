@@ -38,6 +38,12 @@ body {
   padding-top: 50px !important;
 }
 
+p {
+  font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
+  a {
+    color: $moks-brown;
+  }
+}
 a {
     text-decoration: none;
     position: relative;
