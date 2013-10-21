@@ -283,6 +283,7 @@ en:
   terms_and_conditions: 'Residency terms and conditions'
   residency_artists: 'Residency artists'
   current: 'Current'
+  application_submitted: 'Thank you for submitting your application. We will review it and answer you soon.'
   current_resident_artists: 'Current resident artists'
   no_current_artists: 'There are not currently any artists in residency.'
   apply_for_residency: 'Apply for Residency'

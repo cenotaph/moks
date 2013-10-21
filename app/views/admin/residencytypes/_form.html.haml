@@ -8,5 +8,5 @@
         = f.globalize_fields_for locale do |en|
           %b= "Name in #{t(:language_name, :locale => locale)}"
           = en.text_field :name
-
+  = f.input :active
   = f.submit

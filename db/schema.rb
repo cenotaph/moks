@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920100831) do
+ActiveRecord::Schema.define(version: 20131021202952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -489,6 +489,7 @@ ActiveRecord::Schema.define(version: 20130920100831) do
   end
 
   create_table "residencytypes", force: true do |t|
+    t.boolean "active", default: true, null: false
   end
 
   create_table "resources", force: true do |t|

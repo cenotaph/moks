@@ -16,6 +16,6 @@ class Admin::ResidencytypesController < Admin::BaseController
   protected
 
   def permitted_params
-    params.permit(:residencytype => [translations_attributes: [:id, :locale, :name]])
+    params.permit(:residencytype => [:active, translations_attributes: [:id, :locale, :name]])
   end
 end

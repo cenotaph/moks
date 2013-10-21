@@ -1,6 +1,13 @@
 class ResidencyapplicationsController < InheritedResources::Base
   actions :create, :new, :submit 
 
+  def create
+    create! {
+      flash[:notice] = t(:application_submitted)
+      '/'
+    }
+  end
+  
   def index
     redirect_to '/'
   end
