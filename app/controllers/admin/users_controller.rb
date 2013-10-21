@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
   protected
 
   def permitted_params
-    params.permit(:user => [ :name, :artist_id, :role_ids, :real_name, :avatar, :username, :email, :password, :password_confirmation, :remember_me
+    params.permit(:user => [ :name, :artist_id, :role_ids, :real_name, :avatar, :username, :email, :password, :password_confirmation, :remember_me, role_ids: [] 
       ])
   end
 
