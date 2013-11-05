@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title_en, :use => :history
 
-  scope :active, where(:active => true)
+  scope :active, ->() { where(:active => true) }
 
   def title_en
     self.name(:en)

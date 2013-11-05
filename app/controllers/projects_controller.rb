@@ -1,6 +1,8 @@
 class ProjectsController < InheritedResources::Base
   actions :index, :show
 
+
+  
   def index
     @projects = Project.active.order('created_at desc')
   end

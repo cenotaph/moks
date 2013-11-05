@@ -1,4 +1,8 @@
-.page_heading= t :events
+.page_heading
+  - if @title.nil?
+    = t :events
+  - else
+    = @title
 
 .event
   = render partial: 'event', locals: {event: @event}
