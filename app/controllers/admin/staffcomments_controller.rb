@@ -4,5 +4,10 @@ class Admin::StaffcommentsController < InheritedResources::Base
     create! { [:admin, @staffcomment.commentable] }
   end
 
+  protected
+
+  def permitted_params
+    params.permit(:staffcomment => [:comment, :commentable_type, :commentable_id, :user_id])
+  end
 
 end

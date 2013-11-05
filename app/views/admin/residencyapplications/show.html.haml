@@ -1,19 +1,57 @@
 .application_view
   .field.twelve.columns
     %label= t :name
-    .value= @residencyapplication.name
+    .value
+      = @residencyapplication.name
+      %em= link_to @residencyapplication.email, 'mailto:' + @residencyapplication.email
+  - unless @residencyapplication.organisation.blank?
+    %label= t :organisation
+    .value= @residencyapplication.organisation
+    
+  .field.twelve.columns
+    %label= t :residency_type
+    .value= @residencyapplication.residencytype.try(:name)
+  .field.twelve.columns
+    %label= t :country
+    .value
+      = @residencyapplication.country_of_residence + " (resident) / "
+      = @residencyapplication.country_of_origin + ' (origin)'
 
   .field.twelve.columns
-    %label= t :residencytype
-    .value= @residencyapplication.residencytype.try(:name)
-
+    %label= t :portfolio
+    .value
+      = link_to @residencyapplication.urls, @residencyapplication.urls
+    
+  .field.twelve.columns
+    %label= t :field_of_interest
+    .value= @residencyapplication.field_of_interest
+  
+  .field.twelve.columns
+    %label= t :languages_spoken
+    .value= @residencyapplication.languages_spoken
+    
+  .field.twelve.columns
+    %label= t :preferred_dates
+    .value= @residencyapplication.preferred_dates
+    
   .field.twelve.columns
     %label= t :cv
     - if @residencyapplication.cv.blank?
       .value= t :not_uploaded
     - else
       .value= link_to t(:download), @residencyapplication.cv.url
-
+  - unless @residencyapplication.other_attachment.blank?
+    .field.twelve.columns
+      %label= t :other_attachment
+      .value= link_to t(:download), @residencyapplication.other_attachment.url
+    
+  .field.twelve.columns
+    %label= t :application_brief_description
+    .value.text= simple_format(@residencyapplication.other_questions)
+  
+  .field.twelve.columns
+    %label= t :how_did_hear
+    .value.text= simple_format(@residencyapplication.how_did_hear)
   .comments
     %h3= t :comments
     - if @residencyapplication.staffcomments.empty?

@@ -253,9 +253,19 @@ fieldset.choices {
   label {
     width: 150px;
     float: left;
+    color: #666;
   }
   .value {
     float: left;
+    &.text {
+      width: 550px;
+      font-size: 14px;
+      line-height: 17px;
+      color: #333;
+      p {
+        margin-top: 0px;
+      }
+    }
   }
 }
 
