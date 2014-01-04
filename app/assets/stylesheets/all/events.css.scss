@@ -52,4 +52,15 @@
     clear: left;  // make text appear under gallery
     padding-top: 5px;
   }
+  
+  .artists, .projects {
+    .event_artist, .event_project {
+      a {
+        color: $site-orange;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
 }

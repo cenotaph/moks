@@ -1,9 +1,17 @@
 .visit.column
   .date= date_range(visit.display_dates.first, visit.display_dates.last, :format => :long)
   - unless visit.funders.empty?
-    .funder_credit
+    .funder_credit.column
       = t :supported_by
       = visit.funders.map(&:name).join(' / ')
-  .description= raw visit.description
+  - unless visit.description.blank?
+    .description= raw visit.description
+  - unless visit.events.empty?
+    .events.eight.columns
+      .smaller_heading
+        = t :events
+      %ul
+        - visit.events.each do |event|
+          %li= link_to event.name, event
   - unless visit.images.empty?
     .image_array.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => visit.images} 

@@ -5,5 +5,16 @@
   - else
     = date_range(event.start_at.to_date, event.end_at.to_date, :format => :long)
 .title= link_to event.name, event
+- unless event.artists.blank?
+  .artists
+    - event.artists.uniq.each do |artist|
+      .event_artist= link_to artist.name, artist
+- unless event.projects.blank?
+  .projects
+    - event.projects.uniq.each do |project|
+      .event_project
+        = t :project
+        = ": "
+        = link_to project.name, project
 - unless event.notes.blank?
   .notes= event.notes
