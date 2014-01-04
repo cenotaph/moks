@@ -1,12 +1,18 @@
-.clearfix.gallery_left{:id => "images_" + image_array.first.id.to_s}
-  = image_tag image_array.first.filename.url(:standard)
-%div{:id => "images_" + image_array.first.id.to_s + "_orig", :class => :hidden}
-  = image_tag image_array.first.filename.url
+.fixed_box
+  .clearfix.gallery_left{:id => "images_" + image_array.first.id.to_s}
+    = image_tag image_array.first.filename.url(:standard)
+  %div{:id => "images_" + image_array.first.id.to_s + "_orig", :class => :hidden}
+    = image_tag image_array.first.filename.url
+  .caption.column.alpha{:id => "imagecaption_" + image_array.first.id.to_s}
+    - unless image_array.first.caption.blank?
+      = image_array.first.caption
+    - unless image_array.first.credit.blank?
+      %span.photo_credit= image_array.first.credit
 - if image_array.size > 1
   
-  %div{:id => "slides_" + image_array.first.id.to_s}
+  %div{:id => "slides_" + image_array.first.id.to_s, :style => "float: left"}
     - image_array.each do |image|
-      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :onclick => "return false;", :rel => image.filename.url(:standard), :orig => image.filename.url, :class => "slide_image")
+      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :onclick => "return false;", :rel => image.filename.url(:standard), :orig => image.filename.url, :caption => (image.caption.blank? ? '' : image.caption), :credit => (image.credit.blank? ? '' : image.credit), :class => "slide_image")
 
 :javascript
   $('#images_#{image_array.first.id.to_s} img').click(function() {
@@ -16,13 +22,27 @@
     e.preventDefault();
     var image = $(this).attr("rel");
     var orig = $(this).attr("orig");
-    $('#images_#{image_array.first.id.to_s}').hide();
-    $('#images_#{image_array.first.id.to_s}').fadeIn('slow');
-    $('#images_#{image_array.first.id.to_s}').html('<img src="' + image + '"/>');
-    $('#images_#{image_array.first.id.to_s}_orig').html('<img src="' + orig + '"/>');
+    var caption = $(this).attr("caption");
+    var credit = $(this).attr("credit");
 
-    $('#images_#{image_array.first.id.to_s} img').click(function() {
-      $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
+    
+    $('#imagecaption_#{image_array.first.id.to_s}').hide('fast');
+    $('#images_#{image_array.first.id.to_s}').hide('slow', function() {
+      
+      $('#images_#{image_array.first.id.to_s}').html('<img src="' + image + '"/>');
+      $('#images_#{image_array.first.id.to_s}_orig').html('<img src="' + orig + '"/>');
+      $('#imagecaption_#{image_array.first.id.to_s}').html(caption);
+      if (caption) {
+        $('#imagecaption_#{image_array.first.id.to_s}').append("<br />");
+      }
+      $('#imagecaption_#{image_array.first.id.to_s}').append("<span class='photo_credit'> " + credit + "</span>");
+      
+      
+      $('#images_#{image_array.first.id.to_s} img').click(function() {
+        $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
+      });
+      $('#images_#{image_array.first.id.to_s}').show('slow');
+      $('#imagecaption_#{image_array.first.id.to_s}').show();
     });
     return false;
   });

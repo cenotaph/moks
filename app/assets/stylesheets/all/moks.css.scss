@@ -17,15 +17,30 @@ ul.nav {
   font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
 
 }
-
+.fixed_box {
+  background-color: #FDFDFD;
+  width: 600px;
+  height: 450px;
+  float: left;
+}
 .gallery_left {
   float: left;
-  width: 600px;
+  width: 610px;
   margin-right: 15px;
   img {
     max-width: 100%;
     height: auto;
     cursor: pointer;
+  }
+}
+
+.caption {
+  
+  clear: left;
+  font-size: 14px;
+  span.photo_credit {
+    font-size: 12px;
+    font-style: italic;
   }
 }
 .sub_heading {
