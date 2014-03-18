@@ -4,6 +4,7 @@ class EventsController < InheritedResources::Base
   def current_exhibition
     @event = Project.friendly.find('exhibition').events.where(["DATE(?) BETWEEN start_at AND end_at", Time.now.to_date]).order("start_at").first
     @title = t(:current_exhibition)
+
     render :template => 'events/show'
   end
   

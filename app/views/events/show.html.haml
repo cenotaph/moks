@@ -5,7 +5,12 @@
     = @title
 
 .event
-  = render partial: 'event', locals: {event: @event}
-  .event_description= raw @event.description
-  - unless @event.images.empty?
-    .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => @event.images }
+  - if @event.nil?
+    %h2= t :no_current_exhibition
+    %p= t :check_past_exhibitions
+    = link_to t(:archive), project_path('exhibition')
+  - else
+    = render partial: 'event', locals: {event: @event}
+    .event_description= raw @event.description
+    - unless @event.images.empty?
+      .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => @event.images }

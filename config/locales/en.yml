@@ -241,6 +241,7 @@ en:
   projects: 'Projects'
   artists: 'Artists'
   visits: 'Visits'
+  no_current_exhibition: 'Sorry, there is no current exhibition'
   residency_type: 'Residency type'
   residencyapplication: 'Residency application'
   post: 'Post'
