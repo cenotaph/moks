@@ -13,7 +13,7 @@
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .container
+    .container.main
       #left.three.columns.alpha
         .logo
           .language
@@ -44,7 +44,6 @@
 
         .sidebar= render :partial => 'shared/sidebar'
         .system= render 'layouts/navigation'
-        .leader_logo= image_tag 'leader_logo.png'
       #right.thirteen.columns.omega
         %header
           .header_wrapper.thirteen.columns
@@ -77,7 +76,7 @@
           = render 'layouts/messages'
         .thirteen.columns.yield= yield
         .mobile_sidebar= render :partial => 'shared/sidebar'
-      %footer
+    %footer= render :partial => 'shared/footer'
     :javascript
       $(document).ready(function() {
         $('ul.sf-menu').superfish();
