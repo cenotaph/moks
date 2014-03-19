@@ -1,7 +1,7 @@
 .page_heading= t :current_resident_artists
 - if @artists.empty?
-  = t :no_current_artists
-
+  %p= t :no_current_artists
+  %p= link_to t(:past_artists), past_artists_path
 - else
   - @artists.each do |a|
     = render :partial => 'artist', :locals => {:artist => a}

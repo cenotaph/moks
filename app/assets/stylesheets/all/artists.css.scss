@@ -22,11 +22,14 @@
     font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
   }
   .project_events {
-    margin-left: 50px;
-    margin-right: 50px;
+//    margin-left: 50px;
+//    margin-right: 50px;
     
     .project_event {
       float: left;
+      &.clr {
+        clear: left;
+      }
       .project_title, .project_title a {
         font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
         font-size: 16px;

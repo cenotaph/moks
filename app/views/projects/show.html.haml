@@ -13,5 +13,5 @@
   - unless @project.events.empty?
     .project_events
       .sub_heading= t :events
-      - @project.events.each do |e|
-        .project_event= render :partial => 'project_event' , :locals => {:event => e}  
+      - @project.events.each_with_index do |e, i|
+        .project_event.three.columns{:class => i % 4 == 0 ? "alpha clr" : false }= render :partial => 'project_event' , :locals => {:event => e}  
