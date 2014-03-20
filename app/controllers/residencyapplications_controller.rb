@@ -17,6 +17,10 @@ class ResidencyapplicationsController < ApplicationController
     redirect_to '/'
   end
 
+  def new
+    @residencyapplication = Residencyapplication.new
+  end
+
   protected
 
   def resource_params
