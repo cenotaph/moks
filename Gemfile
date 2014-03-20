@@ -41,7 +41,7 @@ gem 'jquery-rails'
 
 gem 'aws-s3'
 gem 'bootstrap-sass'
-gem 'cancan'
+gem 'cancancan', '~> 1.7'
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rvm'
