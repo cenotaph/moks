@@ -6,4 +6,4 @@
   .project_events
     .sub_heading= t :events
     - project.events.each_with_index do |e, i|
-      .project_event.three.columns{:class => i % 4 == 0 ? :alpha : false}= render :partial => 'project_event' , :locals => {:event => e}  
+      .project_event.three.columns{:class => i % 4 == 0 ? "alpha clr" : false}= render :partial => 'project_event' , :locals => {:event => e}  

@@ -75,6 +75,7 @@ gem 'omniauth-twitter'
 # gem 'protected_attributes'
 gem 'public_activity'
 gem 'railroady'
+gem 'recaptcha', :require => "recaptcha/rails"
 gem 'redcarpet'
 gem 'rails-i18n'
 gem 'rolify', '>= 3.2.0'

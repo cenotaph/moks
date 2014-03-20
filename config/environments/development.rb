@@ -48,4 +48,11 @@ Moks::Application.configure do
   config.serve_static_assets = false
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.action_controller.asset_host = Proc.new { |source|
+   if source.starts_with?('/image')  || source.starts_with?('/uploads') 
+     "http://moks.ee"
+   else
+     "http://cormorant.local:3000"
+   end
+ }
 end
