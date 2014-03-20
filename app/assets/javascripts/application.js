@@ -19,6 +19,7 @@
 //= require jquery.ui.sortable
 //= require jquery.flexslider-min
 //= require jquery.lightbox_me
+//= require ckeditor/override
 //= require ckeditor/init
 //= require soundmanager2
 //= require superfish
