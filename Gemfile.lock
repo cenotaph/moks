@@ -78,7 +78,7 @@ GEM
       sass (~> 3.2)
     builder (3.1.4)
     callsite (0.0.11)
-    cancan (1.6.10)
+    cancancan (1.7.1)
     capistrano (3.1.0)
       i18n
       rake (>= 10.0.0)
@@ -391,7 +391,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  cancan
+  cancancan (~> 1.7)
   capistrano (~> 3.1.0)
   capistrano-bundler
   capistrano-rails (~> 1.1.0)

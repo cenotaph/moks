@@ -64,6 +64,12 @@ ul.nav {
       font-style: italic;
       margin-top: -10px;
     }
+    p.inline-errors {
+      font-weight: bold;
+      font-size: 17px;
+      color: red;
+      margin-top: -10px;
+    }
   }
   label {
     font: 18px/20px 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
@@ -128,6 +134,7 @@ ul.nav {
       li#residencyapplication_submit_action {
         border-top: 1px solid $site-beige;
         padding-top: 18px;
+
         button {
           &[type=submit] {
             background-color: $moks-orange;

@@ -108,7 +108,7 @@ en:
     format: ! '%{attribute} %{message}'
     messages:
       accepted: must be accepted
-      blank: can't be blank
+      blank: "This field is required"
       confirmation: doesn't match confirmation
       empty: can't be empty
       equal_to: must be equal to %{count}
@@ -419,6 +419,7 @@ en:
   posts: 'posts'
   press_publicity_links: 'Press/publicity links'
   residency: 'Residency'
+  error_with_application: 'There was an error with your application.'
   author: 'Author'
   press_material: "Press material as PDF or other file for download"
   web_based: 'if web-based'
