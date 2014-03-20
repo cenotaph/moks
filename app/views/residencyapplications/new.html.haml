@@ -21,5 +21,6 @@
     = f.input :languages_spoken
     = f.input :preferred_dates
     = f.input :how_did_hear, :label => t(:how_did_hear)
+    //= recaptcha_tags 
     = f.actions do
       = f.action :submit, :as => :button, :label => t(:submit_application)

@@ -62,3 +62,4 @@ module Moks
     config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
   end
 end
+I18n.enforce_available_locales = false
