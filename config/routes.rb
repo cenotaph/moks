@@ -29,6 +29,7 @@ Moks::Application.routes.draw do
     end
   end
   
+  
 
   namespace :admin do
     resources :artists do
@@ -81,7 +82,7 @@ Moks::Application.routes.draw do
   end
 
   wiki_root '/admin/wiki'
- 
+  match '/site/pmwiki.php' => "application#home", via: :get
   match '/admin' => 'admin/home#index', :via => :get
   get '/exhibition', to: 'events#current_exhibition'
   match 'auth/:provider/callback' => 'authentications#create', :via => :get
