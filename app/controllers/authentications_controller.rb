@@ -24,7 +24,6 @@ class AuthenticationsController < ApplicationController
     else
       user = User.new
       user.apply_omniauth(omniauth)
-      logger.warn(omniauth.inspect)
       if user.email?
           user.save!
           flash[:notice] = "Signed in successfully with " +  omniauth['provider']
