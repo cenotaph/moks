@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :videos, :allow_destroy => true, :reject_if => proc {|attr| attr['provider_id_code'].blank? } 
   accepts_nested_attributes_for :carousels, :allow_destroy => true, :reject_if => proc {|att| att['carousel_image'].blank? && att['id'].blank? }
 
+  validates_presence_of :start_at
  
   extend FriendlyId
   friendly_id :title_en, :use => :history
