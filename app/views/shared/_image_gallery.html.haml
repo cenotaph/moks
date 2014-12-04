@@ -1,48 +1,22 @@
-.fixed_box
-  .clearfix.gallery_left{:id => "images_" + image_array.first.id.to_s}
-    = image_tag image_array.first.filename.url(:standard)
-  %div{:id => "images_" + image_array.first.id.to_s + "_orig", :class => :hidden}
-    = image_tag image_array.first.filename.url
-  .caption.column.alpha{:id => "imagecaption_" + image_array.first.id.to_s}
-    - unless image_array.first.caption.blank?
-      = image_array.first.caption
-    - unless image_array.first.credit.blank?
-      %span.photo_credit= image_array.first.credit
-- if image_array.size > 1
-  
-  %div{:id => "slides_" + image_array.first.id.to_s, :style => "float: left"}
-    - image_array.each do |image|
-      = link_to(image_tag(image.filename.url(:box), :class => :thumb, :border => 0), 'javascript:void(0)', :onclick => "return false;", :rel => image.filename.url(:standard), :orig => image.filename.url, :caption => (image.caption.blank? ? '' : image.caption), :credit => (image.credit.blank? ? '' : image.credit), :class => "slide_image")
 
-:javascript
-  $('#images_#{image_array.first.id.to_s} img').click(function() {
-    $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
-  });
-  $("#slides_#{image_array.first.id.to_s} .slide_image").click(function(e) {
-    e.preventDefault();
-    var image = $(this).attr("rel");
-    var orig = $(this).attr("orig");
-    var caption = $(this).attr("caption");
-    var credit = $(this).attr("credit");
+- image_array.each do |i|
+  .img
+    = link_to image_tag(i.filename.url(:standard)), i.filename.url, rel: :lazybox
+    .thumb= image_tag i.filename.url(:box)
 
-    
-    $('#imagecaption_#{image_array.first.id.to_s}').hide('fast');
-    $('#images_#{image_array.first.id.to_s}').hide('slow', function() {
-      
-      $('#images_#{image_array.first.id.to_s}').html('<img src="' + image + '"/>');
-      $('#images_#{image_array.first.id.to_s}_orig').html('<img src="' + orig + '"/>');
-      $('#imagecaption_#{image_array.first.id.to_s}').html(caption);
-      if (caption) {
-        $('#imagecaption_#{image_array.first.id.to_s}').append("<br />");
-      }
-      $('#imagecaption_#{image_array.first.id.to_s}').append("<span class='photo_credit'> " + credit + "</span>");
-      
-      
-      $('#images_#{image_array.first.id.to_s} img').click(function() {
-        $('#images_#{image_array.first.id.to_s}_orig img').lightbox_me();
-      });
-      $('#images_#{image_array.first.id.to_s}').show('slow');
-      $('#imagecaption_#{image_array.first.id.to_s}').show();
+= content_for :jquery do
+  :plain
+    $('.inline_gallery').slick({infinite: true,
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      dots: true,
+      customPaging: function(slick,index) {
+         return slick.$slides.eq(index).find('.thumb').html();
+      },
+      arrows: true,
+      slide: '.img',
+      variableWidth: false,
+      autoplay: true,
+      autoplaySpeed: 2400,
+      slidesToScroll: 1,
     });
-    return false;
-  });

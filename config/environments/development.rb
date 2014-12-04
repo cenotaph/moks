@@ -52,3 +52,14 @@ Moks::Application.configure do
    end
  }
 end
+
+module ActionView
+  module Helpers
+    module AssetTagHelper
+      def image_tag(source, options = {})
+        options[:src] = "#{source}".gsub(/development/, 'production')
+        tag("img", options)
+      end
+    end
+  end
+end

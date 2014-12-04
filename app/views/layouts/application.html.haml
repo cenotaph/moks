@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %title= content_for?(:title) ? yield(:title) : "Moks"
+      = display_meta_tags :site => "MoKS"
       %link{ href: '/assets/favicon.ico', rel: 'shortcut icon'}/
       %link{ href: '/assets/favicon.ico', rel: 'apple-touch-icon', }/
       %meta{:content => content_for?(:description) ? yield(:description) : "Moks", :name => "description"}

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.7.1'
 ruby '2.1.1'
 gem 'pg'
 
@@ -39,7 +39,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'aws-s3'
+# gem 'aws-s3'
 gem 'bootstrap-sass'
 gem 'cancancan', '~> 1.7'
 gem 'capistrano', '~> 3.1.0'
@@ -63,6 +63,8 @@ gem 'httpclient'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'irwi', :git => 'git://github.com/alno/irwi.git'
 gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
+gem "jquery-slick-rails"
 gem 'kaminari'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'mini_magick'
