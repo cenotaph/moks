@@ -294,10 +294,10 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
-    omniauth-facebook (2.0.0)
-      omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (0.2.6)
-      omniauth (> 1.0)
+    omniauth-facebook (1.6.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-google-oauth2 (0.2.4)
+      omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.1)
     omniauth-oauth (1.0.1)
       oauth
@@ -482,8 +482,8 @@ DEPENDENCIES
   mocha
   nested_form
   nifty-generators
-  omniauth-facebook
-  omniauth-google-oauth2
+  omniauth-facebook (= 1.6.0)
+  omniauth-google-oauth2 (= 0.2.4)
   omniauth-twitter
   pg
   public_activity
