@@ -285,9 +285,6 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
-    oauth-client (0.1.0)
-      json (>= 1.1.2)
-      oauth (>= 0.3.1)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -485,7 +482,6 @@ DEPENDENCIES
   mocha
   nested_form
   nifty-generators
-  oauth-client
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
