@@ -7,11 +7,11 @@
   - unless visit.description.blank?
     .description= raw visit.description
   - unless visit.events.empty?
-    .events.eight.columns
+    .events.columns
       .smaller_heading
         = t :events
       %ul
         - visit.events.each do |event|
           %li= link_to event.name, event
   - unless visit.images.empty?
-    .image_array.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => visit.images} 
+    .inline_gallery= render :partial => 'shared/image_gallery', :locals => {:image_array => visit.images} 
