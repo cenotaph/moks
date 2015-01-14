@@ -80,6 +80,7 @@
 }
 
 .visits {
+  width: 100%;
   .heading {
      color: $dark;
     font-size: 18px;
@@ -100,6 +101,7 @@
   
   }
   .visit {
+    width: 100%;
     padding-top: 25px;
     .date {
       color: $site-blue;
@@ -109,6 +111,8 @@
       font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
     }
     .description {
+      clear: left;
+      padding-top: 1.5rem;
       font-family: 'Helvetica Neue LT Std', Helvetica, Roboto, sans-serif;
     }
     .funder_credit {
