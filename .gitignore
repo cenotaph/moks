@@ -84,3 +84,5 @@ pickle-email-*.html
 
 # vim artifacts
 **.swp
+config/deploy/production.rb
+config/deploy/staging.rb
