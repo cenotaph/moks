@@ -18,7 +18,7 @@
 //= require jquery-ui/tabs
 //= require jquery-ui/sortable
 //= require jquery.flexslider-min
-//= require jquery.lightbox_me
+//= require featherlight.min
 //= require ckeditor/init
 //= require jquery.slick
 //= require soundmanager2

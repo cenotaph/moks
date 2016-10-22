@@ -1,7 +1,7 @@
 
 - image_array.each do |i|
   .img
-    = link_to image_tag(i.filename.url(:standard)), i.filename.url, rel: :lazybox
+    = link_to image_tag(i.filename.url(:standard)), i.filename.url, :"data-featherlight" => "image"
     .thumb= image_tag i.filename.url(:box)
 
 = content_for :jquery do

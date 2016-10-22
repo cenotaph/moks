@@ -13,6 +13,7 @@
  *= require normalize
  *= require skeleton1200
  *= require flexslider
+ *= require featherlight.min
 */
 @import 'slick';
 @import 'variables';
@@ -403,6 +404,12 @@ footer {
 }
 
 .inline_gallery {
+  button {
+    display: none !important;
+  }
+  .slick-track {
+    height: 400px;
+  }
   clear: left;
   margin-bottom: 100px;
   img {
@@ -416,10 +423,14 @@ footer {
   }
 
   ul.slick-dots {
+    margin: 1rem 0 2rem 0;
+    padding: 0;
     bottom: -75px;
     height: 50px;
     text-align: left;
     li {
+      list-style-type: none;
+      float: left;
       width: 50px;
       height: 50px;
     }
