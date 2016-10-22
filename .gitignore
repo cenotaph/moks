@@ -36,6 +36,7 @@ db/*.sqlite3
 .redcar/
 .sass-cache
 /config/config.yml
+/config/application.yml
 /config/database.yml
 /config/initializers/moks.rb
 /coverage.data

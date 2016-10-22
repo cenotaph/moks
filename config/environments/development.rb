@@ -1,4 +1,4 @@
-Moks::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -10,40 +10,45 @@ Moks::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  if Rails.root.join('tmp/caching-dev.txt').exist?
+    config.action_controller.perform_caching = true
 
-  # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  # change to true to allow email to be sent during development
-  config.action_mailer.perform_deliveries = false
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+    config.cache_store = :memory_store
+    config.public_file_server.headers = {
+      'Cache-Control' => 'public, max-age=172800'
+    }
+  else
+    config.action_controller.perform_caching = false
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "example.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
-  }
+    config.cache_store = :null_store
+  end
   
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => '192.168.11.20:3000' }
 
-   config.assets.precompile += %w( .svg .eot .woff .ttf )
-  # Print deprecation notices to the Rails logger
+  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :letter_opener
+  # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Only use best-standards-support built into browsers
-  config.action_dispatch.best_standards_support = :builtin
+  # Raise an error on page load if there are pending migrations.
+  config.active_record.migration_error = :page_load
 
-
-  # Do not compress assets
-  config.assets.compress = false
-  config.serve_static_assets = false
-  # Expands the lines which load the assets
+  # Debug mode disables concatenation and preprocessing of assets.
+  # This option may cause significant delays in view rendering with a large
+  # number of complex assets.
   config.assets.debug = true
+
+  # Suppress logger output for asset requests.
+  config.assets.quiet = true
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
+
+  # Use an evented file watcher to asynchronously detect changes in source code,
+  # routes, locales, etc. This feature depends on the listen gem.
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_controller.asset_host = Proc.new { |source|
    if source.starts_with?('/image')  || source.starts_with?('/uploads') 
      "http://moks.ee"

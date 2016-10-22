@@ -1,31 +1,27 @@
 source 'https://rubygems.org'
-gem 'rails', '4.1.7.1'
-ruby '2.1.1'
+gem 'rails', '5.0.0.1'
+ruby '2.3.1'
 gem 'pg'
+gem 'puma'
 
-gem 'sass-rails', "4.0.2"
-gem 'coffee-rails'#, '~> 3.2.1'
-gem 'uglifier'#, '>= 1.3.0'
-gem 'sprockets', '=2.11.0'
+gem 'sass-rails', '~> 5.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'haml-rails', '>= 0.3.4'
-  gem 'hpricot', '>= 0.8.6'
-  gem 'meta_request'
-  gem 'nifty-generators'
-  gem 'rails-footnotes',  '>= 3.7.9'
-  gem 'quiet_assets'
+  gem 'letter_opener'
+  gem 'listen', '~> 3.0.5'
   gem 'ruby_parser', '>= 3.0.1'
-  gem 'thin'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
 end
-
-
-group :production do
-  gem 'therubyracer'
-end
-
 
 group :test do
   gem 'capybara', '>= 1.1.3'
@@ -41,21 +37,24 @@ gem 'jquery-rails'
 
 # gem 'aws-s3'
 gem 'bootstrap-sass'
-gem 'cancancan', '~> 1.7'
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-rails', '~> 1.1.0'
+gem 'cancancan' #, '~> 1.7'
+gem 'capistrano'#, '~> 3.1.0'
+gem 'capistrano-rails'#, '~> 1.1.0'
 gem 'capistrano-rvm'
 gem 'capistrano-bundler'
+gem 'capistrano3-puma'
 gem 'carrierwave'
+gem 'carrierwave-aws'
+
 gem 'country_select'
-gem 'ckeditor' #, github: 'galetahub/ckeditor' , ref: 'e565359391d8ea39a748981192292815e2c25b84' 
-gem 'devise', '3.0.0.rc'
+gem 'ckeditor' , github: 'galetahub/ckeditor'
+gem 'devise'#, '3.0.0.rc'
 gem 'event-calendar', :require => 'event_calendar' 
-gem 'fog'
-gem 'formtastic', github: 'justinfrench/formtastic', branch: 'master'
-gem "friendly_id", '~> 5.0.0.alpha1', :github => "FriendlyId/friendly_id"
+gem 'figaro'
+gem 'formtastic'#, github: 'justinfrench/formtastic', branch: 'master'
+gem "friendly_id",'~> 5.1.0' # '~> 5.0.0.alpha1', :github => "FriendlyId/friendly_id"
 # gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'rails4'
-gem 'globalize', '~> 4.0.0.alpha.2'
+gem 'globalize', github: 'globalize/globalize', branch: 'master'
 gem 'haml'
 gem 'has_scope'
 gem 'http_accept_language'
@@ -77,11 +76,12 @@ gem 'omniauth-twitter'
 # gem 'paper_trail', github: 'airblade/paper_trail', branch: 'rails4'
 # gem 'protected_attributes'
 gem 'public_activity'
+gem 'rack-utf8_sanitizer'
 gem 'railroady'
-gem 'recaptcha', :require => "recaptcha/rails"
+gem "recaptcha", '3.0', require: "recaptcha/rails"
 gem 'redcarpet'
 gem 'rails-i18n'
-gem 'rolify', '>= 3.2.0'
+gem 'rolify'#, '>= 3.2.0'
 gem 'rspec-rails', '>= 2.11.4', :group => [:development, :test]
 gem 'skeleton-rails'
 gem 'soundmanager2-rails'
@@ -91,6 +91,9 @@ gem 'turbolinks'
 gem 'vimeo'
 gem 'wicked_pdf'
 #gem 'will_filter', '~> 3.1.0' 
+# 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 
 
 
