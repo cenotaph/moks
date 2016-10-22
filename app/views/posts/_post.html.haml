@@ -6,7 +6,7 @@
 
 .body= raw simple_format(post.body)
 - unless post.images.empty?
-  .inline_gallery.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => post.images }
+  .inline_gallery.clearfix= render :partial => 'shared/image_gallery', :locals => {:image_array => post.images.delete_if{|x| x.filename.blank? } }
 - if user_signed_in?
   - if can? :update, post
     .edit_link= link_to t(:edit), edit_admin_post_path(post)
