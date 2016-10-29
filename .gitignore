@@ -17,7 +17,7 @@
 /vendor/ruby/
 .svn
 /config/initializers/s3.rb
-/config/initializers/omniauth.rb
+
 /config/deploy.rb
 # minimal Rails specific artifacts
 db/*.sqlite3
