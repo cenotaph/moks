@@ -25,3 +25,4 @@
 //= require superfish
 //= require hoverIntent
 //= require_tree .
+var CKEDITOR_BASEPATH = '/assets/ckeditor/';
