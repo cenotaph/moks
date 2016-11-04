@@ -18,13 +18,7 @@ module Moks
      # config.active_record.default_timezone = :local
     config.active_record.time_zone_aware_types = [:datetime, :time]
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
-    config.assets.precompile += Ckeditor.assets
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
-    config.assets.precompile += %w( .svg .eot .woff .ttf )
-    config.assets.precompile += %w(  jquery.collapsible-menus.min.js)
-  
-    config.assets.precompile += %w{ admin.css }
+
   end
 end
 
