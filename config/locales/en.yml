@@ -388,6 +388,8 @@ en:
   artist: 'Artist'
   about: 'About'
   events: 'Events'
+  archive: 'Archive'
+  supporters: 'Supporters'
   no_events_projects: 'No events belong to this project.'
   project: 'project'
   accept_project_on_proposal: 'Accept proposals for this project on proposal form?'
