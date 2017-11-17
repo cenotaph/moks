@@ -20,10 +20,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     "#{model.class.to_s.underscore}/#{model.id}"
   end
 
+  def default_url
+    "/assets/alpha.png"
+  end
+
   version :box do
     process :resize_to_fill => [80, 80]
   end
-  
+
   version :large do
     process :resize_to_fit => [940, 700]
   end
@@ -31,7 +35,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :standard do
     process :resize_to_fit => [600, 400]
   end
-  
+
   version :thumbnail do
     process :resize_to_fill => [120, 120]
   end
