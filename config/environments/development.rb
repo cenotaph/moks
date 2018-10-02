@@ -49,22 +49,22 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.action_controller.asset_host = Proc.new { |source|
-   if source.starts_with?('/image')  || source.starts_with?('/uploads') 
-     "http://moks.ee"
-   else
-     "http://localhost:3000"
-   end
- }
+ #  config.action_controller.asset_host = Proc.new { |source|
+ #   if source.starts_with?('/image')  || source.starts_with?('/uploads') 
+ #     "http://moks.ee"
+ #   else
+ #     "http://localhost:3000"
+ #   end
+ # }
 end
 
-module ActionView
-  module Helpers
-    module AssetTagHelper
-      def image_tag(source, options = {})
-        options[:src] = "#{source}".gsub(/development/, 'production')
-        tag("img", options)
-      end
-    end
-  end
-end
+# module ActionView
+#   module Helpers
+#     module AssetTagHelper
+#       def image_tag(source, options = {})
+#         options[:src] = "#{source}".gsub(/development/, 'production')
+#         tag("img", options)
+#       end
+#     end
+#   end
+# end
