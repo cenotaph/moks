@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
 
   translates :bio, :fallbacks_for_empty_translations => true
-  has_many :visits
+  has_many :visits, dependent: :destroy
   has_one :user
   has_many :images, :through => :visits
   has_many :events, :through => :visits
@@ -9,6 +9,7 @@ class Artist < ActiveRecord::Base
   accepts_nested_attributes_for :visits, :allow_destroy => true, :reject_if => proc {|att| att['start_date'].blank?}
   accepts_nested_attributes_for :images
   mount_uploader :avatar, ImageUploader
+  validates_presence_of :name
   extend FriendlyId
   friendly_id :name, :use => :history
   
