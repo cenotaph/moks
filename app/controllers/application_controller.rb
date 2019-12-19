@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :populate_sidebar
-  before_filter :get_locale
+  before_action :populate_sidebar
+  before_action :get_locale
   
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message

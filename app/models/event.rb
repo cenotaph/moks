@@ -3,9 +3,9 @@ class Event < ActiveRecord::Base
   # attr_accessible 
   translates :name, :description, :notes, :fallbacks_for_empty_translations => true
   belongs_to :location
-  has_many :projects, :through => :events_projects
   has_many :events_projects
   has_many :events_visits
+  has_many :projects, :through => :events_projects
   has_many :visits, :through => :events_visits
   has_many :artists, :through => :visits
   has_many :images, :as => :attachable, :dependent => :destroy

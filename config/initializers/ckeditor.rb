@@ -6,7 +6,7 @@ if Object.const_defined?("Ckeditor")
     # :mongoid (bson_ext recommended) by default. Other ORMs may be
     # available as additional gems.
     require "ckeditor/orm/active_record"
-
+    config.cdn_url = '//cdn.ckeditor.com/4.13.0/full/ckeditor.js'
     # Allowed image file types for upload.
     # Set to nil or [] (empty array) for all file types
     # config.image_file_types = ["jpg", "jpeg", "png", "gif", "tiff"]

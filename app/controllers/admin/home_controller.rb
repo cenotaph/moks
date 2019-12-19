@@ -1,7 +1,7 @@
 class Admin::HomeController < ApplicationController
 
   layout 'admin'
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   #load_and_authorize_resource
   check_authorization
   # load_and_authorize_resource

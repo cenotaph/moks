@@ -1,6 +1,6 @@
 class Admin::EventsController < Admin::BaseController
 
-  prepend_before_filter :find_event, :only => [:show, :edit, :update, :destroy]
+  prepend_before_action :find_event, :only => [:show, :edit, :update, :destroy]
 
    def create
     create! { admin_events_path }

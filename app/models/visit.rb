@@ -5,8 +5,9 @@ class Visit < ActiveRecord::Base
   belongs_to :project
   belongs_to :artist
   has_and_belongs_to_many :funders
-  has_many :events, :through => :events_visits
   has_many :events_visits
+  has_many :events, :through => :events_visits
+
   has_many :images, :as => :attachable,  :dependent => :destroy 
   accepts_nested_attributes_for :images, :allow_destroy => true, :reject_if => proc{|att| att['filename'].blank? && att['id'].blank? }
   accepts_nested_attributes_for :translations, :reject_if => proc {|att| att['description'].blank? && att['id'].blank?}

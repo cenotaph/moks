@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::BaseController
-  prepend_before_filter :find_post, :only => [:update, :edit, :destroy, :show]
+  prepend_before_action :find_post, :only => [:update, :edit, :destroy, :show]
 
   def new
     @post = Post.new(:user_id => current_user.id)

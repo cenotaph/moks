@@ -14,15 +14,15 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require jquery-ui/core
-//= require jquery-ui/datepicker
-//= require jquery-ui/tabs
-//= require jquery-ui/sortable
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/widgets/tabs
+//= require jquery-ui/widgets/sortable
 //= require jquery.flexslider-min
 //= require featherlight.min
-//= require ckeditor/init
+
 //= require jquery.slick
 //= require soundmanager2
 //= require superfish
 //= require hoverIntent
 //= require_tree .
-var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+// var CKEDITOR_BASEPATH = '/assets/ckeditor/';

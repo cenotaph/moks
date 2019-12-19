@@ -86,3 +86,4 @@ pickle-email-*.html
 **.swp
 config/deploy/production.rb
 config/deploy/staging.rb
+public/assets/*

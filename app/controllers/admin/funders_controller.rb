@@ -1,5 +1,5 @@
 class Admin::FundersController < Admin::BaseController
-  prepend_before_filter :find_funder, :only => [:show, :edit, :update, :destroy]
+  prepend_before_action :find_funder, :only => [:show, :edit, :update, :destroy]
   def create
     create! { admin_funders_path }
   end

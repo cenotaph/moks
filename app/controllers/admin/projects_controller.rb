@@ -1,5 +1,5 @@
 class Admin::ProjectsController < Admin::BaseController
-  prepend_before_filter :find_project, :only => [:show, :edit, :update, :destroy]
+  prepend_before_action :find_project, :only => [:show, :edit, :update, :destroy]
 
    def create
     create! { admin_projects_path }

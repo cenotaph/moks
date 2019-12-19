@@ -1,5 +1,5 @@
 class Admin::PagesController < Admin::BaseController
-  prepend_before_filter :find_page, :only => [:show, :edit, :update, :destroy]
+  prepend_before_action :find_page, :only => [:show, :edit, :update, :destroy]
   actions :from_slug, :index, :create, :update, :destroy, :edit
 
 

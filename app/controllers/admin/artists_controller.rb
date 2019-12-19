@@ -1,6 +1,6 @@
 class Admin::ArtistsController < Admin::BaseController
   
-  prepend_before_filter :find_artist, :only => [:show, :edit, :update, :destroy]
+  prepend_before_action :find_artist, :only => [:show, :edit, :update, :destroy]
 
   def index
     @artists = Artist.includes(:visits).order('visits.start_date DESC')

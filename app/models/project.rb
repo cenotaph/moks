@@ -2,8 +2,9 @@ class Project < ActiveRecord::Base
   # attr_accessible 
   translates :name, :description, :fallbacks_for_empty_translations => true
   belongs_to :projecttype
-  has_many :events, :through => :events_projects
   has_many :events_projects
+  has_many :events, :through => :events_projects
+
   has_many :projects
   has_many :publicities
   mount_uploader :avatar, ImageUploader
