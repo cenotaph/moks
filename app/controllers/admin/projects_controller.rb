@@ -21,11 +21,11 @@ class Admin::ProjectsController < Admin::BaseController
 
   protected
 
-  def permitted_params
-    params.permit(:project => [ :website1, :website2, :projecttype_id, 
+  def resource_params
+    params.require(:project).permit(:website1, :website2, :projecttype_id, 
       :avatar, :proposable, :published, :slug, :active ,
       translations_attributes: [:id, :locale, :name, :description]
-    ])
+    )
   end
 
 end
