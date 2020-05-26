@@ -337,7 +337,7 @@ GEM
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
     public_suffix (4.0.1)
-    puma (4.3.3)
+    puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -528,7 +528,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   public_activity
-  puma (~> 4.3.1)
+  puma (~> 4.3.5)
   rack-utf8_sanitizer
   railroady
   rails (= 5.2.4.1)

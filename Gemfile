@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.2.4.1'
 ruby '2.6.5'
 gem 'pg'
-gem 'puma', '~> 4.3.1'
+gem 'puma', '~> 4.3.5'
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
